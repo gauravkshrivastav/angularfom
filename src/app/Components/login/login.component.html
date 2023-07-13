@@ -1,0 +1,158 @@
+<div class="main">
+    <div class="top-header">
+        <div>
+            <h4 class="subheader">Login/Signup <span class="sideheader">Component</span></h4>
+        </div>
+        <div class="button-sec">
+            <button class="backbutton" (click)="backwindow()">Back</button>
+            <button class="backbutton" data-bs-toggle="modal" data-bs-target="#exampleModal011">Edit</button>
+        </div>
+    </div>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div #login class="login-wrapper">
+
+            <div class="login-form"
+                [ngStyle]="{'width':loginsignupdata.cardwidth, 'background':loginsignupdata.bgcolor}">
+                <div class="login-heading" [ngStyle]="{'color':loginsignupdata.color}">
+                    <h3>{{loginsignupdata.typefields}} </h3>
+                    <p *ngIf="loginsignupdata.typefields=='Log In'">Welcome John!</p>
+                    <p *ngIf="loginsignupdata.typefields=='Sign Up'">Enter your personal info</p>
+                </div>
+                <div class="input-group">
+                    <label [ngStyle]="{'color':loginsignupdata.color}">{{loginsignupdata.username}}</label>
+
+                    <input type="username" placeholder="username"
+                        [ngStyle]="{'border':'1px solid' + loginsignupdata.color}" formControlName="username"
+                        [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
+
+                    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                        <div class="validationcolor" *ngIf="f.username.errors.required">Username is required</div>
+                    </div>
+                </div>
+
+                <div class="input-group" *ngIf="loginsignupdata.typefields=='Sign Up'">
+                    <label [ngStyle]="{'color':loginsignupdata.color}">{{loginsignupdata.email}}</label>
+                    <input type="email" placeholder="Email" [ngStyle]="{'border':'1px solid' + loginsignupdata.color}"
+                        formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                    <!-- <i class="fa-solid fa-user"></i> -->
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div class="validationcolor" *ngIf="f.email.errors.required">Email is required</div>
+                        <div class="validationcolor" *ngIf="f.email.errors.email">Email must be a valid email address
+                        </div>
+                        <div class="validationcolor" *ngIf="f.email.errors.pattern">Email must be a valid pattern</div>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label [ngStyle]="{'color':loginsignupdata.color}">{{loginsignupdata.password}}</label>
+                    <input type="password" placeholder="Password"
+                        [ngStyle]="{'border':'1px solid' + loginsignupdata.color}" formControlName="password"
+                        [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                    <!-- <i class="fa-solid fa-lock"></i> -->
+                    
+                    <!-- <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <div class="validationcolor" *ngIf="f.password.errors.required">Password is required</div>
+                        <div class="validationcolor" *ngIf="f.password.errors.minlength">Password must be at least 6
+                            characters</div>
+                        <div class="validationcolor passworderror" *ngIf="f.password.errors.pattern"> 
+                            <p *ngIf="loginsignupdata.validateforms=='Yes'" >Password should contain a capital letter.</p>
+                            <p *ngIf="loginsignupdata.validateforms2=='Yes'">Password should contain a symbol.</p> 
+                            <p>Password should contain a digit.</p>
+                            <p>Password must have a value greater than {{loginsignupdata.minvalue}} and less than  {{loginsignupdata.maxvalue}}.</p>
+                    </div> 
+                    </div> -->
+                    <div class="validationtext">
+                        <!-- <div class="validationcolor passworderror" *ngIf="spcValuevalidation"> 
+                            <p>Password is required.</p>
+                        </div> -->
+                        <div class="validationcolor passworderror" *ngIf="loginsignupdata.validateforms=='Yes' && capValuevalidation"> 
+                            <p>Password should contain a capital letter.</p>
+                        </div>
+                        <div class="validationcolor passworderror" *ngIf="numValuevalidation"> 
+                            <p>Password should contain a digit.</p>
+                        </div>
+                        <div class="validationcolor passworderror" *ngIf="loginsignupdata.validateforms2=='Yes' && symbolValuevalidation"> 
+                            <p>Password should contain a symbol.</p>
+                        </div>
+                        <div class="validationcolor passworderror" *ngIf="lenghtValuevalidation"> 
+                            <p>Password must have a value greater than {{loginsignupdata.minvalue}}.</p>
+                        </div>
+                        <div class="validationcolor passworderror" *ngIf="maxlenghtValuevalidation"> 
+                            <p>Password must have a value less than  {{loginsignupdata.maxvalue}}.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group" *ngIf="loginsignupdata.typefields=='Sign Up'">
+                    <label [ngStyle]="{'color':loginsignupdata.color}">Confirm {{loginsignupdata.password}}</label>
+                    <input type="password" placeholder="Confirm Password"
+                        [ngStyle]="{'border':'1px solid' + loginsignupdata.color} " formControlName="confirmpassword"
+                        [ngClass]="{ 'is-invalid': submitted && f.confirmpassword.errors }">
+                    <!-- <i class="fa-solid fa-lock"></i> -->
+                    <div *ngIf="submitted && f.confirmpassword.errors" class="invalid-feedback">
+                        <div class="validationcolor" *ngIf="f.confirmpassword.errors.required">Confirm Password is
+                            required</div>
+                        <div class="validationcolor" *ngIf="f.confirmpassword.errors.MustMatch">Confirm Password must be
+                            Match.</div>
+                    </div>
+                </div>
+
+
+                <button [ngStyle]="{'background':loginsignupdata.themecolor, 'color':loginsignupdata.btncolor}"
+                    type="submit">
+                    {{loginsignupdata.typefields}}
+                    <i class="fa fa-arrow-right"></i>
+                </button>
+                <a [ngStyle]="{'color':loginsignupdata.color}" *ngIf="loginsignupdata.typefields=='Log In'">Forgot your
+                    credentials?</a>
+                <div class="button-text" *ngIf="loginsignupdata.typefields=='Log In'">
+                    <p [ngStyle]="{'color':loginsignupdata.color}">Don't have an account? <b>Sign up here</b></p>
+                </div>
+                <div class="button-text" *ngIf="loginsignupdata.typefields=='Sign Up'">
+                    <p [ngStyle]="{'color':loginsignupdata.color}">Already have an account? <b>Sign in here</b></p>
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+
+
+
+
+    <ul class="list-inline">
+        <li (click)="openhtml()"><button [class]="htmlcontent">HTML</button></li>
+        <li (click)="opencss()"><button [class]="csscontent">CSS</button></li>
+    </ul>
+    <div class="htmlelement" *ngIf="htmlcontent == 'active'">
+        <div class="copybutton">
+            <button ngxClipboard [cbContent]="getHtmlContent()" (click)="copy()"><i
+                    class="fa fa-copy copyicon"></i>{{Copy}}</button>
+        </div>
+        <pre><code [highlight]="getHtmlContent()">{{getHtmlContent()}}</code></pre>
+    </div>
+    <div class="htmlelement" *ngIf="csscontent == 'active'">
+        <div class="copybutton">
+            <button ngxClipboard [cbContent]="CSS" (click)="copy()"><i class="fa fa-copy copyicon"></i>{{Copy}}</button>
+        </div>
+        <pre><code [highlight]="CSS">{{CSS}}</code></pre>
+    </div>
+
+</div>
+
+
+
+<div class="modal fade" id="exampleModal011" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+    <div class="modal-dialog modaldialog-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>LogIn/SignUp</h4>
+                <button class="clearbtn" aria-label="Card Update modal close" #myModalClose2 data-bs-dismiss="modal">
+                    <img [src]="closeicon" class="closeicon">
+                </button>
+            </div>
+            <app-editlogin (onclose)="close()"></app-editlogin>
+
+        </div>
+    </div>
+</div>

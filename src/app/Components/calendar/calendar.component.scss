@@ -1,0 +1,105 @@
+.date_time_pciker input {
+    border: 0px;
+    background: no-repeat;
+}
+
+.date_time_picker label {
+    padding: 10px 0px;
+}
+.date_time_pciker {
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    padding: 0px 10px;
+    background-color: #fff;
+}
+
+.date_time_pciker input {
+    vertical-align: top;
+    width: 100%;
+    margin: 10px 0px;
+}
+
+.date_time_picker, .date_picker{
+    width: 30%;
+    margin: auto;
+}
+
+.list-inline {
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    li:first-child{
+        margin-right: 10px;
+    }
+    li{
+        cursor: pointer;
+        button{
+            border: none;
+            background: transparent;
+            padding: 0px;
+        }
+    }
+}
+.modal-dialog{
+    margin-top:90px;
+}
+
+.active{
+    border-bottom: 1px solid black !important;
+    padding-bottom: 5px !important;
+}
+
+.htmlelement{
+    background-color: var(--color-white);;
+    overflow-y: scroll;
+    width:90%;
+    height:350px;
+    margin: auto;
+    margin-top: 30px;
+    padding-top: 30px;
+}
+.copybutton{
+    text-align: end;
+        margin-right: 40px;
+        button{
+            border: 1.5px solid black;
+            background: transparent;
+            border-radius: 10px;
+            padding: 5px 10px;
+        }
+        .copyicon{
+            margin-right: 5px;
+        }
+}
+
+
+
+
+@media only screen and (max-width: 767px) {
+.date_time_picker {
+    width: 100% !important;
+}
+.modaldialog-width {
+    max-width: 100% !important;
+}
+.insideheader {
+    width: 70%;
+}
+.button-sec {
+    width: 50%;
+    text-align: right;
+}
+
+}
+
+@media screen and (min-width:320px) and (max-width:335px) {
+    .insideheader{
+        width:60%
+    }
+    .subheader{
+        font-size: 17px !important;
+    }
+    
+}

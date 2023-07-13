@@ -1,0 +1,63 @@
+<div class="main">
+  <div class="top-header">
+    <div>
+      <h4 class="subheader">Card <span class="sideheader">Component</span></h4>
+    </div>
+    <div class="button-sec">
+      <button class="backbutton" (click)="backwindow()">Back</button>
+      <button class="backbutton" data-bs-toggle="modal" data-bs-target="#exampleModal2">Edit</button>
+    </div>
+  </div>
+  <div #cards>
+    <div class="container mt-3 width100" [ngStyle]="{'width':carddata?.cardwidth}"> 
+      <div class="card" [ngStyle]="{'backgroundColor':backgroundcard, 'color':cardcolor}">
+        <div class="card-body" >
+          <!-- <img *ngIf="carddata?.image == 'Yes'" [src]="carddata?.imageform" [ngStyle]="{'width':cardwidth + '%', 'height':cardheight + 'px'}" class="defaultimage"> -->
+          <img *ngIf="carddata?.image == 'Yes'" aria-label="Card image" [src]="defaultimage" [ngStyle]="{'width':cardwidth + '%', 'height':cardheight + 'px'}" class="defaultimage">
+          <h4 class="card-title">{{carddata?.title}}</h4>
+          <p class="card-text" title="{{carddata.welcome}}">{{description}}</p>
+        </div>
+        <div class="card-footer1" *ngIf="carddata?.addbutton == 'Yes'">
+          <div *ngIf="carddata?.buttons == '1'" class="footerright">
+            <button aria-label="carddata?.text1" [ngStyle]="{'backgroundColor':backgroundbtn, 'color':btncolor}" class="text1">{{carddata?.text1}}</button>
+          </div>
+          <div *ngIf="carddata?.buttons == '2'" class="footerright cardfotter">
+            <button aria-label="carddata?.text1" [ngStyle]="{'backgroundColor':backgroundbtn, 'color':btncolor}" class="text1 gap">{{carddata?.text1}}</button>
+            <button aria-label="carddata?.text2" [ngStyle]="{'backgroundColor':backgroundbtn, 'color':btncolor}" class="text1 gap">{{carddata?.text2}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ul class="list-inline">
+    <li (click)="openhtml()"><button [class]="htmlcontent">HTML</button></li>
+    <li (click)="opencss()"><button [class]="csscontent">CSS</button></li>
+  </ul>
+  <div class="htmlelement" *ngIf="htmlcontent == 'active'">
+    <div class="copybutton">
+      <button ngxClipboard [cbContent]="getHtmlContent()" (click)="copy()"><i class="fa fa-copy copyicon"></i>{{Copy}}</button>
+    </div>
+    <pre><code [highlight]="getHtmlContent()">{{getHtmlContent()}}</code></pre>
+  </div>
+  <div class="htmlelement" *ngIf="csscontent == 'active'">
+    <div class="copybutton">
+      <button ngxClipboard [cbContent]="CSS" (click)="copy()"><i class="fa fa-copy copyicon"></i>{{Copy}}</button>
+    </div>
+    <pre><code [highlight]="CSS">{{CSS}}</code></pre>
+  </div>
+</div>
+
+<div class="modal fade editcard" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+  <div class="modal-dialog modaldialog-width">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h4>Card</h4>
+              <button class="clearbtn"  aria-label="Card Update modal close"  #myModalClose1 data-bs-dismiss="modal">
+                <img [src]="closeicon" class="closeicon">  
+              </button> 
+          </div>
+          <app-editcard (onclose)="close()"></app-editcard>
+
+      </div>
+  </div>
+</div>

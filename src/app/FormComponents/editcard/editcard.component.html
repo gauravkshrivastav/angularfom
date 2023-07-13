@@ -1,0 +1,152 @@
+<div class="modal-body">
+    <p><b>Please fill the mandatory fields according your preference to design of the Input/Text Area</b> </p>
+
+    <form  [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-group pt-3">
+        <label>Title:</label><span class="star">*</span>
+        <input type="text" maxlength="20" class="form-control inputbox" aria-describedby="title-err-text" placeholder="Please enter title" name="title" formControlName="title" [ngClass]="{ 'is-invalid': submitted && f.title.errors }" autofocus [(ngModel)]="carddata.title"/>
+        <div *ngIf="(f.title.touched || submitted) && f.title.errors" class="invalid-feedback">
+            <div class="error" role="alert" aria-atomic="true"  *ngIf="f.title.errors.required">Title is required</div>
+            <div class="error" role="alert" aria-atomic="true"  *ngIf="f.title.errors.minlength">Minimum 3 word required</div>
+            <div class="error"role="alert" aria-atomic="true"  *ngIf="f.title.errors.maxlength">maxlength 20</div>
+          </div>
+    </div>
+
+
+    <div class="form-group">
+        <label>Description:</label><span class="star">*</span>
+        <textarea type="text" maxlength="200" class="form-control inputbox" aria-describedby="description-err-text" placeholder="Description Name" name="welcome" formControlName="welcome" [ngClass]="{ 'is-invalid': submitted && f.welcome.errors }" autofocus [(ngModel)]="carddata.welcome"></textarea>
+        <div *ngIf="(f.welcome.touched || submitted) && f.welcome.errors" class="invalid-feedback">
+            <div class="error" role="alert" aria-atomic="true" *ngIf="f.welcome.errors.required">Description is required</div>
+            <div class="error" role="alert" aria-atomic="true" *ngIf="f.welcome.errors.maxlength">maxlength 200</div>
+          </div>  
+          </div>
+
+
+
+  <div class="pt-3">
+        <label class="accessbility">Add Button</label><span class="star">*</span>
+        <div class="form-group">
+            
+            <label class="image1" for="image5" ><input type="radio" id="image5" name="addbutton" value="Yes" aria-describedby="btn-err-text" aria-label="Yes" aria-checked="Yes" formControlName="addbutton" [ngClass]="addbutonchecked" (change)="handle1change($event)"> <span>Yes</span></label>
+            
+            <label class="image1" for="image6"><input type="radio" id="image6" name="addbutton" value="No" aria-describedby="btn-err-text" aria-label="No" aria-checked="No" formControlName="addbutton" [ngClass]="noaddbutonchecked" (change)="handle1change($event)"> <span>No</span></label>
+           
+            <div *ngIf="submitted && f.addbutton.errors" class="invalid-feedback">
+                <div class="error" role="alert" id="btn-err-text"  *ngIf="f.addbutton.errors.required">Please select an option</div>
+            </div>    
+            </div>        
+    </div>
+    
+      <div class="" *ngIf="f.addbutton.value == 'Yes' || carddata.addbutton == 'Yes'">
+        <label class="accessbility">Number of Buttons</label><span class="star">*</span>
+        <div class="form-group">
+            <select class="bgcolor" name="buttons" aria-label="select no of butons" aria-describedby="noofbtn-err-text" formControlName="buttons" [(ngModel)]="carddata.buttons">
+                <option>1</option>
+                <option>2</option>
+            </select>
+           
+            <div *ngIf="submitted && f.buttons.errors" class="invalid-feedback">
+                <div class="error" role="alert" id="noofbtn-err-text" *ngIf="f.buttons.errors.required">Please select an option</div>
+            </div>    
+            </div>        
+    </div>
+
+    <div class="">
+        <div class="form-group" *ngIf="f.buttons.value == '1' && f.addbutton.value =='Yes' || carddata.buttons == '1' && carddata.addbutton == 'Yes'">
+            <label>Button 1 text:</label><span class="star">*</span>
+            <input type="text" maxlength="50" class="form-control inputbox" aria-describedby="btntext1" placeholder="Please enter button text" name="text1" formControlName="text1" [ngClass]="{ 'is-invalid': submitted && f.text1.errors }" autofocus [(ngModel)]="carddata.text1"/>
+            <div *ngIf="submitted && f.text1.errors" class="invalid-feedback">
+                <div class="error" role="alert" id="btntext1" *ngIf="f.text1.errors.required">Button text 1 is required</div>
+                <div class="error" role="alert" id="btntext1" *ngIf="f.text1.errors.minlength">Minlength 3 required</div>
+            <div class="error"  role="alert" id="btntext1" *ngIf="f.text1.errors.maxlength">maxlength 10</div>
+            </div>  
+        </div>        
+    </div>
+
+ <div class="pt-3">
+        <div class="form-group" *ngIf="f.buttons.value == '2' && f.addbutton.value =='Yes' || carddata.buttons == '2' && carddata.addbutton == 'Yes'">
+            <label>Button 1 text:</label><span class="star">*</span>
+            <input type="text" maxlength="50" class="form-control inputbox" aria-describedby="btntext1" placeholder="Please enter button text" name="text1" formControlName="text1" [ngClass]="{ 'is-invalid': submitted && f.text1.errors }" autofocus [(ngModel)]="carddata.text1"/>
+            <div *ngIf="submitted && f.text1.errors" class="invalid-feedback">
+                <div class="error" role="alert" id="btntext1" *ngIf="f.text1.errors.required">Button text 1 is required</div>
+                <div class="error" role="alert" id="btntext1" *ngIf="f.text1.errors.minlength">Minlength 3 required</div>
+            <div class="error" role="alert" id="btntext1" *ngIf="f.text1.errors.maxlength">maxlength 10</div>
+            </div>
+
+            <label>Button 2 text:</label><span class="star">*</span>
+            <input type="text" maxlength="50" class="form-control inputbox" aria-describedby="btntext2" placeholder="Please enter button text" name="text2" formControlName="text2" [ngClass]="{ 'is-invalid': submitted && f.text2.errors }" autofocus [(ngModel)]="carddata.text2"/>
+            <div *ngIf="submitted && f.text2.errors" class="invalid-feedback">
+                <div class="error" role="alert" id="btntext2" *ngIf="f.text2.errors.required">Button text 2 is required</div>
+                <div class="error" role="alert" id="btntext2" *ngIf="f.text2.errors.minlength">Minlength 3 required</div>
+            <div class="error" role="alert" id="btntext2" *ngIf="f.text2.errors.maxlength">maxlength 10</div>
+            </div>     
+        </div>        
+    </div>
+    
+
+     <div class="">
+        <label class="accessbility">Would you like to Add an image?</label><span class="star">*</span>
+        <div class="form-group">
+            
+            <label class="image1" for="image1"><input type="radio" id="image1" name="image" value="Yes" aria-describedby="image-err-text" aria-label="Yes" formControlName="image" > <span>Yes</span></label>
+            
+            <label class="image1" for="image2"><input type="radio" id="image2" name="image" value="No" aria-describedby="image-err-text" aria-label="No" formControlName="image" > <span>No</span></label>
+        </div>
+        <div *ngIf="submitted && f.image.errors" class="invalid-feedback">
+            <div class="error"  role="alert" id="image-err-text" *ngIf="f.image.errors.required">Please select an option</div>
+        </div>    
+    </div>
+
+     <!-- <div class="form-group" *ngIf="f.image.value == 'Yes'">
+        <label>Image:</label><span class="star">*</span>
+        <input type="file" maxlength="100" (change)="handleimage($event)" id="file-upload" accept="image/*" class="form-control inputbox file" name="uploadimage" formControlName="uploadimage" [ngClass]="{ 'is-invalid': submitted && f.uploadimage.errors }" autofocus/>
+        <button class="upload-btn"><label  for="file-upload">Upload Image</label></button>
+        <h4 class="filename">{{storage}}</h4>
+        <div *ngIf="(f.uploadimage.touched || submitted) && f.uploadimage.errors" class="invalid-feedback">
+            <div class="error" *ngIf="f.uploadimage.errors.required">Please select an image</div>
+        </div>  
+    </div> -->
+
+
+    <div class="pt-3">
+        <label class="accessbility">Card width</label><span class="star">*</span>
+        <div class="form-group d-flex align-items-center shadow-sec background">
+            <select class="bgcolor" name="cardwidth" aria-label="select cardwidth" aria-describedby="width-err-txt" formControlName="cardwidth" [(ngModel)]="carddata.cardwidth">
+                <option>100%</option>
+                <option>75%</option>
+                <option>50%</option>
+                <option>25%</option>
+            </select>
+        </div>
+        <div *ngIf="(f.cardwidth.touched || submitted) && f.cardwidth.errors" class="invalid-feedback">
+            <div class="error" role="alert" id="width-err-txt" *ngIf="f.cardwidth.errors.required">Please select an option</div>
+        </div> 
+    </div>
+
+    <div class="pt-3">
+        <label class="accessbility">Card Theme Color:</label><span class="star">*</span>
+        <div class="form-group d-flex align-items-center shadow-sec background">
+            <select class="bgcolor" name="theme" aria-label="select theme color" aria-describedby="theme-err-txt" formControlName="theme" [(ngModel)]="carddata.theme">
+                <option>dark</option>
+                <option>blue</option>
+                <option>purple</option>
+                <option>light</option>
+            </select>
+        </div>
+        <div *ngIf="(f.theme.touched || submitted) && f.theme.errors" class="invalid-feedback">
+            <div class="error" role="alert" id="theme-err-txt" *ngIf="f.theme.errors.required">Please select an option</div>
+        </div> 
+    </div>
+
+
+
+    <div class="footerbutton">
+        <button  class="submitbutton">
+            Update
+        </button>
+    </div>
+</form>
+
+</div>
+

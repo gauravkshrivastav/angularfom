@@ -1,0 +1,78 @@
+
+
+
+<div class="main">
+    <div class="top-header">
+      <div class="insideheader">
+        <h4 class="subheader">Select <span class="sideheader">Component</span></h4>
+      </div>
+      <div class="button-sec">
+        <button class=" backbutton" (click)="backwindow()">Back</button>
+        <button class=" backbutton" data-bs-toggle="modal" data-bs-target="#exampleModal3">Edit</button>
+      </div> 
+    </div>
+
+
+
+
+        
+  <div class="container" #selector>
+    <div class="container mt-3 width100 select_container" [ngStyle]="{'width':selectdata.selectwidth}" [style.border]="'2px solid ' +  selectdata?.color">
+        <label>{{selectdata?.title}}</label>
+        <div class="select"> 
+          <!-- <ng-multiselect-dropdown *ngIf="updatedropdown"
+            [placeholder]="'Select value'"
+            [settings]="dropdownSettings"
+            [data]="dropdownList"
+            [(ngModel)]="selectedItems"
+            (onSelect)="onItemSelect($event)"
+            (onSelectAll)="onSelectAll($event)"
+          >
+          </ng-multiselect-dropdown> -->
+         <ng-select [items]="dropdownList" *ngIf="updatedropdown"
+          bindLabel="name"
+          placeholder="Select"
+          [multiple]=selectdata.showmultiselct
+          [(ngModel)]="selectedItems">
+      </ng-select> 
+        </div>
+    </div>
+  </div>
+
+  <ul class="list-inline">
+    <li (click)="openhtml()"><button [class]="htmlcontent">HTML</button></li>
+    <li (click)="opencss()"><button [class]="csscontent">CSS</button></li>
+  </ul>
+
+  <div class="htmlelement" *ngIf="htmlcontent == 'active'">
+    <div class="copybutton">
+      <button ngxClipboard [cbContent]="getHtmlContent()" (click)="copy()"><i class="fa fa-copy copyicon"></i>{{Copy}}</button>
+    </div>
+    <pre><code [highlight]="getHtmlContent()">{{getHtmlContent()}}</code></pre>
+  </div>
+  <div class="htmlelement" *ngIf="csscontent == 'active'">
+    <div class="copybutton">
+      <button ngxClipboard [cbContent]="CSS" (click)="copy()"><i class="fa fa-copy copyicon"></i>{{Copy}}</button>
+    </div>
+    <pre><code [highlight]="CSS">{{CSS}}</code></pre>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+  <div class="modal-dialog modaldialog-width">
+      <div class="modal-content header-modal">
+          <div class="modal-header">
+              <h4>Select</h4>
+              <button class="clearbtn" aria-label="close modal" #myModalClose3 data-bs-dismiss="modal">
+                  <img [src]="closeicon">
+              </button>
+          </div>
+          <app-selectform (onclose)="close()"></app-selectform>
+      </div>
+  </div>
+</div>
+
+
+

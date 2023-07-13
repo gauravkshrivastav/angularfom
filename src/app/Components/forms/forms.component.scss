@@ -1,0 +1,102 @@
+.common-btn {
+    color: black;
+    border: 1px solid;
+    padding: 0.25em 1.6em;
+    background: white;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+}
+.header-modal{
+    min-height: 100px;
+}
+.modal-dialog{
+    margin-top:140px;
+}
+section.main {
+    background: rgb(238, 242, 248);
+    min-height: 100vh;
+
+.card.feature {
+    // margin-right: 28px;
+    box-shadow: 0 1px 6px 0 rgb(175 203 244);
+    border: none;
+    padding: 0;
+}
+header {
+    background: #fff;
+    padding: 1rem 2rem;
+    box-shadow: 1px 0px 4px #0000002b;
+    h2 {
+        font-size: 1.35rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        margin: 0;
+        color: #0070ad; 
+        span{
+            font-weight: 400;
+            color: #333;
+        }
+    }
+}
+.card-header {
+    background: #0070ad;
+    color: #fff;
+    border: none;
+    font-weight: 500;
+}
+.btn-close{
+    color: white !important;
+}
+.card-body {
+    button {
+        background: #0070ad;
+        border: none;
+        border-radius: 3px;
+        margin-right: 15px !important;
+    }
+    .card-text{
+        height: 47px;
+        overflow: hidden;
+    }
+}
+.modal-content {
+    border: none !important;
+    border-radius: 0 !important;
+}
+
+}
+.details-container h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+.modal-header h4 {
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+button.clearbtn {
+    border: none;
+    background: transparent;
+    filter: grayscale(1);
+    cursor: pointer;
+}
+.skip-link-container {position: relative;}
+.skip-link{background: #0070ad;color: white;text-decoration: underline; padding:
+0.5em;}
+.skip-link:hover{color: white;}
+.skip-link:not(:focus) {border: 0;clip: rect(0 0 0 0);clip-path: inset(50%);height: 1px;left:
+0;margin: -1px;
+overflow: hidden;padding: 0;position: absolute;top: 0;white-space: nowrap;width: 1px;}
+*:target {transition: background 0.2s;animation: target-highlight 1.2s
+ease-in-out;}
+@keyframes target-highlight {50% {background: #999999;}100% {background: none;}}
+
+@media only screen and (max-width: 767px) {
+    section.main header {
+        padding: 1rem .85rem;
+    }
+    .modal-dialog {
+        margin-top: 60px;
+        max-width: 100% !important;
+    }
+}

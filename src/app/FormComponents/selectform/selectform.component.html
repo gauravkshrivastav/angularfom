@@ -1,0 +1,153 @@
+<div class="modal-body">
+    <p><b>Please fill the mandatory fields according your preference to design of the select</b> </p>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label>Label:</label><span class="star">*</span>
+        <input type="text" maxlength="20" class="form-control inputbox" aria-describedby="title-err-text" aria-required="true" placeholder="Please enter Label" name="title" formControlName="title" [ngClass]="{ 'is-invalid': submitted && f.title.errors }" autofocus/>
+        <div *ngIf="(f.title.touched || submitted) && f.title.errors" class="invalid-feedback">
+            <div class="error" role="alert" aria-atomic="true" *ngIf="f.title.errors.required">label is
+                required</div>
+            <div class="error" role="alert" aria-atomic="true" *ngIf="f.title.errors.maxlength">maxlength 20
+            </div>
+        </div>
+        </div>
+
+
+        <div class="pt-3">
+            <label class="accessbility">selector:</label><span class="star">*</span>
+            <div class="form-group d-flex align-items-center shadow-sec background">
+                <select class="bgcolor" name="selector" aria-label="select selector color" aria-describedby="selector-err-txt"
+                    formControlName="selector">
+                    <option value="select">Single Select</option>
+                    <option value="multiselect">Multi Select</option>
+                </select>
+            </div>
+            <div *ngIf="(f.selector.touched || submitted) && f.selector.errors" class="invalid-feedback">
+                <div class="error" role="alert" id="selector-err-txt" *ngIf="f.selector.errors.required">Please select an
+                    option</div>
+            </div>
+        </div>
+
+
+
+        
+        <div class="pt-3">
+            <label class="accessbility">How  many option do you want 1-5:</label><span class="star">*</span>
+            <div class="form-group d-flex align-items-center shadow-sec background">
+                <select class="bgcolor" name="optionvalue" aria-label="optionvalue selector color" aria-describedby="selector-err-txt"
+                    formControlName="optionvalue">
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                    <option value="4">Option 4</option>
+                    <option value="5">Option 5</option>
+
+                </select>
+            </div>
+            <div *ngIf="(f.optionvalue.touched || submitted) && f.optionvalue.errors">
+                <div class="error" role="alert" aria-atomic="true" id="optionvalue-err-txt" *ngIf="f.optionvalue.errors.required">Please select an
+                    option</div>
+            </div>
+        </div>
+
+
+
+
+        <div class="form-group" *ngIf="f.optionvalue.value == '1' || f.optionvalue.value == '2'  || f.optionvalue.value == '3' || f.optionvalue.value == '4' || f.optionvalue.value == '5'">
+            <label>Helper Text 1:</label><span class="star">*</span>
+        <input type="text" maxlength="20" class="form-control inputbox" aria-describedby="helpertext-err-text" aria-required="true" placeholder="Please enter select option" name="helpertext1" formControlName="helpertext1" [ngClass]="{ 'is-invalid': submitted && f.helpertext1.errors }" autofocus/>
+        <div  *ngIf="f.helpertext1.errors"  class="invalid-feedback">
+            <div class="error" role="alert" aria-atomic="true" *ngIf="f.helpertext1.errors.required">option is required</div>
+        </div>
+        </div>
+
+        
+        <div class="form-group"  *ngIf="f.optionvalue.value == '2'  || f.optionvalue.value == '3' || f.optionvalue.value == '4' || f.optionvalue.value == '5'">
+            <label>Helper Text 2:</label><span class="star">*</span>
+        <input type="text" maxlength="20" class="form-control inputbox" aria-describedby="helpertext-err-text" aria-required="true" placeholder="Please enter select option" name="helpertext2" formControlName="helpertext2" [ngClass]="{ 'is-invalid': submitted && f.helpertext2.errors }" autofocus/>
+        <div *ngIf="f.helpertext2.errors"  class="invalid-feedback">
+            <div class="error" role="alert" aria-atomic="true" *ngIf="f.helpertext2.errors.required">option is required</div>
+        </div>
+        </div>
+
+        
+        <div class="form-group" *ngIf="f.optionvalue.value == '3' || f.optionvalue.value == '4' || f.optionvalue.value == '5'">
+            <label>Helper Text 3:</label><span class="star">*</span>
+            <input type="text" maxlength="20" class="form-control inputbox" aria-describedby="helpertext-err-text" aria-required="true" placeholder="Please enter select option" name="helpertext3" formControlName="helpertext3" [ngClass]="{ 'is-invalid': submitted && f.helpertext3.errors }" autofocus/>
+            <div *ngIf="f.helpertext3.errors" class="invalid-feedback">
+                <div class="error" role="alert" aria-atomic="true" *ngIf="f.helpertext3.errors.required">option is required</div>
+            </div>
+        </div>
+
+
+
+        <div class="form-group" *ngIf="f.optionvalue.value == '4' || f.optionvalue.value == '5'">
+            <label>Helper Text 4:</label><span class="star">*</span>
+        <input type="text" maxlength="20" class="form-control inputbox" aria-describedby="helpertext-err-text" aria-required="true" placeholder="Please enter select option" name="helpertext4" formControlName="helpertext4" [ngClass]="{ 'is-invalid': submitted && f.helpertext4.errors }" autofocus/>
+        <div *ngIf="f.helpertext4.errors" class="invalid-feedback">
+            <div class="error" role="alert" aria-atomic="true" *ngIf="f.helpertext4.errors.required">option is required</div>
+        </div>
+        </div>
+
+
+        <div class="form-group" *ngIf="f.optionvalue.value == '5'">
+            <label>Helper Text 5:</label><span class="star">*</span>
+        <input type="text" maxlength="20" class="form-control inputbox" aria-describedby="helpertext-err-text" aria-required="true" placeholder="Please enter select option" name="helpertext5" formControlName="helpertext5" [ngClass]="{ 'is-invalid': submitted && f.helpertext5.errors }" autofocus/>
+        <div *ngIf="f.helpertext5.errors" class="invalid-feedback">
+            <div class="error" role="alert" aria-atomic="true" *ngIf="f.helpertext5.errors.required">option is required</div>
+        </div>
+        </div> 
+
+
+        
+    <div class="pt-3">
+        <label class="accessbility">Card width</label><span class="star">*</span>
+        <div class="form-group d-flex align-items-center shadow-sec background">
+            <select class="bgcolor" name="selectwidth" aria-label="select selectwidth" aria-describedby="width-err-txt" formControlName="selectwidth">
+                <option>100%</option>
+                <option>75%</option>
+                <option>50%</option>
+                <option>25%</option>
+            </select>
+        </div>
+        <div *ngIf="(f.selectwidth.touched || submitted) && f.selectwidth.errors" >
+            <div class="error" role="alert" id="width-err-txt" *ngIf="f.selectwidth.errors.required">Please select an option</div>
+        </div> 
+    </div>
+
+
+        <div class="pt-3">
+            <label class="accessbility">Card Theme Color:</label><span class="star">*</span>
+            <div class="form-group d-flex align-items-center shadow-sec background">
+                <select class="bgcolor" name="theme" aria-label="select theme color" aria-describedby="theme-err-txt"
+                    formControlName="theme">
+                    <option value="dark">Dark</option>
+                    <option value="blue">Blue</option>
+                    <option value="purple">Purple</option>
+                    <option value="light">Light</option>
+                </select>
+            </div>
+            <div *ngIf="(f.theme.touched || submitted) && f.theme.errors" class="invalid-feedback">
+                <div class="error" role="alert" id="theme-err-txt" *ngIf="f.theme.errors.required">Please select an
+                    option</div>
+            </div>
+        </div>
+
+
+
+        <div class="footerbutton"  *ngIf="!selectdata">
+            <button class="submitbutton">
+                Create
+            </button>
+        </div>
+
+        <div class="footerbutton"  *ngIf="selectdata">
+            <button class="submitbutton">
+                Update
+            </button>
+        </div>
+
+    </form>
+
+</div>

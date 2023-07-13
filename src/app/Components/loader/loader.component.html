@@ -1,0 +1,116 @@
+
+<div class="main">
+    <div class="top-header">
+      <div>
+        <h4 class="subheader">Loader <span class="sideheader">Component</span></h4>
+      </div>
+      <div class="button-sec">
+        <button class="backbutton" (click)="backwindow()">Back</button>
+        <button class="backbutton" data-bs-toggle="modal" data-bs-target="#exampleModal011">Edit</button>
+      </div>
+    </div>
+    <div #loader class="loadersection">
+      
+      <div  *ngIf="loaderdata?.typefields == 'Horizontal Loader'" class="loaderdiv" [ngStyle]="{'width':loaderdata.cardwidth}">
+        <label>{{loaderdata.title}}</label>
+      <span class="loader" [ngClass]="[loaderdata?.themecolor, loaderdata?.timeoutvalue]"></span>
+      </div>
+
+      <div class="circulardiv" *ngIf="loaderdata?.typefields == 'Circular Loader'" [ngClass]="[loaderdata.themecolor, loaderdata?.timeoutvalue]" [ngStyle]="{'width':loaderdata.cardwidth}">
+        <label class="circularlabel">{{loaderdata.title}}</label>
+        <!-- <ngx-spinner bdColor = `rgba(0, 0, 0, 0.8)` size = "medium" color = "#fff" type = "ball-clip-rotate" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner> -->
+        <!-- <div class="text-center">
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div> -->
+        <div id="circle-loader-wrap">
+          <div class="left-wrap">
+            <div class="loader"></div>	
+          </div>
+          <div class="right-wrap">
+            <div class="loader"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+   
+    <!-- <div #checkbox class="new" [ngClass]="checkboxdata.themecolor">
+
+        <form class="checkbox-box width100" *ngIf="checkboxdata.typefields=='Checkbox'" [ngStyle]="{'width':checkboxdata.cardwidth, 'display':checkboxdata.alignverticle, 'border':'1px solid' + checkboxdata.bgcolor}"> 
+          <label class="type-checkbox"><span>*</span> {{checkboxdata.title}}</label>
+          <div [ngStyle]="{'display':checkboxdata.alignverticle}" class="form-group" *ngIf="checkboxdata.text1">
+            <input type="checkbox" id="value1" >
+            <label for="value1">{{checkboxdata.text1}}</label>
+          </div>
+          <div class="form-group" [ngStyle]="{'display':checkboxdata.alignverticle}" *ngIf="checkboxdata.text2">
+            <input type="checkbox" id="value2" >
+            <label for="value2">{{checkboxdata.text2}}</label>
+          </div>
+          <div  [ngStyle]="{'display':checkboxdata.alignverticle}"class="form-group" *ngIf="checkboxdata.text3">
+            <input type="checkbox" id="value3">
+            <label for="value3">{{checkboxdata.text3}}</label>
+          </div>
+          <div  [ngStyle]="{'display':checkboxdata.alignverticle}" class="form-group" *ngIf="checkboxdata.text4">
+            <input type="checkbox" id="value4">
+            <label for="value4">{{checkboxdata.text4}}</label>
+          </div>  
+        </form>
+
+        <form *ngIf="checkboxdata.typefields=='Radio'" class="radioclass" [ngStyle]="{'width':checkboxdata.cardwidth, 'display':checkboxdata.alignverticle, 'border':'1px solid' + checkboxdata.bgcolor}"> 
+          <label class="type-checkbox"><span>*</span> {{checkboxdata.title}}</label>
+          <div  [ngStyle]="{'display':checkboxdata.alignverticle}" class="form-group" *ngIf="checkboxdata.text1">
+            <input name="radio" type="radio" id="value1" >
+            <label for="value1"> {{checkboxdata.text1}} <span></span></label>
+          </div>
+          <div [ngStyle]="{'display':checkboxdata.alignverticle}" class="form-group" *ngIf="checkboxdata.text2">
+            <input name="radio" type="radio" id="value2" >
+            <label for="value2"> {{checkboxdata.text2}} <span></span></label>
+          </div>
+          <div [ngStyle]="{'display':checkboxdata.alignverticle}" class="form-group" *ngIf="checkboxdata.text3">
+            <input name="radio" type="radio" id="value3">
+            <label for="value3">{{checkboxdata.text3}}<span></span></label>
+          </div>
+          <div [ngStyle]="{'display':checkboxdata.alignverticle}" class="form-group" *ngIf="checkboxdata.text4">
+            <input name="radio" type="radio" id="value4">
+            <label for="value4">{{checkboxdata.text4}}<span></span></label>
+          </div>  
+        </form>
+      </div> -->
+     
+      <ul class="list-inline">
+      <li (click)="openhtml()"><button [class]="htmlcontent">HTML</button></li>
+      <li (click)="opencss()"><button [class]="csscontent">CSS</button></li>
+    </ul>
+    <div class="htmlelement" *ngIf="htmlcontent == 'active'">
+      <div class="copybutton">
+        <button ngxClipboard [cbContent]="getHtmlContent()" (click)="copy()"><i class="fa fa-copy copyicon"></i>{{Copy}}</button>
+      </div>
+      <pre><code [highlight]="getHtmlContent()">{{getHtmlContent()}}</code></pre>
+    </div>
+    <div class="htmlelement" *ngIf="csscontent == 'active'">
+      <div class="copybutton">
+        <button ngxClipboard [cbContent]="CSS" (click)="copy()"><i class="fa fa-copy copyicon"></i>{{Copy}}</button>
+      </div>
+      <pre><code [highlight]="CSS">{{CSS}}</code></pre>
+    </div>
+
+  </div>
+  
+  <div class="modal fade" id="exampleModal011" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+    <div class="modal-dialog modaldialog-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>Loader</h4>
+                <button class="clearbtn"  aria-label="Card Update modal close"  #myModalClose9 data-bs-dismiss="modal">
+                  <img [src]="closeicon" class="closeicon">  
+                </button> 
+            </div>
+            <app-editloader (onclose)="close()"></app-editloader> 
+  
+        </div>
+    </div>
+</div>
+
+  

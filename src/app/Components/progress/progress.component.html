@@ -1,0 +1,62 @@
+
+<div class="main">
+    <div class="top-header">
+      <div class="insideheader">
+        <h4 class="subheader">Progress <span class="sideheader">Component</span></h4>
+      </div>
+      <div class="button-sec">
+        <button class=" backbutton" (click)="backwindow()">Back</button>
+        <button class=" backbutton" data-bs-toggle="modal" data-bs-target="#subexampleModal5">Edit</button>
+      </div> 
+    </div>
+ 
+    <div class="container mt-5 width100" #progress>
+        <!-- <div class="rangeslider" [ngStyle]="{'width':rangesliderdata?.rangewidth}" [ngClass]="rangesliderdata?.theme">
+             <ngx-slider  *ngIf="updatedropdown" [(value)]="minValue" [(highValue)]="Valuenumber"  [options]="options"></ngx-slider>
+        </div> -->
+        <div class="progresstitle"> {{progressdata?.title}}</div>
+
+        <div class="progress" [ngStyle]="{'width':progressdata?.rangewidth}">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width':progressdata?.progressvalue + '%', 'background-Color':progressdata?.color,'color':color }">{{progressdata?.progressvalue}}%</div>
+          </div>
+
+
+    </div>
+    <ul class="list-inline">
+      <li (click)="openhtml()"><button [class]="htmlcontent">HTML</button></li>
+      <li (click)="opencss()"><button [class]="csscontent">CSS</button></li>
+    </ul>
+  
+    <div class="htmlelement" *ngIf="htmlcontent == 'active'">
+      <div class="copybutton">
+        <button ngxClipboard [cbContent]="getHtmlContent()" (click)="copy()"><i class="fa fa-copy copyicon"></i>{{Copy}}</button>
+      </div>
+      <pre><code [highlight]="getHtmlContent()">{{getHtmlContent()}}</code></pre>
+    </div>
+    <div class="htmlelement" *ngIf="csscontent == 'active'">
+      <div class="copybutton">
+        <button ngxClipboard [cbContent]="CSS" (click)="copy()"><i class="fa fa-copy copyicon"></i>{{Copy}}</button>
+      </div>
+      <pre><code [highlight]="CSS">{{CSS}}</code></pre>
+    </div>
+
+</div>
+
+
+<div class="modal fade" id="subexampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel2"
+    aria-hidden="true">
+    <div class="modal-dialog modaldialog-width">
+        <div class="modal-content header-modal">
+            <div class="modal-header">
+                <h4>Progress</h4>
+                <button class="clearbtn" #myModalClose6 data-bs-dismiss="modal">
+                    <img [src]="closeicon">
+
+                </button>
+            </div>
+            <app-progressform (onclose)="close()"></app-progressform>
+            <!-- <app-form (onclose)="close()"></app-form> -->
+
+        </div>
+    </div>
+</div>

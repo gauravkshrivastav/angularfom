@@ -1,0 +1,103 @@
+<div class="main">
+    <div class="top-header">
+      <div class="insideheader">
+        <h4 class="subheader">FileUpload <span>Component</span></h4>
+      </div>
+      <div class="button-sec">
+        <button class=" backbutton" (click)="backwindow()">Back</button>
+        <button class=" backbutton" data-bs-toggle="modal" data-bs-target="#fileuploadform">Edit</button>
+      </div> 
+    </div>
+    <div class="container" #fileupload>
+      <div class="fileupload width100"  [ngStyle]="{'width':filedata.width}">
+
+        <!-- <div *ngIf="filedata.choosefile == 'single'" class="commonfile" [ngStyle]="{'border-color':color,'width':filedata.width}">
+          <label class="filelabel" [ngStyle]="{'width':filedata.width}">{{filedata.title}}</label><br/>
+          <input #fileinput type="file" id="myfile" name="myfile" [ngStyle]="{'border-color':color, 'width':filedata.width}" (change)="handlechange($event)">
+            <button class="clear"  aria-label="close icon" *ngIf="file" (click)="closefile(fileinput)" (keypress)="closefile(fileinput)">
+              <img [src]="closeicon" class="closefile">  
+            </button>
+            <button class="choosebtn" (click)="fileinput.click()" [ngStyle]="{'background-color':color, 'color':textcolor}">{{filedata.title}}</button>Drop files here to upload
+              <input style="display: none"  #attachments type="file" (change)="handlechange($event)" #fileinput>
+              <ul *ngIf="filedata.choosefile == 'single'" class="dataalign">
+                <li class="fileli" *ngFor="let file of fileselectedvalue, let index = index"><div class="filetitle">{{truncate(file)}}</div> <button class="closefilebutton" (click)="removeSelectedFile(index)"><i class="fa fa-trash" aria-hidden="true"></i></button></li>
+              </ul>
+        </div> -->
+      <!-- <ul *ngIf="filedata.choosefile == 'single'" [ngStyle]="{'width':filedata.width}" class="dataalign">
+          <li *ngFor="let file of fileselectedvalue">{{file}}</li>
+        </ul>  -->
+
+        <div *ngIf="filedata.choosefile == 'single'" class="commonfile" >
+          <label class="filelabel"  >{{filedata.title}}</label><br/>
+         <div class="mainupload">
+          <input #fileinput type="file" id="myfile" name="myfile" [ngStyle]="{'border':'2px solid ' + color}"  (change)="handlechange($event)">
+          <button class="clear"  aria-label="close icon" *ngIf="file" (click)="closefile(fileinput)" (keypress)="closefile(fileinput)">
+            <img [src]="closeicon" class="closefile closesize">  
+          </button>
+         </div>
+            <!-- <div class="fileborder"> -->
+              <!-- <button class="choosebtn" (click)="fileinput.click()" [ngStyle]="{'background-color':color, 'color':textcolor}">{{filedata.title}}</button>Drop files here to upload
+              <input style="display: none"  #attachments type="file" (change)="handlechange($event)" #fileinput multiple="true"> -->
+              <ul *ngIf="filedata.choosefile == 'single'"class="dataalign">
+                <li class="fileli" *ngFor="let file of fileselectedvalue, let index = index"><div class="filetitle">{{truncate(file)}}</div> <button class="closefilebutton" (click)="removeSelectedFile(index)"><i class="fa fa-trash" aria-hidden="true"></i></button></li>
+              </ul>
+            <!-- </div> -->
+        </div>
+        <div *ngIf="filedata.choosefile == 'multiple'" class="commonfile" >
+          <label class="filelabel"  >{{filedata.title}}</label><br/>
+         <div class="mainupload">
+          <input #fileinput type="file" id="myfile" [ngStyle]="{'border':'2px solid ' + color}" name="myfile" multiple="multiple" (change)="handlechange($event)">
+          <button class="clear"  aria-label="close icon" *ngIf="file" (click)="closefile(fileinput)" (keypress)="closefile(fileinput)">
+            <img [src]="closeicon" class="closefile closesize">  
+          </button>
+         </div>
+            <!-- <div class="fileborder"> -->
+              <!-- <button class="choosebtn" (click)="fileinput.click()" [ngStyle]="{'background-color':color, 'color':textcolor}">{{filedata.title}}</button>Drop files here to upload
+              <input style="display: none"  #attachments type="file" (change)="handlechange($event)" #fileinput multiple="true"> -->
+              <ul *ngIf="filedata.choosefile == 'multiple'"class="dataalign">
+                <li class="fileli" *ngFor="let file of fileselectedvalue, let index = index"><div class="filetitle">{{truncate(file)}}</div> <button class="closefilebutton" (click)="removeSelectedFile(index)"><i class="fa fa-trash" aria-hidden="true"></i></button></li>
+              </ul>
+            <!-- </div> -->
+        </div>
+        <!-- <ul *ngIf="filedata.choosefile == 'multiple'" [ngStyle]="{'width':filedata.width}" class="dataalign">
+          <li *ngFor="let file of fileselectedvalue">{{file}}</li>
+        </ul> -->
+      </div>
+    </div>
+
+
+    <ul class="list-inline">
+      <li (click)="openhtml()"><button [class]="htmlcontent">HTML</button></li>
+      <li (click)="opencss()"><button [class]="csscontent">CSS</button></li>
+    </ul>
+    <div class="htmlelement" *ngIf="htmlcontent == 'active'">
+      <div class="copybutton">
+        <button ngxClipboard [cbContent]="getHtmlContent()" (click)="copy()"><i class="fa fa-copy copyicon"></i>{{Copy}}</button>
+      </div>
+      <pre><code [highlight]="getHtmlContent()">{{getHtmlContent()}}</code></pre>
+    </div>
+    <div class="htmlelement" *ngIf="csscontent == 'active'">
+      <div class="copybutton">
+        <button ngxClipboard [cbContent]="CSS" (click)="copy()"><i class="fa fa-copy copyicon"></i>{{Copy}}</button>
+      </div>
+      <pre><code [highlight]="CSS">{{CSS}}</code></pre>
+    </div>
+</div>
+
+
+<div class="modal fade" id="fileuploadform" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal-dialog modaldialog-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>FileUpload</h4>
+                <button class="clearbtn"  aria-label="Header Update modal close"  #myModalClose8 data-bs-dismiss="modal">
+                    <img [src]="closeicon" class="closeicon">  
+                </button>
+            </div>
+            <app-editfileupload (onclose)="close()"></app-editfileupload>
+  
+        </div>
+    </div>
+  </div>
+
+

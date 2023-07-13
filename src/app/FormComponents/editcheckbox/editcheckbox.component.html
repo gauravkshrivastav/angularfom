@@ -1,0 +1,246 @@
+<div class="modal-body">
+    <p><b>Please update the mandatory fields according your preference to design Checkbox/Radio.</b> </p>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()"> 
+        <div class="form-group pt-2">
+            <label>Label:</label><span class="star">*</span>
+            <div class="form-group d-flex align-items-center shadow-sec background">
+                <input type="text" maxlength="15" class="form-control inputbox" aria-describedby="title-err-text"
+                    placeholder="Please enter label" name="title" formControlName="title"
+                    [(ngModel)]="checkboxdatas.title" [ngClass]="{ 'is-invalid': submitted && f.title.errors }" autofocus />
+            </div>
+            <div *ngIf="(f.title.touched || submitted) && f.title.errors" class="invalid-feedback">
+                <div class="error" role="alert" aria-atomic="true" *ngIf="f.title.errors.required">Label is required
+                </div>
+                <div class="error" role="alert" aria-atomic="true" *ngIf="f.title.errors.minlength">Minimum 3 word
+                    required</div>
+                <div class="error" role="alert" aria-atomic="true" *ngIf="f.title.errors.maxlength">maxlength 15</div>
+            </div>
+        </div>
+        <div class="pt-2" >
+            <label class="accessbility">Select the input type</label><span class="star">*</span>
+            <div class="form-group">
+                <select class="bgcolor" name="typefields" aria-label="select no of butons"
+                [(ngModel)]="checkboxdatas.typefields" aria-describedby="noofbtn-err-text" formControlName="typefields">
+                    <option>Checkbox</option>
+                    <option>Radio</option> 
+                </select>
+
+                <div *ngIf="submitted && f.typefields.errors" class="invalid-feedback">
+                    <div class="error" role="alert" id="noofbtn-err-text" *ngIf="f.typefields.errors.required">Please
+                        select an option</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pt-2" >
+            <label class="accessbility">Number of Checkbox/Radio</label><span class="star">*</span>
+            <div class="form-group">
+                <select class="bgcolor" name="buttons" aria-label="select no of butons"
+                [(ngModel)]="checkboxdatas.buttons"  aria-describedby="noofbtn-err-text" formControlName="buttons">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                </select>
+
+                <div *ngIf="submitted && f.buttons.errors" class="invalid-feedback">
+                    <div class="error" role="alert" id="noofbtn-err-text" *ngIf="f.buttons.errors.required">Please
+                        select an option</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pt-2">
+            <div class="form-group" *ngIf="f.buttons.value == '1'">
+                <label>Checkbox/Radio 1 text:</label><span class="star">*</span>
+                <input type="text" maxlength="20" class="form-control inputbox" aria-describedby="btntext1"
+                    placeholder="Please enter button text" name="text1" formControlName="text1"
+                    [(ngModel)]="checkboxdatas.text1" [ngClass]="{ 'is-invalid': submitted && f.text1.errors }" autofocus />
+                <div *ngIf="submitted && f.text1.errors" class="invalid-feedback">
+                    <div class="error" role="alert" id="btntext1" *ngIf="f.text1.errors.required">Button text 1 is
+                        required</div>
+                    <div class="error" role="alert" id="btntext1" *ngIf="f.text1.errors.minlength">Minlength 3 required
+                    </div>
+                    <div class="error" role="alert" id="btntext1" *ngIf="f.text1.errors.maxlength">maxlength 20</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pt-2">
+            <div class="form-group" *ngIf="f.buttons.value == '2'">
+                <label>Checkbox/Radio 1 text:</label><span class="star">*</span>
+                <input type="text" maxlength="20" class="form-control inputbox" aria-describedby="btntext1"
+                    placeholder="Please enter button text" name="text1" formControlName="text1"
+                    [(ngModel)]="checkboxdatas.text1" [ngClass]="{ 'is-invalid': submitted && f.text1.errors }" autofocus />
+                <div *ngIf="submitted && f.text1.errors" class="invalid-feedback">
+                    <div class="error" role="alert" id="btntext1" *ngIf="f.text1.errors.required">Button text 1 is
+                        required</div>
+                    <div class="error" role="alert" id="btntext1" *ngIf="f.text1.errors.minlength">Minlength 3 required
+                    </div>
+                    <div class="error" role="alert" id="btntext1" *ngIf="f.text1.errors.maxlength">maxlength 20</div>
+                </div>
+
+                <label>Checkbox/Radio 2 text:</label><span class="star">*</span>
+                <input type="text" maxlength="20" class="form-control inputbox" aria-describedby="btntext2"
+                    placeholder="Please enter button text" name="text2" formControlName="text2"
+                    [(ngModel)]="checkboxdatas.text2" [ngClass]="{ 'is-invalid': submitted && f.text2.errors }" autofocus />
+                <div *ngIf="submitted && f.text2.errors" class="invalid-feedback">
+                    <div class="error" role="alert" id="btntext2" *ngIf="f.text2.errors.required">Button text 2 is
+                        required</div>
+                    <div class="error" role="alert" id="btntext2" *ngIf="f.text2.errors.minlength">Minlength 3 required
+                    </div>
+                    <div class="error" role="alert" id="btntext2" *ngIf="f.text2.errors.maxlength">maxlength 20</div>
+                </div>
+            </div>
+        </div>
+        <div class="pt-2">
+            <div class="form-group" *ngIf="f.buttons.value == '3'">
+                <label>Checkbox/Radio 1 text:</label><span class="star">*</span>
+                <input type="text" maxlength="20" class="form-control inputbox" aria-describedby="btntext1"
+                    placeholder="Please enter button text" name="text1" formControlName="text1"
+                    [(ngModel)]="checkboxdatas.text1" [ngClass]="{ 'is-invalid': submitted && f.text1.errors }" autofocus />
+                <div *ngIf="submitted && f.text1.errors" class="invalid-feedback">
+                    <div class="error" role="alert" id="btntext1" *ngIf="f.text1.errors.required">Checkbox/Radio text 1 is
+                        required</div>
+                    <div class="error" role="alert" id="btntext1" *ngIf="f.text1.errors.minlength">Minlength 3 required
+                    </div>
+                    <div class="error" role="alert" id="btntext1" *ngIf="f.text1.errors.maxlength">maxlength 20</div>
+                </div>
+
+                <label>Checkbox/Radio 2 text:</label><span class="star">*</span>
+                <input type="text" maxlength="20" class="form-control inputbox" aria-describedby="btntext2"
+                    placeholder="Please enter button text" name="text2" formControlName="text2"
+                    [(ngModel)]="checkboxdatas.text2" [ngClass]="{ 'is-invalid': submitted && f.text2.errors }" autofocus />
+                <div *ngIf="submitted && f.text2.errors" class="invalid-feedback">
+                    <div class="error" role="alert" id="btntext2" *ngIf="f.text2.errors.required">Checkbox/Radio text 2 is
+                        required</div>
+                    <div class="error" role="alert" id="btntext2" *ngIf="f.text2.errors.minlength">Minlength 3 required
+                    </div>
+                    <div class="error" role="alert" id="btntext2" *ngIf="f.text2.errors.maxlength">maxlength 20</div>
+                </div>
+
+                <label>Checkbox/Radio 3 text:</label><span class="star">*</span>
+                <input type="text" maxlength="20" class="form-control inputbox" aria-describedby="btntext2"
+                    placeholder="Please enter button text" name="text3" formControlName="text3"
+                    [(ngModel)]="checkboxdatas.text3" [ngClass]="{ 'is-invalid': submitted && f.text3.errors }" autofocus />
+                <div *ngIf="submitted && f.text3.errors" class="invalid-feedback">
+                    <div class="error" role="alert" id="btntext2" *ngIf="f.text3.errors.required">Checkbox/Radio text 3 is
+                        required</div>
+                    <div class="error" role="alert" id="btntext2" *ngIf="f.text3.errors.minlength">Minlength 3 required
+                    </div>
+                    <div class="error" role="alert" id="btntext2" *ngIf="f.text3.errors.maxlength">maxlength 20</div>
+                </div>
+            </div>
+        </div>
+        <div class="pt-2">
+            <div class="form-group" *ngIf="f.buttons.value == '4'">
+                <label>Checkbox/Radio 1 text:</label><span class="star">*</span>
+                <input type="text" maxlength="20" class="form-control inputbox" aria-describedby="btntext1"
+                    placeholder="Please enter button text" name="text1" formControlName="text1"
+                    [(ngModel)]="checkboxdatas.text1" [ngClass]="{ 'is-invalid': submitted && f.text1.errors }" autofocus />
+                <div *ngIf="submitted && f.text1.errors" class="invalid-feedback">
+                    <div class="error" role="alert" id="btntext1" *ngIf="f.text1.errors.required">Checkbox/Radio text 1 is
+                        required</div>
+                    <div class="error" role="alert" id="btntext1" *ngIf="f.text1.errors.minlength">Minlength 3 required
+                    </div>
+                    <div class="error" role="alert" id="btntext1" *ngIf="f.text1.errors.maxlength">maxlength 20</div>
+                </div>
+
+                <label>Checkbox/Radio 2 text:</label><span class="star">*</span>
+                <input type="text" maxlength="20" class="form-control inputbox" aria-describedby="btntext2"
+                    placeholder="Please enter button text" name="text2" formControlName="text2"
+                    [(ngModel)]="checkboxdatas.text2" [ngClass]="{ 'is-invalid': submitted && f.text2.errors }" autofocus />
+                <div *ngIf="submitted && f.text2.errors" class="invalid-feedback">
+                    <div class="error" role="alert" id="btntext2" *ngIf="f.text2.errors.required">Checkbox/Radio text 2 is
+                        required</div>
+                    <div class="error" role="alert" id="btntext2" *ngIf="f.text2.errors.minlength">Minlength 3 required
+                    </div>
+                    <div class="error" role="alert" id="btntext2" *ngIf="f.text2.errors.maxlength">maxlength 20</div>
+                </div>
+
+                <label>Checkbox/Radio 3 text:</label><span class="star">*</span>
+                <input type="text" maxlength="20" class="form-control inputbox" aria-describedby="btntext2"
+                    placeholder="Please enter button text" name="text3" formControlName="text3"
+                    [(ngModel)]="checkboxdatas.text3" [ngClass]="{ 'is-invalid': submitted && f.text3.errors }" autofocus />
+                <div *ngIf="submitted && f.text3.errors" class="invalid-feedback">
+                    <div class="error" role="alert" id="btntext2" *ngIf="f.text3.errors.required">Checkbox/Radio text 3 is
+                        required</div>
+                    <div class="error" role="alert" id="btntext2" *ngIf="f.text3.errors.minlength">Minlength 3 required
+                    </div>
+                    <div class="error" role="alert" id="btntext2" *ngIf="f.text3.errors.maxlength">maxlength 20</div>
+                </div>
+
+                <label>Checkbox/Radio 4 text:</label><span class="star">*</span>
+                <input type="text" maxlength="20" class="form-control inputbox" aria-describedby="btntext2"
+                    placeholder="Please enter button text" name="text4" formControlName="text4"
+                    [(ngModel)]="checkboxdatas.text4" [ngClass]="{ 'is-invalid': submitted && f.text4.errors }" autofocus />
+                <div *ngIf="submitted && f.text4.errors" class="invalid-feedback">
+                    <div class="error" role="alert" id="btntext2" *ngIf="f.text4.errors.required">Checkbox/Radio text 4 is
+                        required</div>
+                    <div class="error" role="alert" id="btntext2" *ngIf="f.text4.errors.minlength">Minlength 3 required
+                    </div>
+                    <div class="error" role="alert" id="btntext2" *ngIf="f.text4.errors.maxlength">maxlength 20</div>
+                </div>
+            </div>
+        </div>
+        <div class="pt-3">
+            <label class="accessbility">Do you want to align vertical?</label><span class="star">*</span>
+            <div class="form-group">
+                
+                <label class="image1" ><input type="radio"  name="addbutton" (change)="handleChange($event)" [ngClass]="boxshadowchecked"  aria-describedby="btn-err-text" aria-label="Yes" aria-checked="Yes" value="Yes" formControlName="addbutton"> <span>Yes</span></label>
+                
+                <label class="image1" ><input type="radio"  name="addbutton" (change)="handleChange($event)" [ngClass]="noboxshadowchecked"  aria-describedby="btn-err-text" aria-label="No" aria-checked="No" value="No" formControlName="addbutton"> <span>No</span></label>
+                <!-- <input type="radio" id="image5" name="addbutton" (change)="handleChange($event)" [ngClass]="boxshadowchecked"  aria-describedby="btn-err-text" aria-label="Yes" aria-checked="Yes" value="Yes" formControlName="addbutton">
+                <label class="image1" for="image5" >Yes</label>
+                <input type="radio" id="image6" name="addbutton" (change)="handleChange($event)" [ngClass]="noboxshadowchecked"  aria-describedby="btn-err-text" aria-label="No" aria-checked="No" value="No" formControlName="addbutton">
+                <label class="image1" for="image6">No</label> -->
+               
+                <div *ngIf="submitted && f.addbutton.errors" class="invalid-feedback">
+                    <div class="error" role="alert" id="btn-err-text" *ngIf="f.addbutton.errors.required">Please select an option</div>
+                </div>    
+                </div>        
+        </div>
+
+        <div class="pt-2">
+            <label class="accessbility">Card width</label><span class="star">*</span>
+            <div class="form-group d-flex align-items-center shadow-sec background">
+                <select class="bgcolor" name="cardwidth" aria-label="select cardwidth" aria-describedby="width-err-txt"
+                [(ngModel)]="checkboxdatas.cardwidth" formControlName="cardwidth">
+                    <option>100%</option>
+                    <option>75%</option>
+                    <option>50%</option>
+                    <option>25%</option>
+                </select>
+            </div>
+            <div *ngIf="(f.cardwidth.touched || submitted) && f.cardwidth.errors" class="invalid-feedback">
+                <div class="error" role="alert" id="width-err-txt" *ngIf="f.cardwidth.errors.required">Please select an
+                    option</div>
+            </div>
+        </div>
+
+        <div class="pt-2">
+            <label class="accessbility">Card Theme Color:</label><span class="star">*</span>
+            <div class="form-group d-flex align-items-center shadow-sec background">
+                <select class="bgcolor" name="theme" aria-label="select theme color" aria-describedby="theme-err-txt"
+                [(ngModel)]="checkboxdatas.theme" formControlName="color">
+                    <option>dark</option>
+                    <option>blue</option>
+                    <option>purple</option>
+                    <option>light</option>
+                </select>
+            </div>
+            <div *ngIf="(f.color.touched || submitted) && f.color.errors" class="invalid-feedback">
+                <div class="error" role="alert" id="theme-err-txt" *ngIf="f.color.errors.required">Please select an
+                    option</div>
+            </div>
+        </div>
+        
+        <div class="footerbutton">
+            <button class="submitbutton">
+                Update
+            </button>
+        </div>
+    </form>
+
+</div>

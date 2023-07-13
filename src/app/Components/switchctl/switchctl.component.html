@@ -1,0 +1,52 @@
+ 
+
+<div class="main">
+    <div class="top-header">
+      <div>
+        <h4 class="subheader">Switch Control <span class="sideheader">Component</span></h4>
+      </div>
+      <div class="button-sec">
+        <button class="backbutton" (click)="backwindow()">Back</button>
+        <button class="backbutton" data-bs-toggle="modal" data-bs-target="#exampleModal2">Edit</button>
+      </div>
+    </div> 
+    <div class="container" #switchctl class="new">
+        <div class="switch_box box_1">  
+            <h4>{{switchdatas.title}}</h4>
+			<input type="checkbox" [ngClass]="[switchdatas.switchsize, switchdatas.themecolor]"  class="switch_1">
+		</div> 
+      </div>
+     
+      <ul class="list-inline">
+      <li (click)="openhtml()"><button [class]="htmlcontent">HTML</button></li>
+      <li (click)="opencss()"><button [class]="csscontent">CSS</button></li>
+    </ul>
+    <div class="htmlelement" *ngIf="htmlcontent == 'active'">
+      <div class="copybutton">
+        <button ngxClipboard [cbContent]="getHtmlContent()" (click)="copy()"><i class="fa fa-copy copyicon"></i>{{Copy}}</button>
+      </div>
+      <pre><code [highlight]="getHtmlContent()">{{getHtmlContent()}}</code></pre>
+    </div>
+    <div class="htmlelement" *ngIf="csscontent == 'active'">
+      <div class="copybutton">
+        <button ngxClipboard [cbContent]="CSS" (click)="copy()"><i class="fa fa-copy copyicon"></i>{{Copy}}</button>
+      </div>
+      <pre><code [highlight]="CSS">{{CSS}}</code></pre>
+    </div>
+
+  </div>
+  
+  <div class="modal fade editcard" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal-dialog modaldialog-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>Switch Control</h4>
+                <button class="clearbtn"  aria-label="Card Update modal close"  #myModalClose1 data-bs-dismiss="modal">
+                  <img [src]="closeicon" class="closeicon">  
+                </button> 
+            </div>
+            <app-editswitchcontrol (onclose)="close()"></app-editswitchcontrol>
+ 
+        </div>
+    </div>
+  </div>

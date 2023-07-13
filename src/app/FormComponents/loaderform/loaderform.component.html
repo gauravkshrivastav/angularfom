@@ -1,0 +1,92 @@
+ <div class="modal-body">
+    <p><b>Please fill the mandatory fields according your preference to design of the Loader.</b> </p>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-group pt-2">
+            <label>Title:</label><span class="star">*</span>
+            <div class="form-group d-flex align-items-center shadow-sec background">
+                <input type="text" maxlength="15" class="form-control inputbox" aria-describedby="title-err-text"
+                    placeholder="Please enter title" name="title" formControlName="title"
+                    [ngClass]="{ 'is-invalid': submitted && f.title.errors }" autofocus />
+            </div>
+            <div *ngIf="(f.title.touched || submitted) && f.title.errors" class="invalid-feedback">
+                <div class="error" role="alert" aria-atomic="true" *ngIf="f.title.errors.required">Title is required
+                </div>
+                <div class="error" role="alert" aria-atomic="true" *ngIf="f.title.errors.minlength">Minimum 3 word
+                    required</div>
+                <div class="error" role="alert" aria-atomic="true" *ngIf="f.title.errors.maxlength">maxlength 15</div>
+            </div>
+        </div>
+        <div class="pt-2" >
+            <label class="accessbility">Loader type</label><span class="star">*</span>
+            <div class="form-group">
+                <select class="bgcolor" name="typefields" aria-label="select no of butons"
+                    aria-describedby="noofbtn-err-text" formControlName="typefields">
+                    <option>Horizontal Loader</option>
+                    <option>Circular Loader</option> 
+                </select>
+
+                <div *ngIf="submitted && f.typefields.errors" class="invalid-feedback">
+                    <div class="error" role="alert" id="noofbtn-err-text" *ngIf="f.typefields.errors.required">Please
+                        select an option</div>
+                </div>
+            </div>
+        </div>
+ 
+        <div class="pt-2">
+            <label class="accessbility">Timeout Time</label><span class="star">*</span>
+            <div class="form-group d-flex align-items-center shadow-sec background">
+                <select class="bgcolor" name="cardwidth" aria-label="select cardwidth" aria-describedby="width-err-txt"
+                    formControlName="timeout">
+                    <option>1000ms</option>
+                    <option>10000ms</option>
+                    <option>20000ms</option> 
+                </select>
+            </div>
+            <div *ngIf="(f.cardwidth.touched || submitted) && f.cardwidth.errors" class="invalid-feedback">
+                <div class="error" role="alert" id="width-err-txt" *ngIf="f.cardwidth.errors.required">Please select an
+                    option</div>
+            </div>
+        </div>
+
+        <div class="pt-2">
+            <label class="accessbility">Loader width</label><span class="star">*</span>
+            <div class="form-group d-flex align-items-center shadow-sec background">
+                <select class="bgcolor" name="cardwidth" aria-label="select cardwidth" aria-describedby="width-err-txt"
+                    formControlName="cardwidth">
+                    <option>100%</option>
+                    <option>75%</option>
+                    <option>50%</option>
+                    <option>25%</option>
+                </select>
+            </div>
+            <div *ngIf="(f.cardwidth.touched || submitted) && f.cardwidth.errors" class="invalid-feedback">
+                <div class="error" role="alert" id="width-err-txt" *ngIf="f.cardwidth.errors.required">Please select an
+                    option</div>
+            </div>
+        </div>
+
+        <div class="pt-2">
+            <label class="accessbility">Loader Theme Color:</label><span class="star">*</span>
+            <div class="form-group d-flex align-items-center shadow-sec background">
+                <select class="bgcolor" name="theme" aria-label="select theme color" aria-describedby="theme-err-txt"
+                    formControlName="color">
+                    <option>dark</option>
+                    <option>blue</option>
+                    <option>purple</option>
+                    <option>light</option>
+                </select>
+            </div>
+            <div *ngIf="(f.color.touched || submitted) && f.color.errors" class="invalid-feedback">
+                <div class="error" role="alert" id="theme-err-txt" *ngIf="f.color.errors.required">Please select an
+                    option</div>
+            </div>
+        </div>
+        <div class="footerbutton">
+            <button class="submitbutton">
+                Create
+            </button>
+        </div>
+    </form>
+
+</div>

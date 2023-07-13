@@ -1,0 +1,129 @@
+<div class="main">
+    <div class="top-header">
+      <div class="insideheader">
+        <h4 class="subheader">Breakpoint <span>Component</span></h4>
+      </div>
+      <div class="button-sec">
+        <button class=" backbutton" (click)="backwindow()">Back</button>
+        <button class=" backbutton" data-bs-toggle="modal" data-bs-target="#fileuploadform">Edit</button>
+      </div> 
+    </div>
+
+    <div class="BreakpointLayout-Content">
+
+      <div class="container-fluid" #breakpoint>
+
+          <div class="row">
+              
+                      <div class="col-12 box_flex" *ngIf="breakdata.nolayout == '1'">
+                          <div class="column">
+                              <h5 class="title" [ngStyle]="{'backgroundColor':bgcolor,'color':color}">{{breakdata.title11}}</h5>
+                              <p class="desc">{{breakdata.description11}}</p>
+                          </div>
+                      </div>
+
+
+                      <div class="col-md-6 col-sm-12 box_flex" *ngIf="breakdata.nolayout == '2'">
+                          <div class="column">
+                            <h5 class="title" [ngStyle]="{'backgroundColor':bgcolor,'color':color}">{{breakdata.title21}}</h5>
+                            <p class="desc">{{breakdata.description21}}</p>
+                          </div>      
+                      </div>
+
+                      <div class="col-md-6  col-sm-12 box_flex" *ngIf="breakdata.nolayout == '2'">
+                          <div class="column">
+                            <h5 class="title" [ngStyle]="{'backgroundColor':bgcolor,'color':color}">{{breakdata.title22}}</h5>
+                            <p class="desc">{{breakdata.description22}}</p>
+                          </div>
+                      </div>                
+
+                      <div class="col-md-4  col-sm-12 box_flex"  *ngIf="breakdata.nolayout == '3'">
+                          <div class="column">
+                            <h5 class="title" [ngStyle]="{'backgroundColor':bgcolor,'color':color}">{{breakdata.title31}}</h5>
+                            <p class="desc">{{breakdata.description31}}</p>
+                          </div>
+                      </div>
+
+                      <div class="col-md-4  col-sm-12 box_flex" *ngIf="breakdata.nolayout == '3'">
+                          <div class="column">
+                            <h5 class="title" [ngStyle]="{'backgroundColor':bgcolor,'color':color}">{{breakdata.title32}}</h5>
+                            <p class="desc">{{breakdata.description32}}</p>
+                          </div>
+                      </div>
+
+                      <div class="col-md-4  col-sm-12 box_flex" *ngIf="breakdata.nolayout == '3'">
+                          <div class="column">
+                            <h5 class="title" [ngStyle]="{'backgroundColor':bgcolor,'color':color}">{{breakdata.title33}}</h5>
+                            <p class="desc">{{breakdata.description33}}</p>
+                          </div>
+                      </div>
+
+                      <div class="col-md-3 col-sm-12 box_flex" *ngIf="breakdata.nolayout == '4'">
+                          <div class="column">
+                            <h5 class="title" [ngStyle]="{'backgroundColor':bgcolor,'color':color}">{{breakdata.title1}}</h5>
+                            <p class="desc">{{breakdata.description1}}</p>
+                          </div>
+                      </div>
+
+                      <div class="col-md-3 col-sm-12 box_flex" *ngIf="breakdata.nolayout == '4'">
+                          <div class="column">
+                            <h5 class="title" [ngStyle]="{'backgroundColor':bgcolor,'color':color}">{{breakdata.title2}}</h5>
+                            <p class="desc">{{breakdata.description2}}</p>
+                          </div>
+                      </div>
+
+                      <div class="col-md-3 col-sm-12 box_flex" *ngIf="breakdata.nolayout == '4'">
+                          <div class="column">
+                            <h5 class="title" [ngStyle]="{'backgroundColor':bgcolor,'color':color}">{{breakdata.title3}}</h5>
+                            <p class="desc">{{breakdata.description3}}</p>
+                          </div>
+                      </div>  
+
+                      <div class="col-md-3 col-sm-12 box_flex" *ngIf="breakdata.nolayout == '4'">
+                          <div class="column">
+                            <h5 class="title" [ngStyle]="{'backgroundColor':bgcolor,'color':color}">{{breakdata.title4}}</h5>
+                            <p class="desc">{{breakdata.description4}}</p>
+                          </div>
+                      </div>
+
+          </div>
+
+      </div>
+
+      <ul class="list-inline">
+        <li (click)="openhtml()"><button [class]="htmlcontent">HTML</button></li>
+        <li (click)="opencss()"><button [class]="csscontent">CSS</button></li>
+      </ul>
+    
+    <div class="htmlelement" *ngIf="htmlcontent == 'active'">
+      <div class="copybutton">
+        <button ngxClipboard [cbContent]="getHtmlContent()" (click)="copy()"><i class="fa fa-copy copyicon"></i>{{Copy}}</button>
+      </div>
+      <pre><code [highlight]="getHtmlContent()">{{getHtmlContent()}}</code></pre>
+    </div>
+    <div class="htmlelement" *ngIf="csscontent == 'active'">
+      <div class="copybutton">
+        <button ngxClipboard [cbContent]="CSS" (click)="copy()"><i class="fa fa-copy copyicon"></i>{{Copy}}</button>
+      </div>
+      <pre><code [highlight]="CSS">{{CSS}}</code></pre>
+    </div>
+
+    </div>
+
+</div>
+
+
+<div class="modal fade" id="fileuploadform" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal-dialog modaldialog-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>Breakpoint</h4>
+                <button class="clearbtn"  aria-label="Header Update modal close"  #myModalClose8 data-bs-dismiss="modal">
+                    <img [src]="closeicon" class="closeicon">  
+                </button>
+            </div>
+            <app-editbreakpoint (onclose)="close()"></app-editbreakpoint>
+  
+        </div>
+    </div>
+  </div>

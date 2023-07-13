@@ -1,0 +1,124 @@
+<div class="modal-body">
+    <p><b>Please fill the mandatory fields according your preference to design of the Card</b> </p>
+
+    <form  [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-group pt-3">
+            <label>Label:</label><span class="star">*</span>
+            <input type="text" maxlength="15" class="form-control inputbox" aria-describedby="title-err-text"
+                placeholder="Please enter label" name="title" formControlName="title"
+                [(ngModel)]="inputgetdata.title" [ngClass]="{ 'is-invalid': submitted && f.title.errors }" autofocus />
+            <div *ngIf="(f.title.touched || submitted) && f.title.errors" class="invalid-feedback">
+                <div class="error" role="alert" aria-atomic="true" *ngIf="f.title.errors.required">Label is required
+                </div>
+                <div class="error" role="alert" aria-atomic="true" *ngIf="f.title.errors.minlength">Minimum 3 word
+                    required</div>
+                <div class="error" role="alert" aria-atomic="true" *ngIf="f.title.errors.maxlength">maxlength 15</div>
+            </div>
+        </div>
+
+        <div class="pt-3"> 
+            <label class="accessbility">Field Type</label><span class="star">*</span>
+            <div class="form-group d-flex align-items-center shadow-sec background">
+                <select class="bgcolor" name="fieldtype" aria-label="select fieldtype" aria-describedby="width-err-txt"
+                [(ngModel)]="inputgetdata.fieldtype" formControlName="fieldtype"> 
+                    <option>input</option>
+                    <option>textarea</option>
+                </select>
+            </div>
+            <div *ngIf="(f.fieldtype.touched || submitted) && f.fieldtype.errors" class="invalid-feedback">
+                <div class="error" role="alert" id="width-err-txt" *ngIf="f.fieldtype.errors.required">Please select an
+                    option</div>
+            </div>
+        </div> 
+
+        <div class="">
+            <label class="accessbility">Would you like to show an characters count?</label><span class="star">*</span>
+            <div class="form-group">
+               
+                <label class="image1"  > <input type="radio"   name="image" value="Yes" aria-describedby="image-err-text"
+                    (change)="handleChange2($event)" [ngClass]="boxshadowchecked" aria-label="Yes" formControlName="image"> <span>Yes</span></label>
+                
+                <label class="image1" > <input type="radio"  name="image" value="No" aria-describedby="image-err-text"
+                    (change)="handleChange2($event)" [ngClass]="noboxshadowchecked" aria-label="No" formControlName="image"> <span>No</span></label>
+            </div>
+            <div *ngIf="submitted && f.image.errors" class="invalid-feedback">
+                <div class="error" role="alert" id="image-err-text" *ngIf="f.image.errors.required">Please select an
+                    option</div>
+            </div>
+        </div>
+        <div class="">
+            <label class="accessbility">Would you like to Add an rounded radius?</label><span class="star">*</span>
+            <div class="form-group">
+                
+                <label class="image1" ><input type="radio"   name="radius" value="Yes" aria-describedby="image-err-text"
+                    (change)="handleChange($event)" [ngClass]="boxshadowchecked" aria-label="Yes" formControlName="radius"> <span>Yes</span></label>
+                
+                <label class="image1"  > <input type="radio"   name="radius" value="No" aria-describedby="image-err-text"
+                    (change)="handleChange($event)" [ngClass]="noboxshadowchecked" aria-label="No" formControlName="radius"> <span>No</span></label>
+            </div>
+            <div *ngIf="submitted && f.radius.errors" class="invalid-feedback">
+                <div class="error" role="alert" id="image-err-text" *ngIf="f.radius.errors.required">Please select an
+                    option</div>
+            </div>
+        </div>
+        <!-- *ngIf="f.inputdata.value == 'text'" -->
+        <div class="pt-3"  *ngIf="f.fieldtype.value === 'input'">
+            <label class="accessbility">Input type</label><span class="star">*</span>
+            <div class="form-group d-flex align-items-center shadow-sec background">
+                <select class="bgcolor" name="inputype" aria-label="select inputype" aria-describedby="width-err-txt"
+                [(ngModel)]="inputgetdata.inputype" formControlName="inputype">
+                    <option>text</option>
+                    <option>password</option>
+                    <option>email</option> 
+                </select>
+            </div>
+            <div *ngIf="(f.inputype.touched || submitted) && f.inputype.errors" class="invalid-feedback">
+                <div class="error" role="alert" id="width-err-txt" *ngIf="f.inputype.errors.required">Please select an
+                    option</div>
+            </div>
+        </div>
+
+        <div class="pt-3">
+            <label class="accessbility">Card width</label><span class="star">*</span>
+            <div class="form-group d-flex align-items-center shadow-sec background">
+                <select class="bgcolor" name="cardwidth" aria-label="select cardwidth" aria-describedby="width-err-txt"
+                [(ngModel)]="inputgetdata.cardwidth" formControlName="cardwidth">
+                    <option>100%</option>
+                    <option>75%</option>
+                    <option>50%</option>
+                    <option>25%</option>
+                </select>
+            </div>
+            <div *ngIf="(f.cardwidth.touched || submitted) && f.cardwidth.errors" class="invalid-feedback">
+                <div class="error" role="alert" id="width-err-txt" *ngIf="f.cardwidth.errors.required">Please select an
+                    option</div>
+            </div>
+        </div> 
+        <div class="pt-3">
+            <label class="accessbility">Input Theme Color:</label><span class="star">*</span>
+            <div class="form-group d-flex align-items-center shadow-sec background">
+                <select class="bgcolor" name="theme" aria-label="select theme color" aria-describedby="theme-err-txt"
+                [(ngModel)]="inputgetdata.theme" formControlName="color">
+                    <option>dark</option>
+                    <option>blue</option>
+                    <option>purple</option>
+                    <option>light</option>
+                </select>
+            </div>
+            <div *ngIf="(f.color.touched || submitted) && f.color.errors" class="invalid-feedback">
+                <div class="error" role="alert" id="theme-err-txt" *ngIf="f.color.errors.required">Please select an
+                    option</div>
+            </div>
+        </div>
+
+
+
+    <div class="footerbutton">
+        <button  class="submitbutton">
+            Update
+        </button>
+    </div>
+</form>
+
+</div>
+

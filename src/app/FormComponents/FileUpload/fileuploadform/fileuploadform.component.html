@@ -1,0 +1,58 @@
+<div class="modal-body">
+    <p><b>Please update the mandatory fields according your preference to choose file.</b> </p>
+
+    <form  [formGroup]="FileUpload" (ngSubmit)="onSubmit()">
+        <div class="form-group pt-3">
+            <label>Label:</label><span class="star">*</span>
+            <input type="text" maxlength="15" class="form-control inputbox" aria-describedby="title-err-text" aria-required="true" placeholder="Please enter label" name="title" formControlName="title" [ngClass]="{ 'is-invalid': submitted && f.title.errors }" autofocus/>
+            <div *ngIf="(f.title.touched || submitted) && f.title.errors" class="invalid-feedback">
+                <div class="error" role="alert" aria-atomic="true"  *ngIf="f.title.errors.required">label is required</div>
+                <div class="error" role="alert" aria-atomic="true"   *ngIf="f.title.errors.minlength">Minimum 3 word required for label</div>
+                <div class="error" role="alert" aria-atomic="true" *ngIf="f.title.errors.maxlength">maxlength 15 for label</div>
+          </div>
+        </div>
+
+        <div class="pt-3">
+            <label class="accessbility">Please select file type</label><span class="star">*</span>
+            <div class="form-group d-flex align-items-center shadow-sec background">
+                <select class="bgcolor" name="choosefile" aria-label="select no of files" formControlName="choosefile">
+                    <option>single</option>
+                    <option>multiple</option>
+                </select>
+            </div>
+            <div *ngIf="(f.choosefile.touched || submitted) && f.choosefile.errors" >
+                <div class="error" role="alert" aria-atomic="true"  *ngIf="f.choosefile.errors.required">file selection is required</div>
+          </div>
+        </div>
+
+        <div class="pt-3">
+            <label class="accessbility">Please select width</label><span class="star">*</span>
+            <div class="form-group d-flex align-items-center shadow-sec background">
+                <select class="bgcolor" name="width" aria-label="select theme width" formControlName="width">
+                    <option>25%</option>
+                    <option>50%</option>
+                    <option>75%</option>
+                    <option>100%</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="pt-3">
+            <label class="accessbility">Please select Theme Color</label><span class="star">*</span>
+            <div class="form-group d-flex align-items-center shadow-sec background">
+                <select class="bgcolor" name="color" aria-label="select theme color" formControlName="color">
+                    <option>dark</option>
+                    <option>blue</option>
+                    <option>purple</option>
+                    <option>light</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="footerbutton">
+            <button  class="submitbutton">
+                Create
+            </button>
+        </div>
+    </form>
+</div>

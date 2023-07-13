@@ -1,0 +1,101 @@
+<div class="modal-body">
+    <p><b>Please fill the mandatory fields according your preference to design tooltip</b> </p>
+
+    <form  [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-group pt-3">
+        <label>Button Name:</label><span class="star">*</span>
+        <input type="text" maxlength="13" class="form-control inputbox" aria-describedby="title-err-text" aria-required="true" placeholder="Please enter button name" name="title" formControlName="title" [ngClass]="{ 'is-invalid': submitted && f.title.errors }" autofocus/>
+        <div *ngIf="(f.title.touched || submitted) && f.title.errors" class="invalid-feedback">
+            <div class="error" role="alert" aria-atomic="true"  *ngIf="f.title.errors.required">Button name is required</div>
+            <div class="error" role="alert" aria-atomic="true"   *ngIf="f.title.errors.minlength">Minimum 3 word required for title</div>
+            <div class="error" role="alert" aria-atomic="true" *ngIf="f.title.errors.maxlength">maxlength 15 for title</div>
+          </div>
+        </div>
+
+
+    <div class="form-group">
+        <label>Tooltip Name:</label><span class="star">*</span>
+        <input type="text" class="form-control inputbox" aria-describedby="profile-err-text" placeholder="Please enter tooltip name" name="tooltipname" formControlName="tooltipname" [ngClass]="{ 'is-invalid': submitted && f.tooltipname.errors }" autofocus/>
+        <div *ngIf="(f.tooltipname.touched || submitted) && f.tooltipname.errors" class="invalid-feedback">
+            <div class="error" role="alert" id="profile-err-text" *ngIf="f.tooltipname.errors.required">Tooltip name is required</div>
+            <div class="error" role="alert" id="profile-err-text" *ngIf="f.tooltipname.errors.maxlength">maxlength 20</div>
+          </div>  
+          </div>
+
+
+          
+
+    <div>
+        <label class="accessbility">Please Select Direction</label><span class="star">*</span>
+        <div class="form-group d-flex align-items-center shadow-sec background">
+            <select class="bgcolor" name="direction" aria-label="select theme color" formControlName="direction">
+                <option value="topright">Top Right</option>
+                <option value="topleft">Top Left</option>
+                <option value="bottomright"> Bottom Right</option>
+                <option value="bottomleft">Bottom left</option>
+                <option value="right" selected> Right</option>
+                <option value="left">Left</option>
+            </select>
+        </div>
+    </div>
+
+
+
+    <div class="pt-3">
+        <label class="accessbility">Please select Theme Color</label><span class="star">*</span>
+        <div class="form-group d-flex align-items-center shadow-sec background">
+            <select class="bgcolor" name="color" aria-label="select theme color" formControlName="color">
+                <option>dark</option>
+                <option>blue</option>
+                <option>purple</option>
+                <option>light</option>
+            </select>
+        </div>
+    </div>  
+
+
+
+    <div class="footerbutton" *ngIf="!tooltipdata">
+        <button  class="submitbutton">
+            Create
+        </button>
+    </div>
+
+    
+    <div class="footerbutton" *ngIf="tooltipdata">
+        <button  class="submitbutton">
+            Update
+        </button>
+    </div>
+
+
+</form>
+
+</div>
+<!-- <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="submitPopup()">
+        Submit
+    </button>   
+</div> -->
+    <!-- <label>Please select Capgemini header Image</label> -->
+    <!-- <div class="row logo_select">
+        <div class="col-md-6">
+            <div class="form-group">
+                <input type="checkbox" [checked]="checkedone" (change)="checkedone = !checkedone"><span><img
+                        [src]="img1" class="img1"></span>
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <input type="checkbox" [checked]="checkedtwo" (change)="checkedtwo = !checkedtwo" /><span><img
+                        [src]="img2" class="img1"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <input type="checkbox" [checked]="checkedthree" (change)="checkedthree = !checkedthree" /><span><img
+                        [src]="img3" class="img1"></span>
+            </div>
+        </div>
+    </div> -->

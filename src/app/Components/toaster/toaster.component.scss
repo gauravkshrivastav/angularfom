@@ -1,0 +1,111 @@
+button.toaster_btn {
+    // color: #fff;
+    padding: 10px 40px;
+    border-radius: 5px;
+    text-transform: capitalize;
+}
+
+
+.htmlelement{
+    background-color: var(--color-white);;
+    overflow-y: scroll;
+    width:90%;
+    min-height: 105px;
+    max-height:350px;
+    margin: auto;
+    margin-top: 30px;
+    padding-top: 30px;
+}
+.copybutton{
+    text-align: end;
+        margin-right: 40px;
+        button{
+            border: 1.5px solid black;
+            background: transparent;
+            border-radius: 10px;
+            padding: 5px 10px;
+        }
+        .copyicon{
+            margin-right: 5px;
+        }
+}
+
+.error{
+    color: var(--color-red);
+}
+// .top-header{
+//     h4{
+//         // color: var(--color-wbh-blue);
+//         span{
+//             color:var(--bs-black);
+//         }
+//     }
+// }
+.backbutton{
+    border-radius: 8px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: var(--color-white) !important;
+    background-color: var(--color-wbh-blue) !important;
+}
+.tabs{
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    label{
+        margin-right: 10px;
+    }
+}
+.list-inline {
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    li:first-child{
+        margin-right: 10px;
+    }
+    li{
+        cursor: pointer;
+        button{
+            border: none;
+            background: transparent;
+            padding: 0px;
+        }
+    }
+}
+
+.active{
+    border-bottom: 1px solid black !important;
+    padding-bottom: 5px !important;
+}
+
+button.toaster_button {
+    width: 150px;
+    min-height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 3px;
+    border: none;
+    transition: all 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+    background: white;
+    box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.231372549);
+    word-break: break-all;
+}
+
+@media only screen and (max-width: 767px) {
+    button.toaster_button.toaster_btn {
+        width: 100% !important;
+    }
+    .modaldialog-width {
+      margin-top: 60px;
+      max-width: 100% !important;
+  }
+}  
+@media screen and (min-width:320px) and (max-width:335px) {
+    .subheader{
+        font-size: 17px !important;
+    }
+    
+}

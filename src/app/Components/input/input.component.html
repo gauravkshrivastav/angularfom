@@ -1,0 +1,68 @@
+<div class="main">
+    <div class="top-header">
+        <div>
+            <h4 class="subheader">Input/Textarea <span class="sideheader">Component</span></h4>
+        </div>
+        <div class="button-sec">
+            <button class="backbutton" (click)="backwindow()">Back</button>
+            <button class="backbutton" data-bs-toggle="modal" data-bs-target="#exampleModal2">Edit</button>
+        </div>
+    </div>
+
+    <div class="container p-3">
+        <div *ngIf="inputdatas?.fieldtype== 'input'" [ngStyle]="{'max-width':inputdatas.cardwidth}"
+            class="form-floating form-floating-filled mt-3 m-auto">
+            <input (keyup)="onKeyUp($event)" 
+                [ngStyle]="{'border':'1.5px solid' + inputdatas.bgcolor, 'border-radius':inputdatas.radiusvalue }"
+                type={{inputdatas.inputype}} class="form-control form-control-secondary" maxlength="50" id="firstName"
+                placeholder="First name" autocomplete="off" />
+            <label for="firstName">{{inputdatas.title}}</label>
+            <div class="form-floating-bottom px-3"></div>
+            <p class="float-end counts" *ngIf="inputdatas?.image== 'Yes'"> Counts : <span>{{numberOfCharacters1}}</span> / {{maxNumberOfCharacters}}</p>
+        </div> 
+
+        <div *ngIf="inputdatas?.fieldtype== 'textarea'" [ngStyle]="{'max-width':inputdatas.cardwidth}"
+            class="form-floating form-floating-filled mt-3 m-auto">
+            <textarea (keyup)="onKeyUparea($event)" 
+                [ngStyle]="{'border':'1.5px solid' + inputdatas.bgcolor, 'border-radius':inputdatas.radiusvalue }" 
+                class="form-control form-control-secondary height-textarea" maxlength="500" id="firstName"
+                placeholder="First name" autocomplete="off" ></textarea>
+            <label for="firstName">{{inputdatas.title}}</label>
+            <div class="form-floating-bottom px-3"></div>
+            <p class="float-end counts" *ngIf="inputdatas?.image== 'Yes'"> Counts : <span>{{numberOfCharactersarea1}}</span> / {{maxNumberOfCharactersarea}}</p>
+        </div> 
+    </div>
+     
+    <ul class="list-inline">
+      <li (click)="openhtml()"><button [class]="htmlcontent">HTML</button></li>
+      <li (click)="opencss()"><button [class]="csscontent">CSS</button></li>
+    </ul>
+    <div class="htmlelement" *ngIf="htmlcontent == 'active'">
+      <div class="copybutton">
+        <button ngxClipboard [cbContent]="getHtmlContent()" (click)="copy()"><i class="fa fa-copy copyicon"></i>{{Copy}}</button>
+      </div>
+      <pre><code [highlight]="getHtmlContent()">{{getHtmlContent()}}</code></pre>
+    </div>
+    <div class="htmlelement" *ngIf="csscontent == 'active'">
+      <div class="copybutton">
+        <button ngxClipboard [cbContent]="CSS" (click)="copy()"><i class="fa fa-copy copyicon"></i>{{Copy}}</button>
+      </div>
+      <pre><code [highlight]="CSS">{{CSS}}</code></pre>
+    </div>
+</div>
+
+<div class="modal fade editcard" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2"
+    aria-hidden="true">
+    <div class="modal-dialog modaldialog-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>Input/Textarea</h4>
+                <button class="clearbtn" aria-label="Card Update modal close" #myModalClose1 data-bs-dismiss="modal">
+                    <img [src]="closeicon" class="closeicon">
+                </button>
+            </div>
+            <!-- <app-editcard (onclose)="close()"></app-editcard> -->
+            <app-editinput  (onclose)="close()"></app-editinput>
+        </div>
+    </div>
+</div>

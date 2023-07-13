@@ -1,0 +1,82 @@
+
+
+
+
+<div class="main">
+    <div class="top-header">
+      <div class="insideheader">
+        <h4 class="subheader">Date & Time <span>Component</span></h4>
+      </div>
+      <div class="button-sec">
+        <button class=" backbutton" (click)="backwindow()">Back</button>
+        <button class=" backbutton" data-bs-toggle="modal" data-bs-target="#exampleModal5">Edit</button>
+      </div> 
+    </div>
+	
+	
+	
+	
+	<div class="container">
+
+		<div class="date_section" *ngIf="updatedropdown" #calendar>
+
+		<div class="date_time_picker" [ngStyle]="{'width':calendardata?.rangewidth}" *ngIf="calendardata?.calendaroption == 'calendartime'">
+			<label>{{calendardata?.title}}</label>
+			<div class="date_time_pciker"   [style.border]="'1.5px solid ' +  calendardata?.color" >
+			<input type="datetime-local" id="birthdaytime" name="birthdaytime">
+			</div>
+		</div>
+
+			<div class="date_time_picker" [ngStyle]="{'width':calendardata?.rangewidth}" *ngIf="calendardata?.calendaroption == 'calendar'">
+				<label>{{calendardata?.title}}</label>
+				<div class="date_time_pciker" [style.border]="'1.5px solid ' +  calendardata?.color" >
+					<input type="date" name="date"/>
+
+				</div>
+			</div>
+
+			<div class="date_time_picker" [ngStyle]="{'width':calendardata?.rangewidth}" *ngIf="calendardata?.calendaroption == 'time'">
+				<label>{{calendardata?.title}}</label>
+				<div class="date_time_pciker" [style.border]="'1.5px solid ' +  calendardata?.color" >
+					<input type="time" name="time"/>
+				</div>
+			</div>
+		</div>
+
+		<ul class="list-inline">
+			<li (click)="openhtml()"><button [class]="htmlcontent">HTML</button></li>
+			<li (click)="opencss()"><button [class]="csscontent">CSS</button></li>
+		  </ul>
+		
+		<div class="htmlelement" *ngIf="htmlcontent == 'active'">
+		  <div class="copybutton">
+			<button ngxClipboard [cbContent]="getHtmlContent()" (click)="copy()"><i class="fa fa-copy copyicon"></i>{{Copy}}</button>
+		  </div>
+		  <pre><code [highlight]="getHtmlContent()">{{getHtmlContent()}}</code></pre>
+		</div>
+		<div class="htmlelement" *ngIf="csscontent == 'active'">
+		  <div class="copybutton">
+			<button ngxClipboard [cbContent]="CSS" (click)="copy()"><i class="fa fa-copy copyicon"></i>{{Copy}}</button>
+		  </div>
+		  <pre><code [highlight]="CSS">{{CSS}}</code></pre>
+		</div>
+
+	</div>
+
+</div>
+
+
+<div class="modal fade" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+	<div class="modal-dialog modaldialog-width">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4>Date & Time</h4>
+				<button class="clearbtn" #myModalClose5 data-bs-dismiss="modal">
+					<img [src]="closeicon">
+				</button>
+			</div>
+			<!-- <app-checkboxform (onclose)="close()"></app-checkboxform> -->
+			<app-calendarform (onclose)="close()"></app-calendarform>
+		</div>
+	</div>
+</div>

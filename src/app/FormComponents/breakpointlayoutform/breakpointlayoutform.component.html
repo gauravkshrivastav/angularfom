@@ -1,0 +1,254 @@
+<div class="modal-body">
+    <p><b>Please fill the mandatory fields according your preference to design breakpoint</b> </p>
+
+    <form  [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-group pt-3">
+        <label>Number of breakpoint layout:</label><span class="star">*</span>
+        <select [(ngModel)]="layout" name="nolayout" aria-label="select no of breakpoint layout" formControlName="nolayout">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+        </select>
+        <div *ngIf="(f.nolayout.touched || submitted) && f.nolayout.errors" >
+            <div class="error" role="alert" aria-atomic="true"  *ngIf="f.nolayout.errors.required">please select an option</div>
+        </div>
+    </div>
+
+
+    <div class="form-group pt-3" *ngIf="f.nolayout.value == '1'">
+        <label>Text for the title for breakpoint layout 1:</label><span class="star">*</span>
+        <input type="text" maxlength="100" class="form-control inputbox" aria-describedby="Text for the title for breakpoint layout 1" aria-required="true" placeholder="Please enter title" name="title11" formControlName="title11" [ngClass]="{ 'is-invalid': submitted && f.title11.errors }" autofocus/>
+        <div *ngIf="(f.title11.touched || submitted) && f.title11.errors" >
+            <div class="error" role="alert" aria-atomic="true"  *ngIf="f.title11.errors.required">please enter title</div>
+            <div class="error" role="alert" aria-atomic="true"   *ngIf="f.title11.errors.minlength">Minimum 3 word required for title</div>
+            <div class="error" role="alert" aria-atomic="true" *ngIf="f.title11.errors.maxlength">maxlength 15 for title</div>
+        </div>
+    </div>
+
+    <div class="form-group pt-3" *ngIf="f.nolayout.value == '1'">
+        <label>Text for the description for breakpoint layout 1:</label><span class="star">*</span>
+        <textarea type="text" maxlength="200" class="form-control inputbox" aria-describedby="Text for the description for breakpoint layout 1" aria-required="true" placeholder="Please enter description" name="description11" formControlName="description11" [ngClass]="{ 'is-invalid': submitted && f.description11.errors }" autofocus></textarea>
+        <div *ngIf="(f.description11.touched || submitted) && f.description11.errors">
+            <div class="error" role="alert" aria-atomic="true"  *ngIf="f.description11.errors.required">Please enter description</div>
+            <div class="error" role="alert" aria-atomic="true"   *ngIf="f.description11.errors.minlength">Minimum 3 word required for description</div>
+            <div class="error" role="alert" aria-atomic="true" *ngIf="f.description11.errors.maxlength">maxlength 100 for description</div>
+        </div>
+    </div>
+
+
+    <div class="form-group pt-3" *ngIf="f.nolayout.value == '2'">
+        <label>Text for the title for breakpoint layout 1:</label><span class="star">*</span>
+        <input type="text" maxlength="100" class="form-control inputbox" aria-describedby="Text for the title for breakpoint layout 1" aria-required="true" placeholder="Please enter title" name="title21" formControlName="title21" [ngClass]="{ 'is-invalid': submitted && f.title21.errors }" autofocus/>
+        <div *ngIf="(f.title21.touched || submitted) && f.title21.errors" >
+            <div class="error" role="alert" aria-atomic="true"  *ngIf="f.title21.errors.required">please enter title</div>
+            <div class="error" role="alert" aria-atomic="true"   *ngIf="f.title21.errors.minlength">Minimum 3 word required for title</div>
+            <div class="error" role="alert" aria-atomic="true" *ngIf="f.title21.errors.maxlength">maxlength 15 for title</div>
+        </div>
+    </div>
+
+    <div class="form-group pt-3" *ngIf="f.nolayout.value == '2'">
+        <label>Text for the description for breakpoint layout 1:</label><span class="star">*</span>
+        <textarea type="text" maxlength="200" class="form-control inputbox" aria-describedby="Text for the description for breakpoint layout 1" aria-required="true" placeholder="Please enter description" name="description21" formControlName="description21" [ngClass]="{ 'is-invalid': submitted && f.description21.errors }" autofocus></textarea>
+        <div *ngIf="(f.description21.touched || submitted) && f.description21.errors" >
+            <div class="error" role="alert" aria-atomic="true"  *ngIf="f.description21.errors.required">Please enter description</div>
+            <div class="error" role="alert" aria-atomic="true"   *ngIf="f.description21.errors.minlength">Minimum 3 word required for description</div>
+            <div class="error" role="alert" aria-atomic="true" *ngIf="f.description21.errors.maxlength">maxlength 100 for description</div>
+        </div>
+    </div>
+
+
+    <div class="form-group pt-3" *ngIf="f.nolayout.value == '2'">
+        <label>Text for the title for breakpoint layout 2:</label><span class="star">*</span>
+        <input type="text" maxlength="100" class="form-control inputbox" aria-describedby="Text for the title for breakpoint layout 1" aria-required="true" placeholder="Please enter title" name="title22" formControlName="title22" [ngClass]="{ 'is-invalid': submitted && f.title22.errors }" autofocus/>
+        <div *ngIf="(f.title22.touched || submitted) && f.title22.errors" >
+            <div class="error" role="alert" aria-atomic="true"  *ngIf="f.title22.errors.required">please enter title</div>
+            <div class="error" role="alert" aria-atomic="true"   *ngIf="f.title22.errors.minlength">Minimum 3 word required for title</div>
+            <div class="error" role="alert" aria-atomic="true" *ngIf="f.title22.errors.maxlength">maxlength 15 for title</div>
+        </div>
+    </div>
+
+    <div class="form-group pt-3" *ngIf="f.nolayout.value == '2'">
+        <label>Text for the description for breakpoint layout 2:</label><span class="star">*</span>
+        <textarea type="text" maxlength="200" class="form-control inputbox" aria-describedby="Text for the description for breakpoint layout 1" aria-required="true" placeholder="Please enter description" name="description22" formControlName="description22" [ngClass]="{ 'is-invalid': submitted && f.description22.errors }" autofocus></textarea>
+        <div *ngIf="(f.description22.touched || submitted) && f.description22.errors" >
+            <div class="error" role="alert" aria-atomic="true"  *ngIf="f.description22.errors.required">Please enter description</div>
+            <div class="error" role="alert" aria-atomic="true"   *ngIf="f.description22.errors.minlength">Minimum 3 word required for description</div>
+            <div class="error" role="alert" aria-atomic="true" *ngIf="f.description22.errors.maxlength">maxlength 100 for description</div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="form-group pt-3" *ngIf="f.nolayout.value == '3'">
+        <label>Text for the title for breakpoint layout 1:</label><span class="star">*</span>
+        <input type="text" maxlength="100" class="form-control inputbox" aria-describedby="Text for the title for breakpoint layout 1" aria-required="true" placeholder="Please enter title" name="title31" formControlName="title31" [ngClass]="{ 'is-invalid': submitted && f.title31.errors }" autofocus/>
+        <div *ngIf="(f.title31.touched || submitted) && f.title31.errors" >
+            <div class="error" role="alert" aria-atomic="true"  *ngIf="f.title31.errors.required">please enter title</div>
+            <div class="error" role="alert" aria-atomic="true"   *ngIf="f.title31.errors.minlength">Minimum 3 word required for title</div>
+            <div class="error" role="alert" aria-atomic="true" *ngIf="f.title31.errors.maxlength">maxlength 15 for title</div>
+        </div>
+    </div>
+
+    <div class="form-group pt-3" *ngIf="f.nolayout.value == '3'">
+        <label>Text for the description for breakpoint layout 1:</label><span class="star">*</span>
+        <textarea type="text" maxlength="200" class="form-control inputbox" aria-describedby="Text for the description for breakpoint layout 1" aria-required="true" placeholder="Please enter description" name="description31" formControlName="description31" [ngClass]="{ 'is-invalid': submitted && f.description31.errors }" autofocus></textarea>
+        <div *ngIf="(f.description31.touched || submitted) && f.description31.errors" >
+            <div class="error" role="alert" aria-atomic="true"  *ngIf="f.description31.errors.required">Please enter description</div>
+            <div class="error" role="alert" aria-atomic="true"   *ngIf="f.description31.errors.minlength">Minimum 3 word required for description</div>
+            <div class="error" role="alert" aria-atomic="true" *ngIf="f.description31.errors.maxlength">maxlength 100 for description</div>
+        </div>
+    </div>
+
+
+    <div class="form-group pt-3" *ngIf="f.nolayout.value == '3'">
+        <label>Text for the title for breakpoint layout 2:</label><span class="star">*</span>
+        <input type="text" maxlength="100" class="form-control inputbox" aria-describedby="Text for the title for breakpoint layout 1" aria-required="true" placeholder="Please enter title" name="title32" formControlName="title32" [ngClass]="{ 'is-invalid': submitted && f.title32.errors }" autofocus/>
+        <div *ngIf="(f.title32.touched || submitted) && f.title32.errors" >
+            <div class="error" role="alert" aria-atomic="true"  *ngIf="f.title32.errors.required">please enter title</div>
+            <div class="error" role="alert" aria-atomic="true"   *ngIf="f.title32.errors.minlength">Minimum 3 word required for title</div>
+            <div class="error" role="alert" aria-atomic="true" *ngIf="f.title32.errors.maxlength">maxlength 15 for title</div>
+        </div>
+    </div>
+
+    <div class="form-group pt-3" *ngIf="f.nolayout.value == '3'">
+        <label>Text for the description for breakpoint layout 2:</label><span class="star">*</span>
+        <textarea type="text" maxlength="200" class="form-control inputbox" aria-describedby="Text for the description for breakpoint layout 1" aria-required="true" placeholder="Please enter description" name="description32" formControlName="description32" [ngClass]="{ 'is-invalid': submitted && f.description32.errors }" autofocus></textarea>
+        <div *ngIf="(f.description32.touched || submitted) && f.description32.errors" >
+            <div class="error" role="alert" aria-atomic="true"  *ngIf="f.description32.errors.required">Please enter description</div>
+            <div class="error" role="alert" aria-atomic="true"   *ngIf="f.description32.errors.minlength">Minimum 3 word required for description</div>
+            <div class="error" role="alert" aria-atomic="true" *ngIf="f.description32.errors.maxlength">maxlength 100 for description</div>
+        </div>
+    </div>
+
+
+    <div class="form-group pt-3" *ngIf="f.nolayout.value == '3'">
+        <label>Text for the title for breakpoint layout 3:</label><span class="star">*</span>
+        <input type="text" maxlength="100" class="form-control inputbox" aria-describedby="Text for the title for breakpoint layout 1" aria-required="true" placeholder="Please enter title" name="title33" formControlName="title33" [ngClass]="{ 'is-invalid': submitted && f.title33.errors }" autofocus/>
+        <div *ngIf="(f.title33.touched || submitted) && f.title33.errors" >
+            <div class="error" role="alert" aria-atomic="true"  *ngIf="f.title33.errors.required">please enter title</div>
+            <div class="error" role="alert" aria-atomic="true"   *ngIf="f.title33.errors.minlength">Minimum 3 word required for title</div>
+            <div class="error" role="alert" aria-atomic="true" *ngIf="f.title33.errors.maxlength">maxlength 15 for title</div>
+        </div>
+    </div>
+
+    <div class="form-group pt-3" *ngIf="f.nolayout.value == '3'">
+        <label>Text for the description for breakpoint layout 3:</label><span class="star">*</span>
+        <textarea type="text" maxlength="200" class="form-control inputbox" aria-describedby="Text for the description for breakpoint layout 1" aria-required="true" placeholder="Please enter description" name="description33" formControlName="description33" [ngClass]="{ 'is-invalid': submitted && f.description33.errors }" autofocus></textarea>
+        <div *ngIf="(f.description33.touched || submitted) && f.description33.errors" >
+            <div class="error" role="alert" aria-atomic="true"  *ngIf="f.description33.errors.required">Please enter description</div>
+            <div class="error" role="alert" aria-atomic="true"   *ngIf="f.description33.errors.minlength">Minimum 3 word required for description</div>
+            <div class="error" role="alert" aria-atomic="true" *ngIf="f.description33.errors.maxlength">maxlength 100 for description</div>
+        </div>
+    </div>
+
+
+    <div class="form-group pt-3" *ngIf="f.nolayout.value == '4'">
+        <label>Text for the title for breakpoint layout 1:</label><span class="star">*</span>
+        <input type="text" maxlength="100" class="form-control inputbox" aria-describedby="Text for the title for breakpoint layout 1" aria-required="true" placeholder="Please enter title" name="title1" formControlName="title1" [ngClass]="{ 'is-invalid': submitted && f.title1.errors }" autofocus/>
+        <div *ngIf="(f.title1.touched || submitted) && f.title1.errors" >
+            <div class="error" role="alert" aria-atomic="true"  *ngIf="f.title1.errors.required">please enter title</div>
+            <div class="error" role="alert" aria-atomic="true"   *ngIf="f.title1.errors.minlength">Minimum 3 word required for title</div>
+            <div class="error" role="alert" aria-atomic="true" *ngIf="f.title1.errors.maxlength">maxlength 15 for title</div>
+        </div>
+    </div>
+
+    <div class="form-group pt-3" *ngIf="f.nolayout.value == '4'">
+        <label>Text for the description for breakpoint layout 1:</label><span class="star">*</span>
+        <textarea type="text" maxlength="200" class="form-control inputbox" aria-describedby="Text for the description for breakpoint layout 1" aria-required="true" placeholder="Please enter description" name="description1" formControlName="description1" [ngClass]="{ 'is-invalid': submitted && f.description1.errors }" autofocus></textarea>
+        <div *ngIf="(f.description1.touched || submitted) && f.description1.errors" >
+            <div class="error" role="alert" aria-atomic="true"  *ngIf="f.description1.errors.required">Please enter description</div>
+            <div class="error" role="alert" aria-atomic="true"   *ngIf="f.description1.errors.minlength">Minimum 3 word required for description</div>
+            <div class="error" role="alert" aria-atomic="true" *ngIf="f.description1.errors.maxlength">maxlength 100 for description</div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="form-group pt-3" *ngIf="f.nolayout.value == '4'">
+        <label>Text for the title for breakpoint layout 2:</label><span class="star">*</span>
+        <input type="text" maxlength="100" class="form-control inputbox" aria-describedby="Text for the title for breakpoint layout 1" aria-required="true" placeholder="Please enter title" name="title2" formControlName="title2" [ngClass]="{ 'is-invalid': submitted && f.title2.errors }" autofocus/>
+        <div *ngIf="(f.title2.touched || submitted) && f.title2.errors" >
+            <div class="error" role="alert" aria-atomic="true"  *ngIf="f.title2.errors.required">please enter title</div>
+            <div class="error" role="alert" aria-atomic="true"   *ngIf="f.title2.errors.minlength">Minimum 3 word required for title</div>
+            <div class="error" role="alert" aria-atomic="true" *ngIf="f.title2.errors.maxlength">maxlength 15 for title</div>
+        </div>
+    </div>
+
+    <div class="form-group pt-3" *ngIf="f.nolayout.value == '4'">
+        <label>Text for the description for breakpoint layout 2:</label><span class="star">*</span>
+        <textarea type="text" maxlength="200" class="form-control inputbox" aria-describedby="Text for the description for breakpoint layout 1" aria-required="true" placeholder="Please enter description" name="description2" formControlName="description2" [ngClass]="{ 'is-invalid': submitted && f.description2.errors }" autofocus></textarea>
+        <div *ngIf="(f.description2.touched || submitted) && f.description2.errors" >
+            <div class="error" role="alert" aria-atomic="true"  *ngIf="f.description2.errors.required">Please enter description</div>
+            <div class="error" role="alert" aria-atomic="true"   *ngIf="f.description2.errors.minlength">Minimum 3 word required for description</div>
+            <div class="error" role="alert" aria-atomic="true" *ngIf="f.description2.errors.maxlength">maxlength 100 for description</div>
+        </div>
+    </div>
+
+
+    <div class="form-group pt-3" *ngIf="f.nolayout.value == '4'">
+        <label>Text for the title for breakpoint layout 3:</label><span class="star">*</span>
+        <input type="text" maxlength="100" class="form-control inputbox" aria-describedby="Text for the title for breakpoint layout 1" aria-required="true" placeholder="Please enter title" name="title3" formControlName="title3" [ngClass]="{ 'is-invalid': submitted && f.title3.errors }" autofocus/>
+        <div *ngIf="(f.title3.touched || submitted) && f.title3.errors" >
+            <div class="error" role="alert" aria-atomic="true"  *ngIf="f.title3.errors.required">please enter title</div>
+            <div class="error" role="alert" aria-atomic="true"   *ngIf="f.title3.errors.minlength">Minimum 3 word required for title</div>
+            <div class="error" role="alert" aria-atomic="true" *ngIf="f.title3.errors.maxlength">maxlength 15 for title</div>
+        </div>
+    </div>
+
+    <div class="form-group pt-3" *ngIf="f.nolayout.value == '4'">
+        <label>Text for the description for breakpoint layout 3:</label><span class="star">*</span>
+        <textarea type="text" maxlength="200" class="form-control inputbox" aria-describedby="Text for the description for breakpoint layout 1" aria-required="true" placeholder="Please enter description" name="description3" formControlName="description3" [ngClass]="{ 'is-invalid': submitted && f.description3.errors }" autofocus></textarea>
+        <div *ngIf="(f.description3.touched || submitted) && f.description3.errors" >
+            <div class="error" role="alert" aria-atomic="true"  *ngIf="f.description3.errors.required">Please enter description</div>
+            <div class="error" role="alert" aria-atomic="true"   *ngIf="f.description3.errors.minlength">Minimum 3 word required for description</div>
+            <div class="error" role="alert" aria-atomic="true" *ngIf="f.description3.errors.maxlength">maxlength 100 for description</div>
+        </div>
+    </div>
+
+
+
+    <div class="form-group pt-3" *ngIf="f.nolayout.value == '4'">
+        <label>Text for the title for breakpoint layout 4:</label><span class="star">*</span>
+        <input type="text" maxlength="100" class="form-control inputbox" aria-describedby="Text for the title for breakpoint layout 1" aria-required="true" placeholder="Please enter title" name="title4" formControlName="title4" [ngClass]="{ 'is-invalid': submitted && f.title4.errors }" autofocus/>
+        <div *ngIf="(f.title4.touched || submitted) && f.title4.errors" >
+            <div class="error" role="alert" aria-atomic="true"  *ngIf="f.title4.errors.required">please enter title</div>
+            <div class="error" role="alert" aria-atomic="true"   *ngIf="f.title4.errors.minlength">Minimum 3 word required for title</div>
+            <div class="error" role="alert" aria-atomic="true" *ngIf="f.title4.errors.maxlength">maxlength 15 for title</div>
+        </div>
+    </div>
+
+    <div class="form-group pt-3" *ngIf="f.nolayout.value == '4'">
+        <label>Text for the description for breakpoint layout 4:</label><span class="star">*</span>
+        <textarea type="text" maxlength="200" class="form-control inputbox" aria-describedby="Text for the description for breakpoint layout 1" aria-required="true" placeholder="Please enter description" name="description4" formControlName="description4" [ngClass]="{ 'is-invalid': submitted && f.description4.errors }" autofocus></textarea>
+        <div *ngIf="(f.description4.touched || submitted) && f.description4.errors" >
+            <div class="error" role="alert" aria-atomic="true"  *ngIf="f.description4.errors.required">Please enter description</div>
+            <div class="error" role="alert" aria-atomic="true"   *ngIf="f.description4.errors.minlength">Minimum 3 word required for description</div>
+            <div class="error" role="alert" aria-atomic="true" *ngIf="f.description4.errors.maxlength">maxlength 100 for description</div>
+        </div>
+    </div>
+
+    <div class="pt-3">
+        <label class="accessbility">Please select Theme Color</label><span class="star">*</span>
+        <div class="form-group d-flex align-items-center shadow-sec background">
+            <select class="bgcolor" name="color" aria-label="select theme color" formControlName="color">
+                <option>dark</option>
+                <option>blue</option>
+                <option>purple</option>
+                <option>light</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="footerbutton">
+        <button  class="submitbutton">
+            Create
+        </button>
+    </div>
+
+    </form>
+</div>

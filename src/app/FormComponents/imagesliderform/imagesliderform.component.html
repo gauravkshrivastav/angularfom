@@ -1,0 +1,71 @@
+
+<div class="modal-body">
+    <p><b>Please fill the mandatory fields according your preference to design of the Image Slider</b> </p>
+
+    <form  [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+
+     <div class="form-group pt-3">
+        <label class="accessbility">Would you like to Add an image?</label><span class="star">*</span>
+        <div class="form-group">
+            
+            <label class="image1" ><input type="radio" name="image" value="Yes" aria-describedby="image-err-text" aria-label="Yes" formControlName="image" > <span>Yes</span></label>
+            
+            <label class="image1"><input type="radio"  name="image" value="No" aria-describedby="image-err-text" aria-label="No" formControlName="image" > <span>No</span></label>
+        </div>
+        <div *ngIf="submitted && f.image.errors">
+            <div class="error"  role="alert" id="image-err-text" *ngIf="f.image.errors.required">Please select an option</div>
+        </div>    
+    </div>
+
+
+
+    <div class="pt-3">
+        <label class="accessbility">Card width</label><span class="star">*</span>
+        <div class="form-group d-flex align-items-center shadow-sec background">
+            <select class="bgcolor" name="cardwidth" aria-label="select cardwidth" aria-describedby="width-err-txt" formControlName="cardwidth">
+                <option>100%</option>
+                <option>75%</option>
+                <option>50%</option>
+                <option>25%</option>
+            </select>
+        </div>
+        <div *ngIf="(f.cardwidth.touched || submitted) && f.cardwidth.errors">
+            <div class="error" role="alert" id="width-err-txt" *ngIf="f.cardwidth.errors.required">Please select an option</div>
+        </div> 
+    </div>
+
+        <div class="pt-3">
+            <label class="accessbility">Card Theme Color:</label><span class="star">*</span>
+            <div class="form-group d-flex align-items-center shadow-sec background">
+                <select class="bgcolor" name="theme" aria-label="select theme color" aria-describedby="theme-err-txt"
+                    formControlName="theme">
+                    <option value="dark">Dark</option>
+                    <option value="blue">Blue</option>
+                    <option value="purple">Purple</option>
+                    <option value="light">Light</option>
+                </select>
+            </div>
+            <div *ngIf="(f.theme.touched || submitted) && f.theme.errors">
+                <div class="error" role="alert" id="theme-err-txt" *ngIf="f.theme.errors.required">Please select an
+                    option</div>
+            </div>
+        </div>
+
+
+
+    <div class="footerbutton" *ngIf="!imagesliderdata">
+        <button  class="submitbutton">
+            Create
+        </button>
+    </div>
+
+    <div class="footerbutton" *ngIf="imagesliderdata">
+        <button  class="submitbutton">
+            Update
+        </button>
+    </div>
+</form>
+
+</div>
+

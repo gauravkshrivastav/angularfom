@@ -1,0 +1,110 @@
+<div class="modal-body">
+    <p><b>Please update the mandatory fields according your preference to design button</b> </p>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()"> 
+        <div class="fill-sec">
+            <div class="form-group pt-3">
+                <label class="lebel-sec">Text<span>*</span> <small></small></label>
+                <input type="text" minlength="3" aria-describedby="title-err-text" maxlength="20" class="form-control inputbox"
+                    placeholder="Please enter textvalue" name="textvalue" formControlName="textvalue"
+                    [(ngModel)]="buttondata.buttondesign.textvalue"
+                    [ngClass]="{ 'is-invalid': submitted && f.textvalue.errors }" autofocus />
+                <div *ngIf="(f.textvalue.touched || submitted) && f.textvalue.errors" class="invalid-feedback">
+                    <div class="error" role="alert" aria-atomic="true" *ngIf="f.textvalue.errors.required">Text is required</div>
+                    <div class="error" role="alert" aria-atomic="true" *ngIf="f.textvalue.errors.minlength">Minimum 3 word required</div>
+                    <div class="error" role="alert" aria-atomic="true" *ngIf="f.textvalue.errors.maxlength">maxlength 20</div>
+                </div>
+            </div>
+            <!-- <div class="form-group pt-3">
+                <label class="lebel-sec">Font size<span>*</span> <small>(in px)</small></label>
+                <input type="text" maxlength="3" class="form-control inputbox" placeholder="Please enter fontsize"
+                    name="fontsize" formControlName="fontsize" [(ngModel)]="buttondata.buttondesign.fontsize"
+                    [ngClass]="{ 'is-invalid': submitted && f.fontsize.errors }" autofocus />
+                <div *ngIf="(f.fontsize.touched || submitted) && f.fontsize.errors" class="invalid-feedback">
+                    <div class="error" *ngIf="f.fontsize.errors.required">Font Size is required</div>
+                    <div class="error" *ngIf="f.fontsize.errors.minlength">Minimum 3 word required</div> 
+                </div>
+            </div> -->
+
+            <div class="form-group pt-3">
+                <label class="lebel-sec">Button width<span>*</span> <small></small></label>
+                <div class="d-flex align-items-center shadow-sec background">
+                    <select class="btnwitdth" name="btnwitdth" aria-label="select button width" [(ngModel)]="buttonwith1" formControlName="btnwitdth">
+                        <option>Full</option>
+                        <option>75%</option>
+                        <option>50%</option>
+                        <option>25%</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group pt-3">
+                <label class="lebel-sec">Button Padding<span>*</span> <small></small></label>
+                <div class=" d-flex align-items-center shadow-sec background">
+                    <select class="btnpadding" name="btnpadding" aria-label="select button padding" [(ngModel)]="buttonpadding1"
+                        formControlName="btnpadding">
+                        <option>5px padding</option>
+                        <option>10px padding</option>
+                        <option>15px padding</option>
+                        <option>20px padding</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group pt-3">
+                <label class="lebel-sec">Border radius<span>*</span> <small>(in px)</small></label>
+                <input type="text" maxlength="2" class="form-control inputbox" aria-describedby="radius-err-text" placeholder="Please enter borderradius"
+                    name="borderradius" formControlName="borderradius"
+                    [(ngModel)]="buttondata.buttondesign.borderradius"
+                    [ngClass]="{ 'is-invalid': submitted && f.borderradius.errors }" autofocus />
+                <div *ngIf="(f.borderradius.touched || submitted) && f.borderradius.errors" class="invalid-feedback">
+                    <div class="error" role="alert" aria-atomic="true" *ngIf="f.borderradius.errors.required">Border Radius is required</div>
+                    <div class="error" role="alert" aria-atomic="true" *ngIf="f.borderradius.errors.minlength">Minimum 3 word required</div> 
+                </div>
+            </div>
+            <div class="form-group pt-3">
+                <label class="lebel-sec">Border width<span>*</span> <small>(in px)</small></label>
+                <input type="text" maxlength="2" class="form-control inputbox" aria-describedby="width-err-text" placeholder="Please enter borderwidth"
+                    name="borderwidth" formControlName="borderwidth" [(ngModel)]="buttondata.buttondesign.borderwidth"
+                    [ngClass]="{ 'is-invalid': submitted && f.borderwidth.errors }" autofocus />
+                <div *ngIf="(f.borderwidth.touched || submitted) && f.borderwidth.errors" class="invalid-feedback">
+                    <div class="error" role="alert" aria-atomic="true" *ngIf="f.borderwidth.errors.required">Border width is required</div>
+                    <div class="error" role="alert" aria-atomic="true" *ngIf="f.borderwidth.errors.minlength">Minimum 3 word required</div>
+                    <div class="error" role="alert" aria-atomic="true" *ngIf="f.borderwidth.errors.maxlength">maxlength 20</div>
+                </div>
+            </div>
+            <div class="form-group pt-3">
+                <label class="lebel-sec">Select your theme<span>*</span> <small></small></label>
+                <div class=" d-flex align-items-center shadow-sec background">
+                    <select class="bgcolor" name="color" formControlName="color" aria-label="select theme color" [(ngModel)]="themecolor">
+                        <option>dark</option>
+                        <option>blue</option>
+                        <option>purple</option>
+                        <option>light</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group pt-3">
+                <label class="accessbility">Would you like to have Box shadow </label><span class="star">*</span> 
+                <div class="mt-2">
+                    
+                    <label class="image1"  ><input type="radio"  name="imagev" (change)="handleChange($event)" aria-describedby="image-err-text" aria-label="Yes" [ngClass]="boxshadowchecked" value="Yes" formControlName="imagev"> <span>Yes</span></label>
+                    
+                    <label class="image1" ><input type="radio"   name="imagev" (change)="handleChange($event)" aria-describedby="image-err-text" aria-label="No" [ngClass]="noboxshadowchecked" value="No" formControlName="imagev"> <span>No</span></label>
+                    
+                    
+                    <div *ngIf="(f.imagev.touched || submitted) && f.imagev.errors" class="invalid-feedback">
+                        <div class="error" role="alert" id="image-err-text" *ngIf="f.imagev.errors.required">Box shadow is required</div>
+                    </div>
+                     
+                </div>
+            </div>
+        </div>
+        
+        <div class="footerbutton">
+            <button class="submitbutton">
+                Update
+            </button>
+        </div>
+    </form>
+
+</div>

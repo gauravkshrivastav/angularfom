@@ -1,0 +1,144 @@
+.nav.nav-tabs li {
+    // padding: 10px 5px;
+    cursor: pointer;
+    text-align: center;
+    margin-right: 0.2px;
+}
+.modal-dialog {
+    margin-top: 90px;
+}
+.nav.nav-tabs{
+    // background-color: rgb(231, 226, 226);
+}
+.nav.nav-tabs{
+    button{
+        padding: 8px 15px;
+        border: none;
+        // background: transparent;
+        width:100%;
+    }
+    button:focus{
+        -webkit-box-shadow: 0 0 10px 2px rgb(140, 119, 119);
+    -moz-box-shadow: 0 0 10px 2px rgb(140, 119, 119);
+    box-shadow: 0 0 10px 2px rgb(140, 119, 119);
+    }
+}
+
+.tab-content {
+    padding: 20px 20px;
+    border: 1px solid #ccc;
+    min-height: 174px;
+    background-color: #f6f6f6;
+    word-break:break-all;
+}
+
+.dynamics_tab{
+    padding: 20px 20px;
+    background-color: #fff;
+    margin: 30px 0px;
+    box-shadow:2px 2px 5px 3px #ccc;
+}
+.dynamics_tab h3 {
+    text-decoration: underline;
+    padding: 20px 0px;
+}
+
+
+.Active.dark {
+    background-color: #000;
+    color: #fff;
+}
+.Active.blue {
+    background-color: #0070ad;
+    color: #fff;
+}
+.Active.purple {
+    background-color: #2b0a3d;
+    color: #fff;
+}
+.Active.light {
+    background-color: #c6c6c6;
+    color: #000;
+    box-shadow:2px 2px 12px 2px #ccc;
+}
+
+.nav-tabs li.Inactive:hover{
+    background-color: #737272;
+
+}
+
+
+.nav-tabs li.Active{
+    border-bottom: 2px solid #d6aaaa;
+}
+
+.nav-tabs li.Inactive{
+    background-color: #ccc;
+
+}
+.tabbutton{
+    background: transparent;
+    border: none;
+}
+
+
+@media only screen and (max-width: 767px) {
+    .nav.nav-tabs li {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+
+.list-inline {
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    li:first-child{
+        margin-right: 10px;
+    }
+    li{
+        cursor: pointer;
+        button{
+            border: none;
+            background: transparent;
+            padding: 0px;
+        }
+    }
+}
+
+.active{
+    border-bottom: 1px solid black !important;
+    padding-bottom: 5px !important;
+}
+
+.htmlelement{
+    background-color: var(--color-white);;
+    overflow-y: scroll;
+    width:90%;
+    height:350px;
+    margin: auto;
+    margin-top: 30px;
+    padding-top: 30px;
+}
+.copybutton{
+    text-align: end;
+        margin-right: 40px;
+        button{
+            border: 1.5px solid black;
+            background: transparent;
+            border-radius: 10px;
+            padding: 5px 10px;
+        }
+        .copyicon{
+            margin-right: 5px;
+        }
+}

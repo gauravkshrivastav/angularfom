@@ -1,0 +1,393 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$library-primary: mat.define-palette(mat.$indigo-palette);
+$library-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$library-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$library-theme: mat.define-light-theme((
+  color: (
+    primary: $library-primary,
+    accent: $library-accent,
+    warn: $library-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($library-theme);
+
+/* You can add global styles to this file, and also import other style files */
+// Then import Bootstrap
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import '~highlight.js/styles/github.css';
+@import "./app/Components/theme/colors";
+
+@import "./app/Components/theme/breakpoints";
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    margin: 0px;
+}
+
+img.closeicon {
+    cursor: pointer;
+}
+
+.text-center.main-page.mt-5 {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.img-responsive {
+    height: auto;
+    width: 100%;
+}
+
+.form_container {
+    padding: 20px;
+}
+
+.form-group input {
+    margin-top: 4px;
+    margin-bottom: 7px;
+    border-radius: 3;
+    background-color: white;
+    border: 0.1rem solid black;
+    font-size: .9rem;
+    margin-right: 5px;
+}
+
+.form-group select {
+    margin-top: 4px;
+    margin-bottom: 7px;
+    background-color: white;
+    border: 0.1rem solid black;
+    font-size: 0.9rem;
+    margin-right: 5px;
+    padding: 8px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.footer button {
+    background: #038ecd;
+    border: none;
+    border-radius: 3px;
+}
+
+.modal-footer button {
+    background: #038ecd;
+    border: none;
+    border-radius: 3px;
+}
+
+.shadow-sec label input {
+    position: absolute;
+    visibility: hidden;
+}
+
+.shadow-sec label span {
+    margin: 15px 0 0 0;
+    padding: 5px 20px;
+    background: #ffffff;
+    box-shadow: 0 1px 6px 0 rgb(175, 203, 244);
+    border-radius: 5px;
+}
+
+// .shadow-sec input[type="checkbox"]:checked + span {
+//     background: #038ecd;
+//     color: #fff;
+// }
+.shadow-sec input[type="radio"]:checked+span {
+    background: #038ecd;
+    color: #fff;
+}
+
+.modaldialog-width {
+    max-width: 50% !important;
+    background-color: #fff;
+    // position: absolute !important;
+    // top: 50%;
+    // margin: 0 !important;
+    // left: 50%;
+    // transform: translate(-50%, -50%) !important;
+}
+
+.modal-content {
+    max-width: 100%;
+    min-height: 350px;
+}
+.error{
+    color: red;
+    // font-size: .875em;
+}
+.subheader{
+    color: var(--color-wbh-blue);
+}
+.modal-body{
+    max-height: 350px;
+    overflow-y: scroll;
+}
+.sideheader{
+    color: var(--color-black) ;
+}
+.star{
+    color: red;
+    font-weight: bold;
+  }
+  .form-group{
+    label{
+      font-weight: 500;
+      font-size: 15px;
+    }
+  }
+  .accessbility{
+    font-weight: 500;
+      font-size: 15px;
+  }
+
+.modal-header {
+    background-color: #0070ad;
+    border-radius: 0 !important;
+    color: #fff;
+
+    // button {
+    //     filter: invert(1);
+    // }
+}
+
+.details .modal-body {
+    overflow-y: auto;
+    max-height: 265px;
+}
+
+.top-header button {
+    background: #038ecd;
+    border: none;
+    border-radius: 3px;
+    margin-left: 10px;
+}
+
+.top-header {
+    padding: 1rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    background: #fff;
+    box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.168627451);
+}
+
+.top-header button:hover {
+    background: #038ecd;
+}
+
+.main {
+    background: rgb(238, 242, 248);
+    min-height: 100vh;
+}
+
+.main-page {
+    padding: 1rem 2rem;
+}
+
+label.lebel-sec span {
+    color: red;
+    font-weight: 500;
+}
+
+label.lebel-sec small {
+    font-size: 12px;
+    color: #858585;
+    font-weight: 500;
+}
+
+.fill-sec {
+    .image1 {
+        position: relative;
+        top: -17px;
+        left: -37px;
+        font-size: 14px !important;
+        color: black;
+        font-weight: 400 !important;
+    }
+
+    input[type=radio] {
+        width: 45px;
+        min-height: 30px !important;
+        box-shadow: 0 0 3px rgb(175, 203, 244);
+        border-radius: 5px;
+        border: none;
+        background-color: white;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        cursor: pointer;
+    }
+
+    input[type="radio"]:checked {
+        background-color: #0070ad;
+    }
+
+    input[type="radio"]:checked+label {
+        background-color: #0070ad;
+        color: white;
+    }
+}
+
+.backbutton {
+    border-radius: 8px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: white !important;
+    background-color: #0070ad !important;
+}
+
+.footerbutton {
+    width: 100%;
+    min-height: 60px;
+}
+
+.submitbutton {
+    background: #0070ad !important;
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    margin-top: 20px;
+    float: right;
+    color: white !important;
+}
+
+button.clearbtn {
+    background: no-repeat;
+    border: none;
+}
+
+.copybutton button:focus-visible {
+    border: 2px solid gray;
+    outline: none;
+    box-shadow: 1px 1px 3px 2px #80808078;
+}
+
+button.closediv {
+    border: none;
+    background: transparent;
+}
+
+@media only screen and (max-width: 767px) {
+    .main-page {
+        padding: 1rem .85rem;
+    }
+
+    .selcettab,
+    .optionsnum {
+        width: 100% !important;
+    }
+
+    .form-group.paddingleftspace {
+        padding-left: 0 !important;
+    }
+}
+
+.rangeslider.blue .ngx-slider.animate .ngx-slider-pointer,
+.rangeslider.blue .ngx-slider .ngx-slider-selection {
+
+    border-radius: 0px !important;
+
+    background-color: #0070ad !important;
+
+}
+
+
+
+.rangeslider.blue .ngx-slider .ngx-slider-tick.ngx-slider-selected {
+
+    background-color: #0070ad !important;
+
+}
+
+
+
+
+
+.rangeslider.dark .ngx-slider.animate .ngx-slider-pointer,
+.rangeslider.blue .ngx-slider .ngx-slider-selection {
+
+    border-radius: 0px !important;
+
+    background-color: #000 !important;
+
+}
+
+
+
+.rangeslider.dark .ngx-slider .ngx-slider-tick.ngx-slider-selected {
+
+    background-color: #000 !important;
+
+}
+
+
+
+
+
+.rangeslider.purple .ngx-slider.animate .ngx-slider-pointer,
+.rangeslider.blue .ngx-slider .ngx-slider-selection {
+
+    border-radius: 0px !important;
+
+    background-color: #2b0a3d !important;
+
+}
+
+
+
+.rangeslider.purple .ngx-slider .ngx-slider-tick.ngx-slider-selected {
+
+    background-color: #2b0a3d !important;
+
+}
+
+
+
+
+
+.rangeslider.light .ngx-slider.animate .ngx-slider-pointer,
+.rangeslider.blue .ngx-slider .ngx-slider-selection {
+
+    border-radius: 0px !important;
+
+    background-color: #F1F4F8 !important;
+
+}
+
+
+
+.rangeslider.light .ngx-slider .ngx-slider-tick.ngx-slider-selected {
+
+    background-color: #F1F4F8 !important;
+
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+

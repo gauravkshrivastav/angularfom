@@ -1,0 +1,198 @@
+ 
+
+<div class="modal-body">
+    <p><b>Please fill the mandatory fields according your preference to design of the login/signup.</b> </p>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+       
+        <div class="pt-2">
+            <label class="accessbility">Form type</label><span class="star">*</span>
+            <div class="form-group">
+                <select class="bgcolor" name="typefields" aria-label="select no of butons"
+                    aria-describedby="noofbtn-err-text" formControlName="typefields"
+                    [(ngModel)]="loginsignupdata.typefields">
+                    <option>Sign Up</option>
+                    <option>Log In</option>
+                    <!-- <option>Horizontal Loader</option>
+                    <option>Circular Loader</option>  -->
+                </select>
+
+                <div *ngIf="submitted && f.typefields.errors" class="invalid-feedback">
+                    <div class="error" role="alert" id="noofbtn-err-text" *ngIf="f.typefields.errors.required">Please
+                        select an option</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-group pt-2">
+            <label>Username Label:</label><span class="star">*</span>
+            <div class="form-group d-flex align-items-center shadow-sec background">
+                <input type="text" maxlength="15" class="form-control inputbox" aria-describedby="title-err-text"
+                    placeholder="Please enter username" name="username" formControlName="username"
+                    [(ngModel)]="loginsignupdata.username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" autofocus />
+            </div>
+            <div *ngIf="(f.username.touched || submitted) && f.username.errors" class="invalid-feedback">
+                <div class="error" role="alert" aria-atomic="true" *ngIf="f.username.errors.required">Username is
+                    required
+                </div>
+                <div class="error" role="alert" aria-atomic="true" *ngIf="f.username.errors.minlength">Minimum 3 word
+                    required</div>
+                <div class="error" role="alert" aria-atomic="true" *ngIf="f.username.errors.maxlength">maxlength 15
+                </div>
+            </div>
+        </div>
+        <div class="form-group pt-2" *ngIf="f.typefields.value === 'Sign Up'">
+            <label>Email Label:</label><span class="star">*</span>
+            <div class="form-group d-flex align-items-center shadow-sec background">
+                <input type="text" maxlength="15" class="form-control inputbox" aria-describedby="title-err-text"
+                    placeholder="Please enter email" name="email" formControlName="email"
+                    [(ngModel)]="loginsignupdata.email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" autofocus />
+            </div>
+            <div *ngIf="(f.email.touched || submitted) && f.email.errors" class="invalid-feedback">
+                <div class="error" role="alert" aria-atomic="true" *ngIf="f.email.errors.required">Email is
+                    required
+                </div>
+                <div class="error" role="alert" aria-atomic="true" *ngIf="f.email.errors.minlength">Minimum 3 word
+                    required</div>
+                <div class="error" role="alert" aria-atomic="true" *ngIf="f.email.errors.maxlength">maxlength 15
+                </div>
+            </div>
+        </div>
+        <div class="form-group pt-2">
+            <label>Password Label:</label><span class="star">*</span>
+            <div class="form-group d-flex align-items-center shadow-sec background">
+                <input type="text" maxlength="15" class="form-control inputbox" aria-describedby="title-err-text"
+                    placeholder="Please enter password" name="password" formControlName="password"
+                    [(ngModel)]="loginsignupdata.password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" autofocus />
+            </div>
+            <div *ngIf="(f.password.touched || submitted) && f.password.errors" class="invalid-feedback">
+                <div class="error" role="alert" aria-atomic="true" *ngIf="f.password.errors.required">Password is
+                    required
+                </div>
+                <div class="error" role="alert" aria-atomic="true" *ngIf="f.password.errors.minlength">Minimum 3 word
+                    required</div>
+                <div class="error" role="alert" aria-atomic="true" *ngIf="f.password.errors.maxlength">maxlength 15
+                </div>
+            </div>
+        </div> 
+        <div class="form-group pt-2">
+            <label>Minimum value:</label><span class="star">*</span>
+            <div class="form-group d-flex align-items-center shadow-sec background">
+                <input type="text" (keypress)="numeric($event)" maxlength="2" class="form-control inputbox" aria-describedby="title-err-text"
+                    placeholder="Please enter min value" name="minvalue" formControlName="minvalue"
+                    [(ngModel)]="loginsignupdata.minvalue" [ngClass]="{ 'is-invalid': submitted && f.minvalue.errors }" autofocus />
+            </div>
+            <div *ngIf="(f.minvalue.touched || submitted) && f.minvalue.errors" class="invalid-feedback">
+                <div class="error" role="alert" aria-atomic="true" *ngIf="f.minvalue.errors.required">Min value is
+                    required.
+                </div>
+                <div class="error" role="alert" aria-atomic="true" *ngIf="f.minvalue.errors.minlength">Minimum 1 word
+                    required.</div>
+                <div class="error" role="alert" aria-atomic="true" *ngIf="f.minvalue.errors.maxlength">maxlength 3 word required.
+                </div> 
+                <div class="error" role="alert" aria-atomic="true" *ngIf="f.minvalue.errors.min">Min value should be greater then 3.
+                </div>
+                <div class="error" role="alert" aria-atomic="true" *ngIf="f.minvalue.errors.max">Max value should be less then 15.
+                </div>
+            </div>
+        </div>
+        <div class="form-group pt-2">
+            <label>Maximum value:</label><span class="star">*</span>
+            <div class="form-group d-flex align-items-center shadow-sec background">
+                <input type="text" (keypress)="numeric($event)" maxlength="2" class="form-control inputbox" aria-describedby="title-err-text"
+                    placeholder="Please enter max value" name="maxvalue" formControlName="maxvalue"
+                    [(ngModel)]="loginsignupdata.maxvalue" [ngClass]="{ 'is-invalid': submitted && f.maxvalue.errors }" autofocus />
+            </div>
+            <div *ngIf="(f.maxvalue.touched || submitted) && f.maxvalue.errors" class="invalid-feedback">
+                <div class="error" role="alert" aria-atomic="true" *ngIf="f.maxvalue.errors.required">Max value is
+                    required.
+                </div>
+                <div class="error" role="alert" aria-atomic="true" *ngIf="f.maxvalue.errors.minlength">Minimum 3 word
+                    required.</div>
+                <div class="error" role="alert" aria-atomic="true" *ngIf="f.maxvalue.errors.maxlength">maxlength 3 word required.
+                </div>
+                <div class="error" role="alert" aria-atomic="true" *ngIf="f.maxvalue.errors.min">Min value should be greater then 3.
+                </div>
+                <div class="error" role="alert" aria-atomic="true" *ngIf="f.maxvalue.errors.max">Max value should be less then 25.
+                </div>
+            </div>
+            <div class="error" role="alert" aria-atomic="true" *ngIf="lengthvalidation">Max value should be greater than min value.</div>
+        </div>
+        <div class="form-group pt-3">
+            <label class="accessbility">Would you like to have Cap letter on form. </label><span class="star">*</span>
+             
+            <div class="mt-2">
+              
+                <label class="image1">  <input [ngClass]="{ 'is-invalid': submitted && f.validateforms.errors }" autofocus type="radio"  
+                    name="validateforms" value="Yes" formControlName="validateforms" aria-describedby="image-err-text" aria-label="Yes"
+                    (change)="handleChange($event)" [ngClass]="boxshadowchecked"> <span>Yes</span></label>
+                
+                <label class="image1"> <input [ngClass]="{ 'is-invalid': submitted && f.validateforms.errors }" autofocus type="radio"  
+                    name="validateforms" value="No" formControlName="validateforms" aria-describedby="image-err-text" aria-label="No"
+                    (change)="handleChange($event)" [ngClass]="noboxshadowchecked"> <span>No</span></label>
+                <div *ngIf="(f.validateforms.touched || submitted) && f.validateforms.errors" class="invalid-feedback">
+                    <div class="error" role="alert" id="image-err-text" *ngIf="f.validateforms.errors.required">Please select yes or no.</div>
+                </div>
+            </div>
+
+        </div>
+        <div class="form-group pt-3">
+            <label class="accessbility">Would you like to have symbol on form. </label><span class="star">*</span>
+             
+            <div class="mt-2">
+              
+                <label class="image1" >  <input [ngClass]="{ 'is-invalid': submitted && f.validateforms2.errors }" autofocus type="radio"  
+                    name="validateforms2" value="Yes" formControlName="validateforms2" aria-describedby="image-err-text" aria-label="Yes"
+                    (change)="handleChange1($event)" [ngClass]="boxshadowchecked"> <span>Yes</span></label>
+              
+                <label class="image1" >  <input [ngClass]="{ 'is-invalid': submitted && f.validateforms2.errors }" autofocus type="radio"  
+                    name="validateforms2" value="No" formControlName="validateforms2" aria-describedby="image-err-text" aria-label="No"
+                    (change)="handleChange1($event)" [ngClass]="noboxshadowchecked"> <span>No</span></label>
+                <div *ngIf="(f.validateforms2.touched || submitted) && f.validateforms2.errors" class="invalid-feedback">
+                    <div class="error" role="alert" id="image-err-text" *ngIf="f.validateforms2.errors.required">Please select yes or no.</div>
+                </div>
+            </div>
+
+        </div>
+        <div class="pt-2">
+            <label class="accessbility">Login/Signup width</label><span class="star">*</span>
+            <div class="form-group d-flex align-items-center shadow-sec background">
+                <select class="bgcolor" name="cardwidth" aria-label="select cardwidth" aria-describedby="width-err-txt"
+                [(ngModel)]="loginsignupdata.cardwidth"  formControlName="cardwidth">
+                    <option>100%</option>
+                    <option>75%</option>
+                    <option>50%</option>
+                    <option>25%</option>
+                </select>
+            </div>
+            <div *ngIf="(f.cardwidth.touched || submitted) && f.cardwidth.errors" class="invalid-feedback">
+                <div class="error" role="alert" id="width-err-txt" *ngIf="f.cardwidth.errors.required">Please select an
+                    option</div>
+            </div>
+        </div>
+
+        <div class="pt-2">
+            <label class="accessbility">Login/Signup Theme Color:</label><span class="star">*</span>
+            <div class="form-group d-flex align-items-center shadow-sec background">
+                <select class="bgcolor" name="theme" aria-label="select theme color" aria-describedby="theme-err-txt"
+                [(ngModel)]="loginsignupdata.theme" formControlName="color">
+                    <option>dark</option>
+                    <option>blue</option>
+                    <option>purple</option>
+                    <option>light</option>
+                </select>
+            </div>
+            <div *ngIf="(f.color.touched || submitted) && f.color.errors" class="invalid-feedback">
+                <div class="error" role="alert" id="theme-err-txt" *ngIf="f.color.errors.required">Please select an
+                    option</div>
+            </div>
+        </div> 
+
+        <div class="footerbutton">
+            <button class="submitbutton">
+                Update
+            </button>
+        </div>
+    </form>
+
+</div>

@@ -1,0 +1,99 @@
+<div class="modal-body">
+    <p><b>Please fill the mandatory fields according your preference to design of the Range</b> </p>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label>Title:</label><span class="star">*</span>
+        <input type="text" maxlength="20" class="form-control inputbox" aria-describedby="title-err-text" aria-required="true" placeholder="Please enter title" name="title" formControlName="title" [ngClass]="{ 'is-invalid': submitted && f.title.errors }" autofocus/>
+        <div *ngIf="(f.title.touched || submitted) && f.title.errors" class="invalid-feedback">
+            <div class="error" role="alert" aria-atomic="true" *ngIf="f.title.errors.required">Title is
+                required</div>
+            <div class="error" role="alert" aria-atomic="true" *ngIf="f.title.errors.maxlength">maxlength 20
+            </div>
+        </div>
+        </div>
+
+
+
+        <div class="form-group pt-3">
+            <label>Min Value:</label><span class="star">*</span>
+            <input type="number" (keypress)="numeric($event)" maxlength="3" min="1" class="form-control inputbox" aria-describedby="title-err-text" aria-required="true" placeholder="Please enter minvalue" name="minvalue" formControlName="minvalue" [ngClass]="{ 'is-invalid': submitted && f.minvalue.errors }" autofocus/>
+            <div *ngIf="(f.minvalue.touched || submitted) && f.minvalue.errors" class="invalid-feedback">
+                <div class="error" role="alert" aria-atomic="true"  *ngIf="f.minvalue.errors.required">Min value is required</div>
+                <div class="error" role="alert" aria-atomic="true"   *ngIf="f.minvalue.errors.minlength">Minimum 3 word required for title</div>
+                <div class="error" role="alert" aria-atomic="true" *ngIf="f.minvalue.errors.maxlength">maxlength 20 for title</div>
+                <div class="error" role="alert" aria-atomic="true" *ngIf="f.minvalue.errors.min">min value more than 1 value</div>
+
+              </div>
+            </div>
+
+            
+
+            <div class="form-group pt-3">
+                <label>max Value:</label><span class="star">*</span>
+                <input type="number" (keypress)="numeric($event)" maxlength="3" min="1" class="form-control inputbox" aria-describedby="maxvalue-err-text" aria-required="true" placeholder="Please enter maxvalue" name="maxvalue" formControlName="maxvalue" [ngClass]="{ 'is-invalid': submitted && f.maxvalue.errors }" autofocus/>
+                <div *ngIf="(f.maxvalue.touched || submitted) && f.maxvalue.errors" class="invalid-feedback">
+                    <div class="error" role="alert" aria-atomic="true"  *ngIf="f.maxvalue.errors.required">maxvalue is required</div>
+                    <div class="error" role="alert" aria-atomic="true"   *ngIf="f.maxvalue.errors.minlength">Minimum 3 word required for title</div>
+                    <div class="error" role="alert" aria-atomic="true" *ngIf="f.maxvalue.errors.maxlength">maxlength 20 for title</div>
+                    <div class="error" role="alert" aria-atomic="true" *ngIf="f.maxvalue.errors.min">max value more than 1 value</div>
+                  </div>
+                  <div class="error" role="alert" aria-atomic="true" *ngIf="registerForm.errors && registerForm.errors.greater">max value should be  more than min value</div>
+
+                  <!-- <div class="error" role="alert" aria-atomic="true" *ngIf="lengthvalidation">max value should be greater than min value</div> -->
+
+                </div>
+
+
+                <div class="pt-3">
+                    <label class="accessbility">Card width</label><span class="star">*</span>
+                    <div class="form-group d-flex align-items-center shadow-sec background">
+                        <select class="bgcolor" name="rangewidth" aria-label="select rangewidth" aria-describedby="width-err-txt" formControlName="rangewidth">
+                            <option>100%</option>
+                            <option>75%</option>
+                            <option>50%</option>
+                            <option>25%</option>
+                        </select>
+                    </div>
+                    <div *ngIf="(f.rangewidth.touched || submitted) && f.rangewidth.errors">
+                        <div class="error" role="alert" id="width-err-txt" *ngIf="f.rangewidth.errors.required">Please select an option</div>
+                    </div> 
+                </div>
+            
+        
+
+        <div class="pt-3">
+            <label class="accessbility">Card Theme Color:</label><span class="star">*</span>
+            <div class="form-group d-flex align-items-center shadow-sec background">
+                <select class="bgcolor" name="theme" aria-label="select theme color" aria-describedby="theme-err-txt"
+                    formControlName="theme">
+                    <option value="dark">Dark</option>
+                    <option value="blue">Blue</option>
+                    <option value="purple">Purple</option>
+                    <option value="light">Light</option>
+                </select>
+            </div>
+            <div *ngIf="(f.theme.touched || submitted) && f.theme.errors" class="invalid-feedback">
+                <div class="error" role="alert" id="theme-err-txt" *ngIf="f.theme.errors.required">Please select an
+                    option</div>
+            </div>
+        </div>
+
+
+
+        <div class="footerbutton" *ngIf="!rangesliderdata">
+            <button class="submitbutton">
+                Create
+            </button>
+        </div>
+
+        <div class="footerbutton" *ngIf="rangesliderdata">
+            <button class="submitbutton">
+                Update
+            </button>
+        </div>
+
+
+    </form>
+
+</div>

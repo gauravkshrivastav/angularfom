@@ -1,0 +1,69 @@
+<div class="main">
+  <div class="top-header">
+    <div class="insideheader">
+      <h4 class="subheader">Header <span>Component</span></h4>
+    </div>
+    <div class="button-sec">
+      <button class=" backbutton" (click)="backwindow()">Back</button>
+      <button class=" backbutton" data-bs-toggle="modal" data-bs-target="#exampleModal2">Edit</button>
+    </div> 
+  </div>
+    <header class="" #myheader>
+        <div class="header" [ngStyle]="{'background-color':headerdata?.bgcolor}">
+            <div class="div1">
+              <div class="subdiv">
+                <img [src]="img1" aria-label="APP logo" class="img1" *ngIf="headerdata?.image1 == 'Yes' && headerdata?.image4 == 'No'">
+                <img [src]="whitewbh" aria-label="APP logo Icon" class="img1" *ngIf="headerdata?.image4 == 'Yes'">
+              </div>
+              <div class="subdiv1">
+                <label class="label1" [ngStyle]="{'color':headerdata?.color}">{{headerdata?.title | uppercase}}</label>
+              </div>
+            </div>
+            <div class="div2">
+                <div class="sub-div">
+                  <div class="username">
+                    <img [src]="img2" class="img2" aria-label="Profile Icon" *ngIf="headerdata?.image2 == 'Yes'">
+                    <label class="label2" [ngStyle]="{'color':headerdata?.color}">{{headerdata?.welcome}}</label>
+                  </div>
+                  <div class="capgeminilogo">
+                    <img [src]="img3" class="img3" aria-label="Capgemini logo" *ngIf="headerdata?.image3 == 'Yes' && headerdata?.image4 == 'No'">
+                    <img [src]="img4" class="img3" aria-label="Capgemini logo" *ngIf="headerdata?.image4 == 'Yes'">
+                  </div>
+                </div>
+            </div>
+        </div>
+        </header>
+        <ul class="list-inline">
+          <li (click)="openhtml()"><button [class]="htmlcontent">HTML</button></li>
+          <li (click)="opencss()"><button [class]="csscontent">CSS</button></li>
+        </ul>
+      
+      <div class="htmlelement" *ngIf="htmlcontent == 'active'">
+        <div class="copybutton">
+          <button ngxClipboard [cbContent]="getHtmlContent()" (click)="copy()"><i class="fa fa-copy copyicon"></i>{{Copy}}</button>
+        </div>
+        <pre><code [highlight]="getHtmlContent()">{{getHtmlContent()}}</code></pre>
+      </div>
+      <div class="htmlelement" *ngIf="csscontent == 'active'">
+        <div class="copybutton">
+          <button ngxClipboard [cbContent]="CSS" (click)="copy()"><i class="fa fa-copy copyicon"></i>{{Copy}}</button>
+        </div>
+        <pre><code [highlight]="CSS">{{CSS}}</code></pre>
+      </div>
+</div>
+
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+  <div class="modal-dialog modaldialog-width">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h4>Header</h4>
+              <button class="clearbtn"  aria-label="Header Update modal close"  #myModalClose1 data-bs-dismiss="modal">
+                  <img [src]="closeicon" class="closeicon">  
+              </button>
+          </div>
+          <app-editheader (onclose)="close()"></app-editheader>
+
+      </div>
+  </div>
+</div>
+

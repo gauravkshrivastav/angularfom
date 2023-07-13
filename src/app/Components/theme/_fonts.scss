@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* Root mode. To use these variables write var(--variable) ex: color: var(--variable); */
+:root {
+	/* font-size */
+	--font-size-title-mg: 1.625rem; /* 26px */
+	--font-size-title-xl: 1.5rem; /* 24px */
+	--font-size-title-lg: 1.125rem; /* 18px */
+	--font-size-title-md: 0.9375rem; /* 15px */
+	--font-size-text-lg: 1rem; /* 16px */
+	--font-size-text-md: 0.875rem; /* 14px */
+	--font-size-text-sm: 0.8125rem; /* 13px */
+	--font-size-mention: 0.75rem; /* 12px */
+}

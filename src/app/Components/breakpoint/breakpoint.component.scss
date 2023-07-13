@@ -1,0 +1,94 @@
+
+.row{
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: -2px;
+}
+.column{
+    border: 1px solid black;
+    background-color: #fff;
+    word-break:break-all;
+    width: 100%;
+    // padding: 10px;
+}
+.box_flex {
+    display: flex;
+    margin: 15px 0px;
+}
+.desc{
+   padding: 10px;
+    margin: 0px;
+    background-color: white;
+}
+.title{
+    padding: 10px;
+    margin-bottom: 0px;
+}
+
+.copybutton{
+    text-align: end;
+        margin-right: 40px;
+        margin-top: 30px;
+        button{
+            border: 1.5px solid black;
+            background: transparent;
+            border-radius: 10px;
+            padding: 5px 10px;
+        }
+        .copyicon{
+            margin-right: 5px;
+        }
+}
+.htmlelement {
+    background-color: var(--color-white);
+    overflow-y: scroll;
+    width: 90%;
+    height: 400px;
+    margin: auto;
+    margin-top: 30px;
+}
+.list-inline {
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    li:first-child{
+        margin-right: 10px;
+    }
+    li{
+        cursor: pointer;
+        button{
+            border: none;
+            background: transparent;
+            padding: 0px;
+        }
+    }
+}
+
+.active{
+    border-bottom: 1px solid black !important;
+    padding-bottom: 5px !important;
+}
+
+
+@media only screen and (max-width: 767px) {
+    .row{
+        display: block;
+        width:100% !important;
+    }
+    .col-md-4 {
+            flex: 0 0 auto;
+            // width: 33.33333333%;
+            padding-left: 0px;
+        }
+        .box_flex {
+            // display: block;
+        }
+           
+    .modaldialog-width {
+        margin-top: 60px;
+        max-width: 100% !important;
+    }
+}
+

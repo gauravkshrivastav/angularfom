@@ -1,0 +1,59 @@
+<div class="modal-body">
+    <p><b>Please fill the mandatory fields according your preference to design Table</b> </p>
+
+    <form  [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-group pt-3">
+        <label>Table Caption:</label><span class="star">*</span>
+        <input type="text" maxlength="15" class="form-control inputbox" aria-describedby="title-err-text" aria-required="true" placeholder="Please enter table caption" name="title" formControlName="title" [ngClass]="{ 'is-invalid': submitted && f.title.errors }" autofocus/>
+        <div *ngIf="(f.title.touched || submitted) && f.title.errors">
+            <div class="error" role="alert" aria-atomic="true"  *ngIf="f.title.errors.required">table caption is required</div>
+            <div class="error" role="alert" aria-atomic="true"   *ngIf="f.title.errors.minlength">Minimum 3 word required for table caption</div>
+            <div class="error" role="alert" aria-atomic="true" *ngIf="f.title.errors.maxlength">maxlength 15 word required for table caption</div>
+        </div>
+    </div>
+
+    <div class="pt-3">
+        <label class="accessbility">Would you like to have Pagination</label><span class="star">*</span>
+        <div class="form-group">
+            
+            <label class="image1" ><input type="radio" name="pagination" value="Yes" aria-describedby="image-err-text" aria-label="Yes" formControlName="pagination"> <span>Yes</span></label>
+            
+            <label class="image1" ><input type="radio" name="pagination" value="No" aria-describedby="image-err-text" aria-label="No" formControlName="pagination"> <span>No</span></label>
+        </div>
+        <div *ngIf="submitted && f.pagination.errors" >
+            <div class="error" role="alert" id="image-err-text" *ngIf="f.pagination.errors.required">Choose an option</div>
+        </div>    
+    </div>
+
+    <div class="pt-3">
+        <label class="accessbility">Would you like to have Table with strip</label><span class="star">*</span>
+        <div class="form-group">
+            
+            <label class="image1" ><input type="radio" name="tablestrip" value="Yes" aria-describedby="image-err-text" aria-label="Yes" formControlName="tablestrip"> <span>Yes</span></label>
+            
+            <label class="image1"><input type="radio"   name="tablestrip" value="No" aria-describedby="image-err-text" aria-label="No" formControlName="tablestrip"> <span>No</span></label>
+        </div>
+        <div *ngIf="submitted && f.tablestrip.errors">
+            <div class="error" role="alert" id="image-err-text" *ngIf="f.tablestrip.errors.required">Choose an option</div>
+        </div>    
+    </div>
+
+
+    <div class="pt-3">
+        <label class="accessbility">Please select Theme Color</label><span class="star">*</span>
+        <div class="form-group d-flex align-items-center shadow-sec background">
+            <select class="bgcolor" name="theme" aria-label="select theme color" formControlName="theme">
+                <option>dark</option>
+                <option>blue</option>
+                <option>purple</option>
+                <option>light</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="footerbutton">
+        <button  class="submitbutton">
+            Create
+        </button>
+    </div>
+    </form>

@@ -1,0 +1,78 @@
+p.counts span {
+    font-weight: 500;
+}
+.height-textarea{
+    min-height: 100px;
+}
+.htmlelement{
+    background-color: var(--color-white) ;
+    overflow-y: scroll;
+    width:90%;
+    height:400px;
+    margin: auto;
+    margin-top: 30px;
+}
+.copybutton{
+    text-align: end;
+        margin-right: 40px;
+        margin-top: 30px;
+        button{
+            border: 1.5px solid black;
+            background: transparent;
+            border-radius: 10px;
+            padding: 5px 10px;
+        }
+        .copyicon{
+            margin-right: 5px;
+        }
+}
+.list-inline {
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    li:first-child{
+        margin-right: 10px;
+    }
+    li{
+        cursor: pointer;
+        button{
+            border: none;
+            background: transparent;
+            padding: 0px;
+        }
+    }
+}
+
+.active{
+    border-bottom: 1px solid black !important;
+    padding-bottom: 5px !important;
+}
+
+
+@media only screen and (max-width: 767px) {
+    .form-floating.form-floating-filled {
+        max-width: 100% !important;
+    }     
+    .width100{
+        width: 100% !important;
+    }
+    .top-header div:first-child {
+        width: 50%;
+    }
+    h4.subheader {
+        margin: 0px;
+        font-size: 1.2rem;
+    }
+    section.main header {
+        padding: 1rem .85rem;
+    }
+    .modaldialog-width { 
+        max-width: 100% !important;
+    }
+}
+.modal-dialog { 
+    margin-top:90px
+}
+

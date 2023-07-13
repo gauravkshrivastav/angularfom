@@ -1,0 +1,140 @@
+<div class="modal-body">
+    <p><b>Please fill the mandatory fields according your preference to design Footer</b> </p>
+
+    <form  [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-group pt-3">
+            <div class="subheading">
+                <label>Footer Text:<span class="star">*</span></label>
+            </div>
+            <input type="text" maxlength="30" class="form-control inputbox" aria-describedby="title-err-text" aria-required="true" placeholder="Please enter text" name="text" formControlName="text" [ngClass]="{ 'is-invalid': submitted && f.text.errors }" autofocus/>
+            <div *ngIf="(f.text.touched || submitted) && f.text.errors" class="invalid-feedback">
+                <div class="error" role="alert" aria-atomic="true"  *ngIf="f.text.errors.required">footer text is required</div>
+                <div class="error" role="alert" aria-atomic="true"   *ngIf="f.text.errors.minlength">Minimum 3 word required for text</div>
+                <div class="error" role="alert" aria-atomic="true" *ngIf="f.text.errors.maxlength">maxlength 30 for text</div>
+            </div>
+        </div>
+        <div class="pt-3">
+            <div class="subheading">
+                <label class="accessbility">Would you like to have Linkedln social icon in the Footer section<span class="star">*</span></label>
+            </div>
+            <div class="form-group">
+                
+                <label class="image1"><input type="radio"   name="linkedln" value="Yes" aria-describedby="linkedln-err-text" aria-label="Yes" aria-checked="Yes" formControlName="linkedln"> <span>Yes</span></label>
+                
+                <label class="image1" ><input type="radio" id="linkedln2"  value="No" aria-describedby="linkedln-err-text" aria-label="No" aria-checked="No" formControlName="linkedln"> <span>No</span></label>
+               
+                <div *ngIf="submitted && f.linkedln.errors" >
+                    <div class="error" role="alert" id="linkedln-err-text" *ngIf="f.linkedln.errors.required">Please select an option</div>
+                </div>    
+            </div>        
+        </div>
+
+        <div class="pt-3">
+            <div class="subheading">
+                <label class="accessbility">Would you like to have twiter social icon in the Footer section<span class="star">*</span></label>
+            </div>
+            <div class="form-group">
+                
+                <label class="image1"><input type="radio"  name="twitter" value="Yes" aria-describedby="twitter-err-text" aria-label="Yes" aria-checked="Yes" formControlName="twitter"> <span>Yes</span></label>
+                
+                <label class="image1"><input type="radio" name="twitter" value="No" aria-describedby="twitter-err-text" aria-label="No" aria-checked="No" formControlName="twitter"> <span>No</span></label>
+               
+                <div *ngIf="submitted && f.twitter.errors" >
+                    <div class="error" role="alert" id="twitter-err-text" *ngIf="f.twitter.errors.required">Please select an option</div>
+                </div>    
+            </div>        
+        </div>
+
+        <div class="pt-3">
+            <div class="subheading">
+                <label class="accessbility">Would you like to have Instagram social icon in the Footer section<span class="star">*</span></label>
+            </div>
+            <div class="form-group">
+                
+                <label class="image1" ><input type="radio"  name="insta" value="Yes" aria-describedby="insta-err-text" aria-label="Yes" aria-checked="Yes" formControlName="insta"> <span>Yes</span></label>
+                
+                <label class="image1" ><input type="radio"  name="insta" value="No" aria-describedby="insta-err-text" aria-label="No" aria-checked="No" formControlName="insta"> <span>No</span></label>
+               
+                <div *ngIf="submitted && f.insta.errors" >
+                    <div class="error" role="alert" id="insta-err-text" *ngIf="f.insta.errors.required">Please select an option</div>
+                </div>    
+            </div>        
+        </div>
+
+        <div class="pt-3">
+            <div class="subheading">
+                <label class="accessbility">Would you like to have Facebook social icon in the Footer section<span class="star">*</span></label>
+            </div>
+            <div class="form-group">
+                
+                <label class="image1" ><input type="radio" name="facebook" value="Yes" aria-describedby="facebook-err-text" aria-label="Yes" aria-checked="Yes" formControlName="facebook"> <span>Yes</span></label>
+                
+                <label class="image1"  ><input type="radio"   name="facebook" value="No" aria-describedby="facebook-err-text" aria-label="No" aria-checked="No" formControlName="facebook"> <span>No</span></label>
+               
+                <div *ngIf="submitted && f.facebook.errors" >
+                    <div class="error" role="alert" id="facebook-err-text" *ngIf="f.facebook.errors.required">Please select an option</div>
+                </div>    
+            </div>        
+        </div>
+
+        <div class="pt-3">
+            <div class="subheading">
+                <label class="accessbility">Would you like to have youtube social icon in the Footer section<span class="star">*</span></label>
+            </div>
+            <div class="form-group">
+                
+                <label class="image1"><input type="radio"   name="youtube" value="Yes" aria-describedby="youtube-err-text" aria-label="Yes" aria-checked="Yes" formControlName="youtube"> <span>Yes</span></label>
+                
+                <label class="image1" ><input type="radio"  name="youtube" value="No" aria-describedby="youtube-err-text" aria-label="No" aria-checked="No" formControlName="youtube"> <span>No</span></label>
+               
+                <div *ngIf="submitted && f.youtube.errors" >
+                    <div class="error" role="alert" id="youtube-err-text" *ngIf="f.youtube.errors.required">Please select an option</div>
+                </div>    
+            </div>        
+        </div>
+
+        <div class="pt-3">
+            <div class="subheading">
+                <label class="accessbility">Would you like to have Glassdoor social icon in the Footer section<span class="star">*</span></label>
+            </div>
+            <div class="form-group">
+                
+                <label class="image1" ><input type="radio"  name="glassdoor" value="Yes" aria-describedby="glassdoor-err-text" aria-label="Yes" aria-checked="Yes" formControlName="glassdoor"> <span>Yes</span></label>
+                
+                <label class="image1" ><input type="radio"  name="glassdoor" value="No" aria-describedby="glassdoor-err-text" aria-label="No" aria-checked="No" formControlName="glassdoor"> <span>No</span></label>
+               
+                <div *ngIf="submitted && f.glassdoor.errors" >
+                    <div class="error" role="alert" id="glassdoor-err-text" *ngIf="f.glassdoor.errors.required">Please select an option</div>
+                </div>    
+            </div>        
+        </div>
+
+
+        <div class="pt-3">
+            <label class="accessbility">Please select Theme Color</label><span class="star">*</span>
+            <div class="form-group d-flex align-items-center shadow-sec background">
+                <select class="bgcolor" name="color" aria-label="select theme color" formControlName="color">
+                    <option>dark</option>
+                    <option>blue</option>
+                    <option>purple</option>
+                    <option>light</option>
+                </select>
+            </div>
+        </div>
+
+
+        <div class="footerbutton"  *ngIf="!footerdata">
+            <button  class="submitbutton">
+                Create
+            </button>
+        </div>
+
+        <div class="footerbutton" *ngIf="footerdata">
+            <button  class="submitbutton">
+                update
+            </button>
+        </div>
+
+
+    </form>
+</div>

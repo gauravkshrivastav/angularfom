@@ -1,0 +1,479 @@
+<section class="main">
+    <div class="top-header">
+        <div>
+            <h4 class="subheader">Form <span class="sideheader">Component</span></h4>
+        </div>
+        <div class="button-sec">
+            <button class="backbutton" aria-label="back to modal" (click)="backwindow()">Back</button>
+            <!-- <button class="backbutton" data-bs-toggle="modal" data-bs-target="#exampleModal2">Edit</button> -->
+        </div>
+    </div>
+
+
+    <div class="main-page">
+
+        <div class="row  py-3 homecmp">
+            <div class="col-md-4 mb-3" *ngFor="let item of formscomponentarray">
+                <div class="card feature">
+                    <div class="card-header">
+                        {{item?.name}}
+                    </div>
+
+                    <div class="card-body">
+                        <!-- <h5 class="card-title">Special title treatment</h5> -->
+                        <p class="card-text">{{turncate(formsubheading)}} {{item?.name}}.</p>
+
+                        <div class="button-sec" *ngIf="item?.id == 1">
+                            <button aria-label="Input/Textarea Detail Button" class="btn btn-primary me-2"
+                                data-bs-toggle="modal" data-bs-target="#exampleModal11">Details</button>
+                            <button aria-label="Input/Textarea Create Button" class="btn btn-primary me-2"
+                                data-bs-toggle="modal" data-bs-target="#exampleModal1">Create</button>
+                        </div>
+                        <div class="button-sec" *ngIf="item?.id == 2">
+                            <button aria-label="Checkbox/Radio Detail Button" class="btn btn-primary me-2" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal12">Details</button>
+                            <button aria-label="Checkbox/Radio Create Button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal2">Create </button>
+                        </div>
+                        <div class="button-sec" *ngIf="item?.id == 3">
+                            <button aria-label="Select Detail Button" class="btn btn-primary me-2"
+                                data-bs-toggle="modal" data-bs-target="#exampleModal13">Details</button>
+                            <button aria-label="Select Create Button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal3">Create</button>
+                        </div>
+                        <div class="button-sec" *ngIf="item?.id == 4">
+                            <button aria-label="Switch Control Detail Button" class="btn btn-primary me-2"
+                                data-bs-toggle="modal" data-bs-target="#exampleModal14">Details</button>
+                            <button aria-label="Switch Control Create Button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal4">Create</button>
+                        </div>
+                        <div class="button-sec" *ngIf="item?.id == 5">
+                            <button aria-label="Date and Time Picker  Detail" class="btn btn-primary me-2" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal15">Details</button>
+                            <button aria-label="Date and Time Picker Create" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal5">Create</button>
+                        </div>
+                        <div class="button-sec" *ngIf="item?.id == 6">
+                            <button aria-label="Progressbar Detail" class="btn btn-primary me-2" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal16">Details</button>
+                            <button aria-label="Progressbar Create" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal6">Create</button>
+                        </div>
+                        <div class="button-sec" *ngIf="item?.id == 7">
+                            <button aria-label="Range Detail" class="btn btn-primary me-2" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal17">Details</button>
+                            <button aria-label="Range Create" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal7">Create</button>
+                        </div>
+                        <div class="button-sec" *ngIf="item?.id == 8">
+                            <button aria-label="File Upload Detail" class="btn btn-primary me-2" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal18">Details</button>
+                            <button aria-label="File Upload Create" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal8">Create</button>
+                        </div>
+                        <!-- <div class="button-sec" *ngIf="item?.id == 9">
+                            <button aria-label="Button Detail" class="btn btn-primary me-2" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal19">Details</button>
+                            <button aria-label="Button Create" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal9">Create</button>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade details" id="exampleModal11" tabindex="-1" aria-labelledby="exampleModalLabel1"
+        aria-hidden="true">
+        <div class="modal-dialog modaldialog-width">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Input/Textarea</h4>
+                    <button class="clearbtn" aria-label="close detail" #myModalClose data-bs-dismiss="modal">
+                        <img [src]="closeicon">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="details-container ">
+                        <h3> Details for the input/textarea section are below.</h3>
+                        <p class="pref">Please do follow the below given instructions while creating your input/textarea
+                            component.</p>
+                        <div class="detail-content">
+                            <ul>
+                                <li>Input/Textarea label should be less than 15 characters.</li>
+                                <li>Input text should be less than 50 characters.</li>
+                                <li>Textarea text should be less than 50 characters.</li>
+                                <li>You can select width of input/textarea from the given options.</li>
+                                <li>You can select rounded radius of input/textarea from the given options.</li>
+                                <li>You want to show the number of input/textarea characters select yes from the given
+                                    options.</li>
+                                <li>You can select the input/textarea theme. </li>
+                                <li>You can select the input/textarea input type. </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+        <div class="modal-dialog modaldialog-width">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Input/Textarea</h4>
+                    <button class="clearbtn" aria-label="close modal" #myModalClose1 data-bs-dismiss="modal">
+                        <img [src]="closeicon">
+                    </button>
+                </div>
+                <app-inputform (onclose)="close()"></app-inputform>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade details" id="exampleModal12" tabindex="-1" aria-labelledby="exampleModalLabel1"
+        aria-hidden="true">
+        <div class="modal-dialog modaldialog-width">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Checkbox/Radio</h4>
+                    <button class="clearbtn" aria-label="close detail" #myModalClose data-bs-dismiss="modal">
+                        <img [src]="closeicon">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="details-container ">
+                        <h3> Details for the checkbox/radio section are below.</h3>
+                        <p class="pref">Please do follow the below given instructions while creating your checkbox/radio
+                            component.</p>
+                        <div class="detail-content">
+                            <ul>
+                                <li>Checkbox/Radio label should be less than 15 characters.</li>
+                                <li>You can select checkbox and radio from the given options.</li>
+                                <li>You can select number of checkbox/radio from the given options.</li>
+                                <li>You can select width of checkbox/radio from the given options.</li>
+                                <li>User can select the checkbox/radio theme. </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+        <div class="modal-dialog modaldialog-width">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Checkbox/Radio</h4>
+                    <button class="clearbtn" aria-label="close modal" #myModalClose2 data-bs-dismiss="modal">
+                        <img [src]="closeicon">
+                    </button>
+                </div>
+                <app-checkboxform (onclose)="close()"></app-checkboxform>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade details" id="exampleModal13" tabindex="-1" aria-labelledby="exampleModalLabel1"
+        aria-hidden="true">
+        <div class="modal-dialog modaldialog-width">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Select</h4>
+                    <button class="clearbtn" aria-label="close detail" #myModalClose data-bs-dismiss="modal">
+                        <img [src]="closeicon">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="details-container ">
+                        <h3> Details for the select are below.</h3>
+                        <p class="pref">Please do follow the below given instructions while creating your select
+                            component.</p>
+                        <div class="detail-content">
+                            <ul>
+                                <li class="points">Select label should not be more than 25 characters.</li>
+                                <li class="points">User can select two options multiselect and single select.</li>
+                                <li class="points">User can select width of select from the given options.</li>
+                                <li class="points">User can select the select theme.</li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+        <div class="modal-dialog modaldialog-width">
+            <div class="modal-content header-modal">
+                <div class="modal-header">
+                    <h4>Select</h4>
+                    <button class="clearbtn" aria-label="close modal" #myModalClose3 data-bs-dismiss="modal">
+                        <img [src]="closeicon">
+                    </button>
+                </div>
+                <app-selectform (onclose)="close()"></app-selectform>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="modal fade details" id="exampleModal14" tabindex="-1" aria-labelledby="exampleModalLabel1"
+        aria-hidden="true">
+        <div class="modal-dialog modaldialog-width">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Switch Control</h4>
+                    <button class="clearbtn" aria-label="close detail" #myModalClose data-bs-dismiss="modal">
+                        <img [src]="closeicon">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="details-container ">
+                        <h3> Details for the switch control section are below.</h3>
+                        <p class="pref">Please do follow the below given instructions while creating your switch control
+                            component.</p>
+                        <div class="detail-content">
+                            <ul>
+                                <li>Switch control label should be less than 15 characters.</li>
+                                <li>You can select width of switch control from the given options.</li>
+                                <li>User can select the switch control theme. </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+        <div class="modal-dialog modaldialog-width">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Switch control</h4>
+                    <button class="clearbtn" aria-label="close modal" #myModalClose4 data-bs-dismiss="modal">
+                        <img [src]="closeicon">
+                    </button>
+                </div>
+                <!-- <app-checkboxform (onclose)="close()"></app-checkboxform> -->
+                <app-switchcontrolform (onclose)="close()"></app-switchcontrolform>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade details" id="exampleModal15" tabindex="-1" aria-labelledby="exampleModalLabel1"
+        aria-hidden="true">
+
+        <div class="modal-dialog modaldialog-width">
+
+            <div class="modal-content">
+
+                <div class="modal-header">
+
+                    <h4>Date & Time Picker</h4>
+
+                    <button class="clearbtn" aria-label="close detail" #myModalClose data-bs-dismiss="modal">
+
+                        <img [src]="closeicon">
+
+                    </button>
+
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="details-container ">
+
+                        <h3> Details for the date & time picker section are below.</h3>
+
+                        <p class="pref">Please do follow the below given instructions while creating your date & time picker
+
+                            component.</p>
+
+                        <div class="detail-content">
+
+                            <ul>
+
+                                <li class="points">Text for label of date picker should not be more than 15 characters
+                                </li>
+
+                                <li class="points">User can select the date picker types as - date, time & date-time
+                                </li>
+
+                                <li class="points">User can select width of the input from the dropdown</li>
+
+                                <li class="points">User can select the theme of the date picker from the dropdown</li>
+
+
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="modal fade" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+        <div class="modal-dialog modaldialog-width">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Date & Time Picker</h4>
+                    <button class="clearbtn" #myModalClose5 data-bs-dismiss="modal">
+                        <img [src]="closeicon">
+                    </button>
+                </div>
+                <!-- <app-checkboxform (onclose)="close()"></app-checkboxform> -->
+                <app-calendarform (onclose)="close()"></app-calendarform>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="modal fade details" id="exampleModal16" tabindex="-1" aria-labelledby="exampleModalLabel1"
+        aria-hidden="true">
+        <div class="modal-dialog modaldialog-width">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Progress</h4>
+                    <button class="clearbtn" aria-label="close detail" #myModalClose data-bs-dismiss="modal">
+                        <img [src]="closeicon">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="details-container ">
+                        <h3> Details for the progress section are below.</h3>
+                        <p class="pref">Please do follow the below given instructions while creating your progress
+                            component.</p>
+                        <div class="detail-content">
+                            <ul>
+                                <li class="points">Progress label should not be more than 25 characters.</li>
+                                <li class="points">User can select the progress value in percentage</li>
+                                <li class="points">User can select the progress bar size</li>
+                                <li class="points">User can select the theme for progress bar from dropdown</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModal6" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+        <div class="modal-dialog modaldialog-width">
+            <div class="modal-content header-modal">
+                <div class="modal-header">
+                    <h4>Progress</h4>
+                    <button class="clearbtn" aria-label="close modal" #myModalClose6 data-bs-dismiss="modal">
+                        <img [src]="closeicon">
+                    </button>
+                </div>
+                <app-progressform (onclose)="close()"></app-progressform>
+                <!-- <app-form (onclose)="close()"></app-form> -->
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade details" id="exampleModal17" tabindex="-1" aria-labelledby="exampleModalLabel1"
+        aria-hidden="true">
+        <div class="modal-dialog modaldialog-width">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Range</h4>
+                    <button class="clearbtn" aria-label="close detail" #myModalClose data-bs-dismiss="modal">
+                        <img [src]="closeicon">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="details-container ">
+                        <h3> Details for the range section are below.</h3>
+                        <p class="pref">Please do follow the below given instructions while creating your range
+                            component.</p>
+                        <div class="detail-content">
+                            <ul>
+                                <li>Range label should be less than 20 characters.</li>
+                                <li>You can select width of range from the given options.</li>
+                                <li class="points">User can range width of select from the given options.</li>
+                                <li class="points">User can range the select theme.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal7" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+        <div class="modal-dialog modaldialog-width">
+            <div class="modal-content header-modal">
+                <div class="modal-header">
+                    <h4>Range</h4>
+                    <button class="clearbtn" aria-label="close modal" #myModalClose7 data-bs-dismiss="modal">
+                        <img [src]="closeicon">
+
+                    </button>
+                </div>
+                <app-rangesliderform (onclose)="close()"></app-rangesliderform>
+                <!-- <app-form (onclose)="close()"></app-form> -->
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade details" id="exampleModal18" tabindex="-1" aria-labelledby="exampleModalLabel1"
+        aria-hidden="true">
+        <div class="modal-dialog modaldialog-width">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>File Upload</h4>
+                    <button class="clearbtn" aria-label="close detail" #myModalClose data-bs-dismiss="modal">
+                        <img [src]="closeicon">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="details-container ">
+                        <h3> Details for the file upload section are below.</h3>
+                        <p class="pref">Please do follow the below given instructions while creating your file upload
+                            component.</p>
+                        <div class="detail-content">
+                            <ul>
+                                <li>Form label should be less than 15 characters.</li>
+                                <li>You can select single/multiple file upload from the given options.</li>
+                                <li>User can select the file upload theme. </li>
+                                <li>User can select size option for file upload. </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModal8" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+        <div class="modal-dialog modaldialog-width">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>File Upload</h4>
+                    <button class="clearbtn" aria-label="close modal" #myModalClose8 data-bs-dismiss="modal">
+                        <img [src]="closeicon">
+                    </button>
+                </div>
+                <!-- <app-form (onclose)="close()"></app-form> -->
+                <app-fileuploadform (onclose)="close()"></app-fileuploadform>
+            </div>
+        </div>
+    </div>
+
+    
+
+</section>

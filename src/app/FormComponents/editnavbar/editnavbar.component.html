@@ -1,0 +1,595 @@
+<div class="modal-body">
+    <p><b>Please update the mandatory fields according your preference to design navbar</b> </p>
+
+    <form  [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        
+
+        <div class="pt-3"> 
+            <label class="accessbility">Number of Menus</label><span class="star">*</span>
+            <div class="form-group d-flex align-items-center shadow-sec background">
+                <select class="bgcolor" name="menus" aria-label="select menu option" formControlName="menus" [(ngModel)]="navbardata.menus">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="" *ngIf="f.menus.value == '1' || f.menus.value == '2' || f.menus.value == '3' || f.menus.value == '4'">
+            <span class="border-squre">
+                <div class="form-group">
+                    <label>Menu 1 text:</label><span class="star">*</span>
+                    <input type="text" maxlength="50" class="form-control inputbox" aria-describedby="btntext1"
+                        placeholder="Please enter Menu text" name="text1" formControlName="text1"
+                        [(ngModel)]="navbardata.text1"
+                        [ngClass]="{ 'is-invalid': submitted && f.text1.errors }" autofocus />
+                    <div *ngIf="submitted && f.text1.errors" class="invalid-feedback">
+                        <div class="error" role="alert" id="btntext1" *ngIf="f.text1.errors.required">Menu text 1 is
+                            required</div>
+                        <div class="error" role="alert" id="btntext1" *ngIf="f.text1.errors.minlength">Minlength 3
+                            required
+                        </div>
+                        <div class="error" role="alert" id="btntext1" *ngIf="f.text1.errors.maxlength">maxlength 10
+                        </div>
+                    </div>
+                </div>
+                <div class="selectdropdownmenu"> 
+                    <div class="d-md-flex d-block justify-content-between">
+                        <div class="selcettab">
+                            <label class="accessbility">Dropdown menu</label>
+                            <span class="star">*</span>
+                            <div class="form-group pt-1">
+                                
+                                <label class="image1" for="imagedrp"><input type="radio" id="imagedrp" name="imagedrp" value="Yes"
+                                    (change)="handleChange($event)" [ngClass]="boxshadowchecked" formControlName="imagedrp"> <span>Yes</span></label>
+                                
+                                <label class="image1" for="1imagedrp"><input type="radio" id="1imagedrp" name="imagedrp" value="No"
+                                    (change)="handleChange($event)"  [ngClass]="noboxshadowchecked"  formControlName="imagedrp"> <span>No</span></label>
+                            </div>
+                            <div *ngIf="submitted && f.imagedrp.errors" class="invalid-feedback">
+                                <div class="error" role="alert" *ngIf="f.imagedrp.errors.required">Dropdown menu is required</div>
+                            </div>
+                        </div>
+                        <div class="optionsnum" *ngIf="f.imagedrp.value == 'Yes'">
+                            <label class="accessbility">Number of submenu</label><span class="star">*</span>
+                            <div class="form-group">
+                                <select class="bgcolor" name="optionsv" aria-label="select no of options"
+                                    aria-describedby="noofbtn-err-text" [(ngModel)]="navbardata.optionsv" formControlName="optionsv" > 
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <span  *ngIf="f.imagedrp.value == 'Yes'">
+                    <div class="" *ngIf="f.optionsv.value == '1' || f.optionsv.value == '2' || f.optionsv.value == '3' || f.optionsv.value == '4' ">
+                        <div class="form-group paddingleftspace">
+                            <label>Sub Menu 1 text:</label><span class="star">*</span>
+                            
+                            <input type="text" maxlength="50" class="form-control inputbox" aria-describedby="btntext1" 
+                                placeholder="Please enter Menu text" name="text1" formControlName="firstsubmenu1"
+                                [(ngModel)]="navbardata.firstsubmenu1" [ngClass]="{ 'is-invalid': submitted && f.firstsubmenu1.errors }" autofocus />
+                            <div *ngIf="submitted && f.firstsubmenu1.errors" class="invalid-feedback">
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.firstsubmenu1.errors.required">Sub Menu
+                                    text 1 is
+                                    required</div>
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.firstsubmenu1.errors.minlength">Minlength
+                                    3 required
+                                </div>
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.firstsubmenu1.errors.maxlength">maxlength
+                                    10</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="" *ngIf="f.optionsv.value == '2' || f.optionsv.value == '3' || f.optionsv.value == '4' ">
+                        <div class="form-group paddingleftspace">
+                            <label>Sub Menu 2 text:</label><span class="star">*</span>
+                            <input type="text" maxlength="50" class="form-control inputbox" aria-describedby="btntext1"
+                                placeholder="Please enter Menu text" name="text1" formControlName="firstsubmenu2"
+                                [(ngModel)]="navbardata.firstsubmenu2" [ngClass]="{ 'is-invalid': submitted && f.firstsubmenu2.errors }" autofocus />
+                            <div *ngIf="submitted && f.firstsubmenu2.errors" class="invalid-feedback">
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.firstsubmenu2.errors.required">Sub Menu
+                                    text 1 is
+                                    required</div>
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.firstsubmenu2.errors.minlength">Minlength
+                                    3 required
+                                </div>
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.firstsubmenu2.errors.maxlength">maxlength
+                                    10</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="" *ngIf="f.optionsv.value == '3' || f.optionsv.value == '4' ">
+                        <div class="form-group paddingleftspace">
+                            <label>Sub Menu 3 text:</label><span class="star">*</span>
+                            <input type="text" maxlength="50" class="form-control inputbox" aria-describedby="btntext1"
+                                placeholder="Please enter Menu text" name="text1" formControlName="firstsubmenu3"
+                                [(ngModel)]="navbardata.firstsubmenu3" [ngClass]="{ 'is-invalid': submitted && f.firstsubmenu3.errors }" autofocus />
+                            <div *ngIf="submitted && f.firstsubmenu3.errors" class="invalid-feedback">
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.firstsubmenu3.errors.required">Sub Menu
+                                    text 1 is
+                                    required</div>
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.firstsubmenu3.errors.minlength">Minlength
+                                    3 required
+                                </div>
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.firstsubmenu3.errors.maxlength">maxlength
+                                    10</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="" *ngIf="f.optionsv.value == '4' ">
+                        <div class="form-group paddingleftspace">
+                            <label>Sub Menu 4 text:</label><span class="star">*</span>
+                            <input type="text" maxlength="50" class="form-control inputbox" aria-describedby="btntext1"
+                                placeholder="Please enter Menu text" name="text1" formControlName="firstsubmenu4"
+                                [(ngModel)]="navbardata.firstsubmenu4" [ngClass]="{ 'is-invalid': submitted && f.firstsubmenu4.errors }" autofocus />
+                            <div *ngIf="submitted && f.firstsubmenu4.errors" class="invalid-feedback">
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.firstsubmenu4.errors.required">Sub Menu
+                                    text 1 is
+                                    required</div>
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.firstsubmenu4.errors.minlength">Minlength
+                                    3 required
+                                </div>
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.firstsubmenu4.errors.maxlength">maxlength
+                                    10</div>
+                            </div>
+                        </div>
+                    </div> 
+                </span>
+                </div> 
+            </span>
+            
+        </div>
+        <div class="" *ngIf="f.menus.value == '2' || f.menus.value == '3' || f.menus.value == '4'">
+            <span class="border-squre">
+                <div class="form-group">
+                    <label>Menu 2 text:</label><span class="star">*</span>
+                    <input type="text" maxlength="50" class="form-control inputbox" aria-describedby="btntext1"
+                        placeholder="Please enter Menu text" name="text2" formControlName="text2"
+                        [(ngModel)]="navbardata.text2" [ngClass]="{ 'is-invalid': submitted && f.text2.errors }" autofocus />
+                    <div *ngIf="submitted && f.text2.errors" class="invalid-feedback">
+                        <div class="error" role="alert" id="btntext1" *ngIf="f.text2.errors.required">Menu text 1 is
+                            required</div>
+                        <div class="error" role="alert" id="btntext1" *ngIf="f.text2.errors.minlength">Minlength 3
+                            required
+                        </div>
+                        <div class="error" role="alert" id="btntext1" *ngIf="f.text2.errors.maxlength">maxlength 10
+                        </div>
+                    </div>
+                </div>
+                <div class="selectdropdownmenu"> 
+                    <div class="d-md-flex d-block justify-content-between">
+                        <div class="selcettab">
+                            <label class="accessbility">Dropdown menu</label>
+                            <span class="star">*</span>
+                            <div class="form-group pt-1">
+                                
+                                <label class="image1" for="imagedrp2"><input type="radio" id="imagedrp2" name="imagedrp2" value="Yes"
+                                    (change)="handleChange2($event)" [ngClass]="boxshadowchecked"   formControlName="imagedrp2"> <span>Yes</span></label>
+                               
+                                <label class="image1" for="2imagedrp"> <input type="radio" id="2imagedrp" name="imagedrp2" value="No"
+                                    (change)="handleChange2($event)"  [ngClass]="noboxshadowchecked" formControlName="imagedrp2"> <span>No</span></label>
+                            </div>
+                            <div *ngIf="submitted && f.imagedrp2.errors" class="invalid-feedback">
+                                <div class="error" role="alert" *ngIf="f.imagedrp2.errors.required">Dropdown menu is required</div>
+                            </div>
+                        </div>
+                        <div class="optionsnum" *ngIf="f.imagedrp2.value == 'Yes'">
+                            <label class="accessbility">Number of submenu</label><span class="star">*</span>
+                            <div class="form-group">
+                                <select class="bgcolor" name="optionsv2" aria-label="select no of options"
+                                [(ngModel)]="navbardata.optionsv2" aria-describedby="noofbtn-err-text" formControlName="optionsv2">
+                                    
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <span *ngIf="f.imagedrp2.value == 'Yes'">
+                    <div class="" *ngIf="f.optionsv2.value == '1' || f.optionsv2.value == '2' || f.optionsv2.value == '3' || f.optionsv2.value == '4' ">
+                        <div class="form-group paddingleftspace">
+                            <label>Sub Menu 1 text:</label><span class="star">*</span>
+                            <input type="text" maxlength="50" class="form-control inputbox" aria-describedby="btntext1"
+                                placeholder="Please enter Menu text" name="text1" formControlName="secondsubmenu1"
+                                [(ngModel)]="navbardata.secondsubmenu1" [ngClass]="{ 'is-invalid': submitted && f.secondsubmenu1.errors }" autofocus />
+                            <div *ngIf="submitted && f.secondsubmenu1.errors" class="invalid-feedback">
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.secondsubmenu1.errors.required">Sub Menu
+                                    text 1 is
+                                    required</div>
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.secondsubmenu1.errors.minlength">Minlength
+                                    3 required
+                                </div>
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.secondsubmenu1.errors.maxlength">maxlength
+                                    10</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="" *ngIf="f.optionsv2.value == '2' || f.optionsv2.value == '3' || f.optionsv2.value == '4' ">
+                        <div class="form-group paddingleftspace">
+                            <label>Sub Menu 2 text:</label><span class="star">*</span>
+                            <input type="text" maxlength="50" class="form-control inputbox" aria-describedby="btntext1"
+                                placeholder="Please enter Menu text" name="text1" formControlName="secondsubmenu2"
+                                [(ngModel)]="navbardata.secondsubmenu2" [ngClass]="{ 'is-invalid': submitted && f.secondsubmenu2.errors }" autofocus />
+                            <div *ngIf="submitted && f.secondsubmenu2.errors" class="invalid-feedback">
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.secondsubmenu2.errors.required">Sub Menu
+                                    text 1 is
+                                    required</div>
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.secondsubmenu2.errors.minlength">Minlength
+                                    3 required
+                                </div>
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.secondsubmenu2.errors.maxlength">maxlength
+                                    10</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="" *ngIf="f.optionsv2.value == '3' || f.optionsv2.value == '4' ">
+                        <div class="form-group paddingleftspace">
+                            <label>Sub Menu 3 text:</label><span class="star">*</span>
+                            <input type="text" maxlength="50" class="form-control inputbox" aria-describedby="btntext1"
+                                placeholder="Please enter Menu text" name="text1" formControlName="secondsubmenu3"
+                                [(ngModel)]="navbardata.secondsubmenu3" [ngClass]="{ 'is-invalid': submitted && f.secondsubmenu3.errors }" autofocus />
+                            <div *ngIf="submitted && f.secondsubmenu3.errors" class="invalid-feedback">
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.secondsubmenu3.errors.required">Sub Menu
+                                    text 1 is
+                                    required</div>
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.secondsubmenu3.errors.minlength">Minlength
+                                    3 required
+                                </div>
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.secondsubmenu3.errors.maxlength">maxlength
+                                    10</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="" *ngIf="f.optionsv2.value == '4' ">
+                        <div class="form-group paddingleftspace">
+                            <label>Sub Menu 4 text:</label><span class="star">*</span>
+                            <input type="text" maxlength="50" class="form-control inputbox" aria-describedby="btntext1"
+                                placeholder="Please enter Menu text" name="text1" formControlName="secondsubmenu4"
+                                [(ngModel)]="navbardata.secondsubmenu4" [ngClass]="{ 'is-invalid': submitted && f.secondsubmenu4.errors }" autofocus />
+                            <div *ngIf="submitted && f.secondsubmenu4.errors" class="invalid-feedback">
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.secondsubmenu4.errors.required">Sub Menu
+                                    text 1 is
+                                    required</div>
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.secondsubmenu4.errors.minlength">Minlength
+                                    3 required
+                                </div>
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.secondsubmenu4.errors.maxlength">maxlength
+                                    10</div>
+                            </div>
+                        </div>
+                    </div> 
+                </span>
+                </div> 
+            </span>
+            
+        </div>
+        <div class="" *ngIf="f.menus.value == '3' || f.menus.value == '4'">
+            <span class="border-squre">
+                <div class="form-group"> 
+                    <label>Menu 3 text:</label><span class="star">*</span>
+                    <input type="text" maxlength="50" class="form-control inputbox" aria-describedby="btntext1"
+                        placeholder="Please enter Menu text" name="text3" formControlName="text3"
+                        [(ngModel)]="navbardata.text3" [ngClass]="{ 'is-invalid': submitted && f.text3.errors }" autofocus />
+                    <div *ngIf="submitted && f.text3.errors" class="invalid-feedback">
+                        <div class="error" role="alert" id="btntext1" *ngIf="f.text3.errors.required">Menu text 1 is
+                            required</div>
+                        <div class="error" role="alert" id="btntext1" *ngIf="f.text3.errors.minlength">Minlength 3
+                            required
+                        </div>
+                        <div class="error" role="alert" id="btntext1" *ngIf="f.text3.errors.maxlength">maxlength 10
+                        </div>
+                    </div>
+                </div>
+                <div class="selectdropdownmenu"> 
+                    <div class="d-md-flex d-block justify-content-between">
+                        <div class="selcettab">
+                            <label class="accessbility">Dropdown menu</label>
+                            <span class="star">*</span>
+                            <div class="form-group pt-1">
+                               
+                                <label class="image1"> <input type="radio" name="imagedrp3" value="Yes"
+                                    (change)="handleChange3($event)" [ngClass]="boxshadowchecked"  formControlName="imagedrp3"> <span>Yes</span></label>
+                               
+                                <label class="image1"> <input type="radio" name="imagedrp3" value="No"
+                                    (change)="handleChange3($event)"  [ngClass]="noboxshadowchecked"  formControlName="imagedrp3"> <span>No</span></label>
+                            </div>
+                            <div *ngIf="submitted && f.imagedrp3.errors" class="invalid-feedback">
+                                <div class="error" role="alert" *ngIf="f.imagedrp3.errors.required">Dropdown menu is required</div>
+                            </div>
+                        </div>
+                        <div class="optionsnum" *ngIf="f.imagedrp3.value == 'Yes'">
+                            <label class="accessbility">Number of submenu</label><span class="star">*</span>
+                            <div class="form-group">
+                                <select class="bgcolor" name="optionsv3" aria-label="select no of options"
+                                    aria-describedby="noofbtn-err-text" [(ngModel)]="navbardata.optionsv3" formControlName="optionsv3">
+                                    
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <span  *ngIf="f.imagedrp3.value == 'Yes'">
+                    <div class="" *ngIf="f.optionsv3.value == '1' || f.optionsv3.value == '2' || f.optionsv3.value == '3' || f.optionsv3.value == '4' ">
+                        <div class="form-group paddingleftspace">
+                            <label>Sub Menu 1 text:</label><span class="star">*</span>
+                            <input type="text" maxlength="50" class="form-control inputbox" aria-describedby="btntext1"
+                                placeholder="Please enter Menu text" name="text1" formControlName="thirdsubmenu1"
+                                [(ngModel)]="navbardata.thirdsubmenu1" [ngClass]="{ 'is-invalid': submitted && f.thirdsubmenu1.errors }" autofocus />
+                            <div *ngIf="submitted && f.thirdsubmenu1.errors" class="invalid-feedback">
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.thirdsubmenu1.errors.required">Sub Menu
+                                    text 1 is
+                                    required</div>
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.thirdsubmenu1.errors.minlength">Minlength
+                                    3 required
+                                </div>
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.thirdsubmenu1.errors.maxlength">maxlength
+                                    10</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="" *ngIf="f.optionsv3.value == '2' || f.optionsv3.value == '3' || f.optionsv3.value == '4'">
+                        <div class="form-group paddingleftspace">
+                            <label>Sub Menu 2 text:</label><span class="star">*</span>
+                            <input type="text" maxlength="50" class="form-control inputbox" aria-describedby="btntext1"
+                                placeholder="Please enter Menu text" name="text1" formControlName="thirdsubmenu2"
+                                [(ngModel)]="navbardata.thirdsubmenu2"  [ngClass]="{ 'is-invalid': submitted && f.thirdsubmenu2.errors }" autofocus />
+                            <div *ngIf="submitted && f.thirdsubmenu2.errors" class="invalid-feedback">
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.thirdsubmenu2.errors.required">Sub Menu
+                                    text 1 is
+                                    required</div>
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.thirdsubmenu2.errors.minlength">Minlength
+                                    3 required
+                                </div>
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.thirdsubmenu2.errors.maxlength">maxlength
+                                    10</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="" *ngIf="f.optionsv3.value == '3'  || f.optionsv3.value == '4' ">
+                        <div class="form-group paddingleftspace">
+                            <label>Sub Menu 3 text:</label><span class="star">*</span>
+                            <input type="text" maxlength="50" class="form-control inputbox" aria-describedby="btntext1"
+                                placeholder="Please enter Menu text" name="text1" formControlName="thirdsubmenu3"
+                                [(ngModel)]="navbardata.thirdsubmenu3" [ngClass]="{ 'is-invalid': submitted && f.thirdsubmenu3.errors }" autofocus />
+                            <div *ngIf="submitted && f.thirdsubmenu3.errors" class="invalid-feedback">
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.thirdsubmenu3.errors.required">Sub Menu
+                                    text 1 is
+                                    required</div>
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.thirdsubmenu3.errors.minlength">Minlength
+                                    3 required
+                                </div>
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.thirdsubmenu3.errors.maxlength">maxlength
+                                    10</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="" *ngIf="f.optionsv3.value == '4' ">
+                        <div class="form-group paddingleftspace">
+                            <label>Sub Menu 4 text:</label><span class="star">*</span>
+                            <input type="text" maxlength="50" class="form-control inputbox" aria-describedby="btntext1"
+                                placeholder="Please enter Menu text" name="text1" formControlName="thirdsubmenu4"
+                                [(ngModel)]="navbardata.thirdsubmenu4"  [ngClass]="{ 'is-invalid': submitted && f.thirdsubmenu4.errors }" autofocus />
+                            <div *ngIf="submitted && f.thirdsubmenu4.errors" class="invalid-feedback">
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.thirdsubmenu4.errors.required">Sub Menu
+                                    text 1 is
+                                    required</div>
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.thirdsubmenu4.errors.minlength">Minlength
+                                    3 required
+                                </div>
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.thirdsubmenu4.errors.maxlength">maxlength
+                                    10</div>
+                            </div>
+                        </div>
+                    </div> 
+                </span>
+                </div> 
+            </span>
+            
+        </div>
+        <div class="" *ngIf="f.menus.value == '4'">
+            <span class="border-squre">
+                <div class="form-group">
+                    <label>Menu 4 text:</label><span class="star">*</span>
+                    <input type="text" maxlength="50" class="form-control inputbox" aria-describedby="btntext1"
+                        placeholder="Please enter Menu text" name="text4" formControlName="text4"
+                        [(ngModel)]="navbardata.text4" [ngClass]="{ 'is-invalid': submitted && f.text4.errors }" autofocus />
+                    <div *ngIf="submitted && f.text4.errors" class="invalid-feedback">
+                        <div class="error" role="alert" id="btntext1" *ngIf="f.text4.errors.required">Menu text 1 is
+                            required</div>
+                        <div class="error" role="alert" id="btntext1" *ngIf="f.text4.errors.minlength">Minlength 3
+                            required
+                        </div>
+                        <div class="error" role="alert" id="btntext1" *ngIf="f.text4.errors.maxlength">maxlength 10
+                        </div>
+                    </div>
+                </div>
+                <div class="selectdropdownmenu"> 
+                    <div class="d-md-flex d-block justify-content-between">
+                        <div class="selcettab">
+                            <label class="accessbility">Dropdown menu</label>
+                            <span class="star">*</span>
+                            <div class="form-group pt-1">
+                               
+                                <label class="image1" > <input type="radio"   name="imagedrp4" value="Yes"
+                                    (change)="handleChange4($event)" [ngClass]="boxshadowchecked"  formControlName="imagedrp4"> <span>Yes</span></label>
+                                
+                                <label class="image1"> <input type="radio"  name="imagedrp4" value="No"
+                                    (change)="handleChange4($event)"  [ngClass]="noboxshadowchecked"   formControlName="imagedrp4"> <span>No</span></label>
+                            </div>
+                            <div *ngIf="submitted && f.imagedrp4.errors" class="invalid-feedback">
+                                <div class="error" role="alert" *ngIf="f.imagedrp4.errors.required">Dropdown menu is required</div>
+                            </div>
+                        </div>
+                        <div class="optionsnum" *ngIf="f.imagedrp4.value == 'Yes'">
+                            <label class="accessbility">Number of submenu</label><span class="star">*</span>
+                            <div class="form-group">
+                                <select class="bgcolor" name="optionsv4" aria-label="select no of options"
+                                    aria-describedby="noofbtn-err-text" [(ngModel)]="navbardata.optionsv4"  formControlName="optionsv4">
+                                    
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <span *ngIf="f.imagedrp4.value == 'Yes'">
+                    <div class="" *ngIf="f.optionsv4.value == '1' || f.optionsv4.value == '2' || f.optionsv4.value == '3' || f.optionsv4.value == '4' ">
+                        <div class="form-group paddingleftspace">
+                            <label>Sub Menu 1 text:</label><span class="star">*</span>
+                            <input type="text" maxlength="50" class="form-control inputbox" aria-describedby="btntext1"
+                                placeholder="Please enter Menu text" name="text1" formControlName="forthsubmenu1"
+                                [(ngModel)]="navbardata.forthsubmenu1" [ngClass]="{ 'is-invalid': submitted && f.forthsubmenu1.errors }" autofocus />
+                            <div *ngIf="submitted && f.forthsubmenu1.errors" class="invalid-feedback">
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.forthsubmenu1.errors.required">Sub Menu
+                                    text 1 is
+                                    required</div>
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.forthsubmenu1.errors.minlength">Minlength
+                                    3 required
+                                </div>
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.forthsubmenu1.errors.maxlength">maxlength
+                                    10</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="" *ngIf="f.optionsv4.value == '2' || f.optionsv4.value == '3' || f.optionsv4.value == '4' ">
+                        <div class="form-group paddingleftspace">
+                            <label>Sub Menu 2 text:</label><span class="star">*</span>
+                            <input type="text" maxlength="50" class="form-control inputbox" aria-describedby="btntext1"
+                                placeholder="Please enter Menu text" name="text1" formControlName="forthsubmenu2"
+                                [(ngModel)]="navbardata.forthsubmenu2" [ngClass]="{ 'is-invalid': submitted && f.forthsubmenu2.errors }" autofocus />
+                            <div *ngIf="submitted && f.forthsubmenu2.errors" class="invalid-feedback">
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.forthsubmenu2.errors.required">Sub Menu
+                                    text 1 is
+                                    required</div>
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.forthsubmenu2.errors.minlength">Minlength
+                                    3 required
+                                </div>
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.forthsubmenu2.errors.maxlength">maxlength
+                                    10</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="" *ngIf="f.optionsv4.value == '3' || f.optionsv4.value == '4'">
+                        <div class="form-group paddingleftspace">
+                            <label>Sub Menu 3 text:</label><span class="star">*</span>
+                            <input type="text" maxlength="50" class="form-control inputbox" aria-describedby="btntext1"
+                                placeholder="Please enter Menu text" name="text1" formControlName="forthsubmenu3"
+                                [(ngModel)]="navbardata.forthsubmenu3" [ngClass]="{ 'is-invalid': submitted && f.forthsubmenu3.errors }" autofocus />
+                            <div *ngIf="submitted && f.forthsubmenu3.errors" class="invalid-feedback">
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.forthsubmenu3.errors.required">Sub Menu
+                                    text 1 is
+                                    required</div>
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.forthsubmenu3.errors.minlength">Minlength
+                                    3 required
+                                </div>
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.forthsubmenu3.errors.maxlength">maxlength
+                                    10</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="" *ngIf="f.optionsv4.value == '4' ">
+                        <div class="form-group paddingleftspace">
+                            <label>Sub Menu 4 text:</label><span class="star">*</span>
+                            <input type="text" maxlength="50" class="form-control inputbox" aria-describedby="btntext1"
+                                placeholder="Please enter Menu text" name="text1" formControlName="forthsubmenu4"
+                                [(ngModel)]="navbardata.forthsubmenu4" [ngClass]="{ 'is-invalid': submitted && f.forthsubmenu4.errors }" autofocus />
+                            <div *ngIf="submitted && f.forthsubmenu4.errors" class="invalid-feedback">
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.forthsubmenu4.errors.required">Sub Menu
+                                    text 1 is
+                                    required</div>
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.forthsubmenu4.errors.minlength">Minlength
+                                    3 required
+                                </div>
+                                <div class="error" role="alert" id="btntext1" *ngIf="f.forthsubmenu4.errors.maxlength">maxlength
+                                    10</div>
+                            </div>
+                        </div>
+                    </div> 
+                </span>
+                </div> 
+            </span>
+            
+        </div>
+          
+        <div class="pt-3">
+            <label class="accessbility">Would you like to add FAQ option</label><span
+                class="star">*</span>
+            <div class="form-group">
+              
+                <label class="image1" >  <input type="radio"  name="faqicon" value="Yes" 
+                    [ngClass]="boxshadowchecked" (change)="handleChangefaq($event)" formControlName="faqicon"> <span>Yes</span></label>
+                
+                <label class="image1" ><input type="radio"  name="faqicon" value="No" 
+                    [ngClass]="noboxshadowchecked" (change)="handleChangefaq($event)" formControlName="faqicon"> <span>No</span></label>
+
+                <div *ngIf="submitted && f.faqicon.errors" class="invalid-feedback">
+                    <div class="error" role="alert" *ngIf="f.faqicon.errors.required">FAQ is required</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pt-3">
+            <label class="accessbility">Would you like to add File option</label><span
+                class="star">*</span>
+            <div class="form-group">
+                
+                <label class="image1" ><input type="radio"  name="fileicon" value="Yes" formControlName="fileicon"> <span>Yes</span></label>
+                
+                <label class="image1" ><input type="radio" name="fileicon" value="No" formControlName="fileicon"> <span>No</span></label>
+
+                <div *ngIf="submitted && f.fileicon.errors" class="invalid-feedback">
+                    <div class="error" role="alert" *ngIf="f.fileicon.errors.required">File is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="pt-3">
+            <label class="accessbility">Would you like to add Logout option</label><span
+                class="star">*</span>
+            <div class="form-group">
+                
+                <label class="image1"  ><input type="radio"  name="outicon" value="Yes" formControlName="outicon"> <span>Yes</span></label>
+                
+                <label class="image1" ><input type="radio"  name="outicon" value="No" formControlName="outicon"> <span>No</span></label>
+
+                <div *ngIf="submitted && f.outicon.errors" class="invalid-feedback">
+                    <div class="error" role="alert" *ngIf="f.outicon.errors.required">Logout is required</div>
+                </div>
+            </div>
+        </div>
+        
+     
+    
+        <div class="pt-3">
+            <label class="accessbility">Please select Theme Color</label><span class="star">*</span>
+            <div class="form-group d-flex align-items-center shadow-sec background">
+                <select class="bgcolor" name="color" aria-label="select theme color" formControlName="color" [(ngModel)]="navbardata.bgcolordropdown">
+                    <option>dark</option>
+                    <option>blue</option>
+                    <option>purple</option>
+                    <option>light</option>
+                </select>
+            </div>
+        </div>
+    
+    
+    
+        <div class="footerbutton">
+            <button  class=" submitbutton">
+                Update
+            </button>
+        </div>
+    </form>
+    
+    </div> 

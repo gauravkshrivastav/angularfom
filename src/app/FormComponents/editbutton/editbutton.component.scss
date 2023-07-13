@@ -1,0 +1,61 @@
+label.lebel-sec {
+    font-weight: 500;
+    font-size: 15px;
+}
+.footerbutton button {
+    background: #038ecd;
+    border: none;
+    border-radius: 3px;
+    margin-top: 15px;
+    float: right;
+    margin-bottom: 15px;
+}
+.fill-sec {
+    max-height: 280px;
+    overflow-y: scroll;
+}
+
+.fill-sec .form-group {
+    padding: 0 10px;
+}
+.checked{
+    background-color: #0070ad !important;
+}
+.checked+label{
+    background-color: #0070ad !important;
+    color: #fff;
+}
+
+.submitbutton{
+    background: #0070ad !important;
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    margin-top: 20px;
+    float: right;
+    color: white !important;
+}
+
+
+label.image1 span {
+    position: absolute;
+    z-index: 99;
+    left: 12px;
+    top: 8px;
+}
+.form-group input{
+  margin-right: 10px;
+}
+
+.image1{
+  position: relative;
+  top: 8px;
+  cursor: pointer;
+  left: 0;
+  font-size: 14px !important;
+  color: black;
+  font-weight: 400 !important;
+} 
+.image1 input[type=radio]:checked + span {
+  color: #fff;
+}

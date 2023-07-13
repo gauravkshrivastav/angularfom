@@ -1,0 +1,89 @@
+<div class="modal-body">
+    <p><b>Please fill the mandatory fields according your preference to design of the Date & Time Picker</b> </p>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label>Title:</label><span class="star">*</span>
+        <input type="text" maxlength="20" class="form-control inputbox" aria-describedby="title-err-text" aria-required="true" placeholder="Please enter title" name="title" formControlName="title" [ngClass]="{ 'is-invalid': submitted && f.title.errors }" autofocus/>
+        <div *ngIf="(f.title.touched || submitted) && f.title.errors" class="invalid-feedback">
+            <div class="error" role="alert" aria-atomic="true" *ngIf="f.title.errors.required">Title is
+                required</div>
+            <div class="error" role="alert" aria-atomic="true" *ngIf="f.title.errors.maxlength">maxlength 20
+            </div>
+        </div>
+        </div>
+
+
+        
+
+        <div class="pt-3">
+            <label class="accessbility">Select Date & Time:</label><span class="star">*</span>
+            <div class="form-group d-flex align-items-center shadow-sec background">
+                <select class="bgcolor" name="calendaroption" aria-label="select theme color" aria-describedby="theme-err-txt"
+                    formControlName="calendaroption">
+                    <option value="calendar">Date</option>
+                    <option value="time">Time</option>
+                    <option value="calendartime">Date & Time</option>
+                </select>
+            </div>
+            <div *ngIf="(f.theme.touched || submitted) && f.theme.errors" class="invalid-feedback">
+                <div class="error" role="alert" id="theme-err-txt" *ngIf="f.theme.errors.required">Please select an
+                    option</div>
+            </div>
+        </div>
+
+        
+        <div class="pt-3">
+            <label class="accessbility">Date & Time width</label><span class="star">*</span>
+            <div class="form-group d-flex align-items-center shadow-sec background">
+                <select class="bgcolor" name="rangewidth" aria-label="select rangewidth" aria-describedby="width-err-txt" formControlName="rangewidth">
+                    <option>100%</option>
+                    <option>75%</option>
+                    <option>50%</option>
+                    <option>25%</option>
+                </select>
+            </div>
+            <div *ngIf="(f.rangewidth.touched || submitted) && f.rangewidth.errors" class="invalid-feedback">
+                <div class="error" role="alert" id="width-err-txt" *ngIf="f.rangewidth.errors.required">Please select an option</div>
+            </div> 
+        </div>
+    
+
+
+
+
+        <div class="pt-3">
+            <label class="accessbility">Date & Time Theme Color:</label><span class="star">*</span>
+            <div class="form-group d-flex align-items-center shadow-sec background">
+                <select class="bgcolor" name="theme" aria-label="select theme color" aria-describedby="theme-err-txt"
+                    formControlName="theme">
+                    <option value="dark">Dark</option>
+                    <option value="blue">Blue</option>
+                    <option value="purple">Purple</option>
+                    <option value="light">Light</option>
+                </select>
+            </div>
+            <div *ngIf="(f.theme.touched || submitted) && f.theme.errors" class="invalid-feedback">
+                <div class="error" role="alert" id="theme-err-txt" *ngIf="f.theme.errors.required">Please select an
+                    option</div>
+            </div>
+        </div>
+
+
+
+        <div class="footerbutton" *ngIf="!calendardatadatashow">
+            <button class="submitbutton" >
+                Create
+            </button>
+        </div>
+
+        
+        <div class="footerbutton" *ngIf="calendardatadatashow">
+            <button class="submitbutton">
+                update
+            </button>
+        </div>
+
+    </form>
+
+</div>

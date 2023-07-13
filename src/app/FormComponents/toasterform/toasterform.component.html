@@ -1,0 +1,113 @@
+<div class="modal-body">
+    <p><b>Please fill the mandatory fields according your preference to design of the Toaster</b> </p>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="pt-3">
+            <label class="accessbility">Alert Type</label><span class="star">*</span>
+            <div class="form-group d-flex align-items-center shadow-sec background">
+                <select class="bgcolor" name="selectedtitle" aria-label="select selectedtitle" aria-describedby="width-err-txt"
+                    formControlName="selectedtitle">
+                    <option value="success">Success </option>
+                    <option value="warning">Warning</option>
+                    <option value="information">Information</option>
+                    <option value="error">Error</option>
+                </select>
+            </div>
+            <div *ngIf="(f.selectedtitle.touched || submitted) && f.selectedtitle.errors" class="invalid-feedback">
+                <div class="error" role="alert" id="width-err-txt" *ngIf="f.selectedtitle.errors.required">Please select an
+                    option</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Title:</label><span class="star">*</span>
+        <input type="text" maxlength="20" class="form-control inputbox" aria-describedby="title-err-text" aria-required="true" placeholder="Please enter title" name="title" formControlName="title" [ngClass]="{ 'is-invalid': submitted && f.title.errors }" autofocus/>
+        <div *ngIf="(f.title.touched || submitted) && f.title.errors" class="invalid-feedback">
+            <div class="error" role="alert" aria-atomic="true" *ngIf="f.title.errors.required">Title is
+                required</div>
+            <div class="error" role="alert" aria-atomic="true" *ngIf="f.title.errors.maxlength">maxlength 200
+            </div>
+        </div>
+        </div>
+
+
+        <div class="form-group">
+            <label>Button Text:</label><span class="star">*</span>
+
+            <input type="text" maxlength="20" class="form-control inputbox" aria-describedby="buttontext-err-text" aria-required="true" placeholder="Please enter button text" name="buttontext" formControlName="buttontext" [ngClass]="{ 'is-invalid': submitted && f.buttontext.errors }" autofocus/>
+            <div *ngIf="(f.buttontext.touched || submitted) && f.buttontext.errors" class="invalid-feedback">
+                <div class="error" role="alert" aria-atomic="true" *ngIf="f.buttontext.errors.required">Button text is
+                    required</div>
+                <div class="error" role="alert" aria-atomic="true" *ngIf="f.buttontext.errors.maxlength">maxlength 200
+                </div>
+            </div>
+        </div>
+
+
+        
+
+        <div class="form-group">
+            <label>Message:</label><span class="star">*</span>
+            <textarea class="form-control inputbox" placeholder="description" aria-describedby="description-err-text"
+                name="message" formControlName="message" maxlength="100" [ngClass]="{ 'is-invalid': submitted && f.message.errors }"
+                autofocus></textarea>
+            <div *ngIf="(f.message.touched || submitted) && f.message.errors" class="invalid-feedback">
+                <div class="error" role="alert" aria-atomic="true" *ngIf="f.message.errors.required">Description is
+                    required</div>
+                <div class="error" role="alert" aria-atomic="true" *ngIf="f.message.errors.maxlength">maxlength 100 word
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="pt-3">
+            <label class="accessbility">Choose Direction</label><span class="star">*</span>
+            <div class="form-group d-flex align-items-center shadow-sec background">
+                <select class="bgcolor" name="direction" aria-label="select direction" aria-describedby="width-err-txt"
+                    formControlName="direction">
+                    <option value="toast-top-right">Top</option>
+                    <option value="toast-bottom-right">Bottom</option>
+                </select>
+            </div>
+            <div *ngIf="(f.direction.touched || submitted) && f.direction.errors" class="invalid-feedback">
+                <div class="error" role="alert" id="width-err-txt" *ngIf="f.direction.errors.required">Please select an
+                    option</div>
+            </div>
+        </div>
+
+        <!-- <div class="pt-3">
+            <label class="accessbility">Card Theme Color:</label><span class="star">*</span>
+            <div class="form-group d-flex align-items-center shadow-sec background">
+                <select class="bgcolor" name="theme" aria-label="select theme color" aria-describedby="theme-err-txt"
+                    formControlName="theme">
+                    <option value="dark">Dark</option>
+                    <option value="blue">Blue</option>
+                    <option value="purple">Purple</option>
+                    <option value="light">Light</option>
+                </select>
+            </div>
+            <div *ngIf="(f.theme.touched || submitted) && f.theme.errors" class="invalid-feedback">
+                <div class="error" role="alert" id="theme-err-txt" *ngIf="f.theme.errors.required">Please select an
+                    option</div>
+            </div>
+        </div> -->
+
+
+
+        <div class="footerbutton" *ngIf="!showtoasterdata">
+            <button class="submitbutton">
+                Create
+            </button>
+        </div>
+
+        <div class="footerbutton" *ngIf="showtoasterdata">
+            <button class="submitbutton">
+                Update
+            </button>
+        </div>
+
+    </form>
+
+</div>

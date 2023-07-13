@@ -1,0 +1,132 @@
+<div class="main">
+  <div class="container-liquid">
+    <div class="top-header">
+      <div class="insideheader">
+        <h4 class="subheader">Alert <span class="btncmp">Component</span></h4>
+      </div>
+      <div class="button-sec">  
+        <button class="backbutton" (click)="backwindow()">Back</button>
+        <button class="backbutton" data-bs-toggle="modal" data-bs-target="#exampleModal2">Edit</button>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="alertdiv">
+    <button class="alertbutton" data-bs-toggle="modal" data-bs-target="#alertPopup">{{alertdatas?.selectedtitle}}
+      Popup</button>
+  </div>
+
+  <div #alert class="modal fade" id="alertPopup" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+    <div class="alertmodal width100 modal-dialog" [ngStyle]="{'max-width':alertdatas.cardwidth } ">
+      <div class="modal-content">
+        <div *ngIf="alertdatas.selectedtitle==='Success'"  class="alert ">
+          <div class="alert-content">
+            <div id="success-header" [ngStyle]="{'background':alertdatas?.bgcolor, 'color':alertdatas?.color}" class="alert-header" >
+              <h2 class="alert-title">{{alertdatas.selectedtitle}}!</h2>
+              <button aria-label="Alert Close Modal" [ngClass]="alertdatas.whitetype" class="alert-close" data-bs-dismiss="modal"><img [src]="closeicon" class="closeicon"/></button> 
+            </div>
+            <div class="alert-body"  id="success">
+              <i class="fa fa-check" aria-hidden="true"></i> 
+              <p id="success-text" class="alert-text">{{alertdatas.alertdetails}}!</p>
+              <div class="alert-actions">
+                <button type="button" class="alert-button" id="success-button" data-bs-dismiss="modal">OK</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="alertdatas.selectedtitle==='Warning'"  class="alert ">
+          <div class="alert-content">
+            <div id="confirm-header" [ngStyle]="{'background':alertdatas?.bgcolor, 'color':alertdatas?.color}" class="alert-header">
+              <h2 class="alert-title">{{alertdatas.selectedtitle}}!</h2>
+              <button [ngClass]="alertdatas.whitetype" aria-label="Alert Close Modal" class="alert-close" data-bs-dismiss="modal"><img [src]="closeicon" class="closeicon"/></button>
+            </div>
+            <div class="alert-body" id="confirm" >
+              <i class="fa fa-exclamation-triangle"></i>
+              <p id="confirm-text" class="alert-text">{{alertdatas.alertdetails}}</p>
+              <div class="alert-actions">
+                <button type="button" class="alert-button" data-bs-dismiss="modal">OK</button>
+                <!-- <button type="button" class="alert-button" id="confirm-button" data-bs-dismiss="modal">Confirm</button> -->
+              </div>
+            </div>
+          </div>
+        </div> 
+
+        <div *ngIf="alertdatas.selectedtitle==='Information'"  class="alert ">
+          <div class="alert-content">
+            <div id="info-header" [ngStyle]="{'background':alertdatas?.bgcolor, 'color':alertdatas?.color}" class="alert-header">
+              <h2 class="alert-title">{{alertdatas.selectedtitle}}!</h2>
+              <button [ngClass]="alertdatas.whitetype" aria-label="Alert Close Modal" class="alert-close" data-bs-dismiss="modal"><img [src]="closeicon" class="closeicon"/></button>
+            </div>
+            <div class="alert-body"  id="info">
+              <i class="fa fa-exclamation-circle" aria-hidden="true"></i>  
+              <p id="info-text" class="alert-text">{{alertdatas.alertdetails}}</p>
+              <div class="alert-actions">
+                <button type="button" class="alert-button" id="info-button" data-bs-dismiss="modal">OK</button>
+              </div>
+            </div>
+          </div>
+        </div> 
+        <div *ngIf="alertdatas.selectedtitle==='Error'"   class="alert ">
+          <div class="alert-content">
+            <div id="error-header" [ngStyle]="{'background':alertdatas?.bgcolor, 'color':alertdatas?.color}" class="alert-header">
+              <h2 class="alert-title">{{alertdatas.selectedtitle}}!</h2>
+              <button aria-label="Alert Close Modal" [ngClass]="alertdatas.whitetype" class="alert-close" data-bs-dismiss="modal"><img [src]="closeicon" class="closeicon"/></button>
+            </div>
+            <div class="alert-body" id="error"> 
+              <i class="fa fa-times" aria-hidden="true"></i> 
+              <p id="error-text" class="alert-text">{{alertdatas.alertdetails}}</p>
+              <div class="alert-actions">
+                <button type="button" class="alert-button" id="error-button" data-bs-dismiss="modal">OK</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  
+  <ul class="list-inline">
+    <li (click)="openhtml()"><button [class]="htmlcontent">HTML</button></li>
+    <li (click)="opencss()"><button [class]="csscontent">CSS</button></li>
+  </ul>
+  <div class="htmlelement" *ngIf="htmlcontent == 'active'">
+    <div class="copybutton">
+      <button ngxClipboard [cbContent]="getHtmlContent()" (click)="copy()"><i class="fa fa-copy copyicon"></i>{{Copy}}</button>
+    </div>
+    <pre><code [highlight]="getHtmlContent()">{{getHtmlContent()}}</code></pre>
+  </div>
+  <div class="htmlelement" *ngIf="csscontent == 'active'">
+    <div class="copybutton">
+      <button ngxClipboard [cbContent]="CSS" (click)="copy()"><i class="fa fa-copy copyicon"></i>{{Copy}}</button>
+    </div>
+    <pre><code [highlight]="CSS">{{CSS}}</code></pre>
+  </div>
+
+  <!-- <div class="htmlelement">
+      <pre><code [highlight]="getHtmlContent()">{{getHtmlContent()}}</code></pre>
+    </div> -->
+</div>
+
+<div class=" formbutton modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel7"
+  aria-hidden="true">
+  <div class="alerteditmodal modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4>Alert</h4>
+        <button class="clearbtn"  aria-label="Header Update modal close"  #myModalClose1 data-bs-dismiss="modal">
+          <img [src]="closeicon" class="closeicon">  
+      </button>
+      </div> 
+      <app-editalert (onclose)="close()"></app-editalert>
+      <!-- <app-editheader (onclose)="close()"></app-editheader>  -->
+    </div>
+  </div>
+</div>
+
+ 

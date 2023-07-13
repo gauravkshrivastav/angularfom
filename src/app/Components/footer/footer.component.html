@@ -1,0 +1,94 @@
+<div class="main">
+    <div class="top-header">
+      <div class="insideheader">
+        <h4 class="subheader">Footer <span class="side">Component</span></h4>
+      </div>
+      <div class="button-sec">
+        <button class=" backbutton" (click)="backwindow()">Back</button>
+        <button class=" backbutton" data-bs-toggle="modal" data-bs-target="#exampleModal4">Edit</button>
+      </div> 
+    </div>
+
+    <div #footer>
+      <footer class="footer" role="contentinfo" aria-label="Footer" [ngStyle]="{'background-Color':footerdata?.color}">
+        <div class="d-sm-flex d-block align-items-center justify-content-between footerwidth">
+          <div class="copyright" [ngStyle]="{'color':footerdata?.textcolor}">{{footerdata.text}}</div>
+          <div class="socialmedia-list">
+            <ul class="nav social-default">
+              <li *ngIf="footerdata?.linkedln == 'Yes'">
+                  <button class="social-icon">
+                      <img [src]="linkedln" alt="linkedln" class="social-iconimage">
+                  </button>
+                <span class="social-tooltip">LinkedIn</span>
+              </li>
+              <li *ngIf="footerdata?.twitter == 'Yes'">
+                <button class="social-icon">
+                  <img [src]="twitter" alt="twitter" class="social-iconimage">
+                </button>
+                <span aria-hidden="true" class="social-tooltip">Twitter</span>
+              </li>
+              <li *ngIf="footerdata?.insta == 'Yes'">
+                  <button class="social-icon">
+                      <img [src]="insta" alt="insta" class="social-iconimage">
+                    </button>
+                <span aria-hidden="true" class="social-tooltip">Instagram</span>
+              </li>
+              <li *ngIf="footerdata?.facebook == 'Yes'">
+                  <button class="social-icon">
+                      <img [src]="facebook" alt="facebook" class="social-iconimage">
+                    </button>
+                <span aria-hidden="true" class="social-tooltip">Facebook</span>
+              </li>
+              <li *ngIf="footerdata?.youtube == 'Yes'">
+                  <button class="social-icon">
+                      <img [src]="youtube" alt="youtube" class="social-iconimage">
+                    </button>
+                <span aria-hidden="true" class="social-tooltip">Youtube</span>
+              </li>
+              <li *ngIf="footerdata?.glassdoor == 'Yes'">
+                  <button class="social-icon">
+                      <img [src]="glassdoor" alt="glassdoor" class="social-iconimage">
+                    </button>
+                <span aria-hidden="true" class="social-tooltip">Glassdoor</span>
+              </li>
+            </ul>
+          </div>
+          
+        </div>
+      </footer>
+    </div>
+    <ul class="list-inline">
+      <li (click)="openhtml()"><button [class]="htmlcontent">HTML</button></li>
+      <li (click)="opencss()"><button [class]="csscontent">CSS</button></li>
+    </ul>
+    <div class="htmlelement" *ngIf="htmlcontent == 'active'">
+      <div class="copybutton">
+        <button ngxClipboard [cbContent]="getHtmlContent()" (click)="copy()"><i class="fa fa-copy copyicon"></i>{{Copy}}</button>
+      </div>
+      <pre><code [highlight]="getHtmlContent()">{{getHtmlContent()}}</code></pre>
+    </div>
+    <div class="htmlelement" *ngIf="csscontent == 'active'">
+      <div class="copybutton">
+        <button ngxClipboard [cbContent]="CSS" (click)="copy()"><i class="fa fa-copy copyicon"></i>{{Copy}}</button>
+      </div>
+      <pre><code [highlight]="CSS">{{CSS}}</code></pre>
+    </div>
+</div>
+  
+
+
+        <!--  -->
+        <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel3"
+            aria-hidden="true">
+            <div class="modal-dialog modaldialog-width">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4>Footer</h4>
+                        <button class="clearbtn" aria-label="Button Create modal close icon" #myModalClose1 data-bs-dismiss="modal"><img [src]="closeicon"></button>
+                    </div>
+                    <app-footerform (onclose)="close()"></app-footerform>
+                    <!-- <app-form (onclose)="close()"></app-form> -->
+                </div>
+            </div>
+        </div>
+        <!--  -->

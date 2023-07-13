@@ -1,0 +1,159 @@
+.modal {
+    border: 1px solid var(--color-white) ;
+    padding: 1em;
+    margin: 1em;
+    width: 300px;
+}
+.common-btn {
+color: var(--color-black) ;
+border: 1px solid;
+padding: 0.25em 1.6em;
+background: var(--color-white) ;
+margin-bottom: 0.5em;
+margin-top: 0.5em;
+}
+.htmlelement{
+    background-color: var(--color-white) ;
+    overflow-y: scroll;
+    width:90%;
+    height:400px;
+    margin: auto;
+    margin-top: 30px;
+}
+.closeicon{
+    cursor: pointer;
+}
+.editcard{
+    width: 100%;
+    margin: 0px;
+}
+.card-header {
+    background: var(--color-wbh-blue);
+    color: var(--color-white) ;
+    border: none;
+    font-weight: 500;
+}
+button.clearbtn {
+    border: none;
+    background: transparent;
+    filter: grayscale(1);
+    cursor: pointer;
+}
+.card.feature { 
+    box-shadow: 0 1px 6px 0 rgb(175, 203, 244);
+    border: none;
+    padding: 0;
+    a{
+        background: var(--color-white) ;
+        border: none;
+        border-radius: 3px;
+    }
+}
+
+.subheader{
+    color: var(--color-wbh-blue);
+}
+.sideheader{
+    color: var(--color-black) ;
+}
+.backbutton{
+    border-radius: 8px;
+    background: var(--color-wbh-blue) !important;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: var(--color-white)  !important;
+}
+.copybutton{
+    text-align: end;
+        margin-right: 40px;
+        margin-top: 30px;
+        button{
+            border: 1.5px solid black;
+            background: transparent;
+            border-radius: 10px;
+            padding: 5px 10px;
+        }
+        .copyicon{
+            margin-right: 5px;
+        }
+}
+.list-inline {
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    li:first-child{
+        margin-right: 10px;
+    }
+    li{
+        cursor: pointer;
+        button{
+            border: none;
+            background: transparent;
+            padding: 0px;
+        }
+    }
+}
+
+.active{
+    border-bottom: 1px solid black !important;
+    padding-bottom: 5px !important;
+}
+.container{ 
+    .card{
+        .card-body{
+            padding: 0px !important;
+            .defaultimage{
+                // background-size: cover;
+            }
+            .card-title{
+                margin-top: 15px;
+                padding-left: 20px;
+            }
+            .card-text{
+                padding-left: 20px;
+                padding-right: 15px;
+                padding-bottom: 20px;
+            }
+        }
+        .card-footer1{
+            width: 100%;
+            .footerright{
+                float: right;
+                padding: 15px 15px 20px 15px;
+                .text1{
+                    border-radius: 5px;
+                    padding: 5px;
+                    border:1px solid var(--color-white) ;
+                }
+                .gap{
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+}
+
+.cardfotter button.text1.gap {
+    padding: 5px 15px !important;
+}
+.card {
+    box-shadow: 2px 2px 9px 2px #ccc;
+}
+@media only screen and (max-width: 767px) {
+    .width100{
+        width: 100% !important;
+    }
+    h4.subheader {
+        margin: 0px;
+        font-size: 1.2rem;
+    }
+    section.main header {
+        padding: 1rem .85rem;
+    }
+    .modaldialog-width { 
+        max-width: 100% !important;
+    }
+}

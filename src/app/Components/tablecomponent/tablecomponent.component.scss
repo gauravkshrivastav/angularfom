@@ -1,0 +1,294 @@
+.table{
+    margin: auto;
+    border: 1px solid #ccc;
+    // margin-bottom: 50px;
+}
+
+.tabledata{
+    width:95%;
+    margin: auto;
+    margin-top: 40px;
+}
+.headerpart{
+    max-width: 100%;
+    padding-bottom: 50px;
+    .title{
+        float: left;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .search-container{
+        float: right;
+        .search{
+            border: 1px solid #cccccc;
+            padding: 7px 10px;
+            // border-right: none;
+        }
+        .search_button{
+            border: 1px solid black;
+            background: #fff;
+            border-left: none;
+        }
+    }
+}
+
+pagination-controls {
+    width: 100%;
+}
+.rows{
+    width:120px;
+}
+.search-container {
+    display: flex;
+    justify-content: flex-end;
+}
+.pagination{
+    float: right;
+    padding: 20px;
+}
+.pageno {
+    width: 48px;
+    height: 30px;
+    border-radius: 0;
+    // border: none;
+    background: transparent;
+    margin-top:-2px;
+}
+.nodata{
+    text-align: center;
+    padding: 20px;
+}
+.divtable{
+    padding-top: 5px;
+    padding-bottom: 100px;
+    margin: 20px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 5px 0px #00000026;
+    // box-shadow: 0 0 10px 2px rgb(140, 119, 119);
+}
+.page-row{
+    display: flex;
+    margin-top: 4px;
+
+}
+
+.pagination ::ng-deep .ngx-pagination .current {
+    background: #0070ad;
+}
+
+.pagination ::ng-deep .ngx-pagination{
+    li{
+        border: 1px solid black;
+        margin-right: 0px;
+        border-radius: 4px;
+    }
+}
+
+
+.pagination_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+  }
+  .activebutton{
+    color: white;
+    background-color: transparent;
+    border: none;
+  }
+  
+  .page__number {
+    border: 1px solid black;
+    border-radius: 0;
+    padding: 2px;
+    // padding-left: 10px;
+    // padding-right: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+  }
+
+  .arrow-first{
+    rotate: -180deg;
+  }
+  .first{
+    margin-left: 5px;
+  }
+
+  .pagination-previous.disabled {
+    pointer-events: none;
+    opacity: 0.3;
+    cursor: no-drop;
+}
+.pagination-previous{
+    // border: 1px solid black;
+    border-radius: 0;
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+}
+.number{
+    border: none;
+    padding: 0px;
+    background:transparent;
+}
+.nextbutton{
+    border: 1px solid black;
+    background-color: transparent;
+}
+.pagebutton{
+    border: none;
+    background-color: transparent;
+}
+.pagination-next{
+    // border: 1px solid black;
+    border-radius: 0;
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+}
+.pagination-next.disabled{
+    // border: none;
+    pointer-events: none;
+    opacity: 0.3;
+    cursor: no-drop;
+}
+.current {
+    border: 1px solid ;
+    border-radius: 0;
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0 2px;
+    color: white;
+}
+.notactive{
+    background-color: white !important;
+    margin: 0 2px;
+}
+input[type = search]:focus{
+    outline: none;
+}
+
+// .pagination ::ng-deep .ngx-pagination{
+//     .pagination-previous{
+//         span{
+//             display: none;
+//         }
+//     }
+// }
+
+// .pagination ::ng-deep .ngx-pagination{
+//     .pagination-next{
+//         span{
+//             display: none;
+//         }
+//     }
+// }
+
+// .pagination ::ng-deep .pagination-next {
+//     a{
+//         visibility: hidden;
+//     }
+// }
+// .pagination ::ng-deep .pagination-next {
+//     a::after{
+//         content: "/bb";
+//         display: table;
+//     }
+// }
+// .pagination ::ng-deep .pagination-next::after{
+//     a{
+//         content: "/bb";
+//     }
+// }
+
+.modal-dialog{
+    margin-top:90px;
+}
+
+@media screen and (min-width:320px) and (max-width:565px) {
+    .pagination {
+        display: block;
+        text-align: center;
+        float: none !important;
+    }
+    .page-row {
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+}
+
+@media screen and (min-width:320px) and (max-width:675px) {
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    input.search{
+        width:60%;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .modaldialog-width { 
+        max-width: 100% !important;
+    }
+  }
+
+
+
+
+.htmlelement{
+    background-color: var(--color-white);;
+    overflow-y: scroll;
+    width:90%;
+    height:350px;
+    margin: auto;
+    margin-top: 30px;
+    padding-top: 30px;
+}
+.copybutton{
+    text-align: end;
+        margin-right: 40px;
+        button{
+            border: 1.5px solid black;
+            background: transparent;
+            border-radius: 10px;
+            padding: 5px 10px;
+        }
+        .copyicon{
+            margin-right: 5px;
+        }
+}
+.list-inline {
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    li:first-child{
+        margin-right: 10px;
+    }
+    li{
+        cursor: pointer;
+        button{
+            border: none;
+            background: transparent;
+            padding: 0px;
+        }
+    }
+}
+
+.active{
+    border-bottom: 1px solid black !important;
+    padding-bottom: 5px !important;
+}
+
+@media screen and (min-width:320px) and (max-width:450px) {
+    .headerpart{
+        padding-bottom: 70px;
+    }
+}

@@ -1,0 +1,56 @@
+<div class="main">
+  <div class="top-header">
+    <div class="insideheader">
+      <h4 class="subheader">Toaster <span>Component</span></h4>
+    </div>
+    <div class="button-sec">
+      <button class=" backbutton" (click)="backwindow()">Back</button>
+      <button class=" backbutton" data-bs-toggle="modal" data-bs-target="#exampleModal8">Edit</button>
+    </div>
+  </div>
+
+
+
+
+  <div class="container">
+    <div #toster class="text-center main-page mt-5">
+      <button class="toaster_button toaster_btn" (click)="showmessage(toasterdata?.selectedtitle)"
+        [ngStyle]="{'background-Color':toasterdata?.color,'color':color}">{{toasterdata?.buttontext}}</button>
+    </div>
+  </div>
+
+  <ul class="list-inline">
+    <li (click)="openhtml()"><button [class]="htmlcontent">HTML</button></li>
+    <li (click)="opencss()"><button [class]="csscontent">CSS</button></li>
+  </ul>
+
+<div class="htmlelement" *ngIf="htmlcontent == 'active'">
+  <div class="copybutton">
+    <button ngxClipboard [cbContent]="getHtmlContent()" (click)="copy()"><i class="fa fa-copy copyicon"></i>{{Copy}}</button>
+  </div>
+  <pre><code [highlight]="getHtmlContent()">{{getHtmlContent()}}</code></pre>
+</div>
+<div class="htmlelement" *ngIf="csscontent == 'active'">
+  <div class="copybutton">
+    <button ngxClipboard [cbContent]="CSS" (click)="copy()"><i class="fa fa-copy copyicon"></i>{{Copy}}</button>
+  </div>
+  <pre><code [highlight]="CSS">{{CSS}}</code></pre>
+</div>
+
+</div>
+
+
+
+<div class=" formbutton modal fade" id="exampleModal8" tabindex="-1" aria-labelledby="exampleModalLabel2"
+  aria-hidden="true">
+  <div class="modal-dialog modaldialog-width">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4>Toaster</h4>
+        <button class="closediv"  #myModalClose7 data-bs-dismiss="modal"><img [src]="closeicon" class="closeicon"></button>
+      </div>
+      <app-toasterform (onclose)="close()"></app-toasterform>
+
+    </div>
+  </div>
+</div>

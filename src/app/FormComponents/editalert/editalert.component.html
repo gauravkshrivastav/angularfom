@@ -1,0 +1,79 @@
+<div class="modal-body">
+    <p><b>Please fill the mandatory fields according your preference to design of the Card</b> </p>
+
+    <form  [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="pt-3">
+            <label class="accessbility">Alert Type</label><span class="star">*</span>
+            <div class="form-group d-flex align-items-center shadow-sec background">
+                <select class="bgcolor" name="selectedtitle" aria-label="select selectedtitle" 
+                [(ngModel)]="alertdatas.selectedtitle" aria-describedby="width-err-txt"
+                    formControlName="selectedtitle">
+                    <option>Success </option>
+                    <option>Warning</option>
+                    <option>Information</option>
+                    <option>Error</option>
+                </select>
+            </div>
+            <div *ngIf="(f.selectedtitle.touched || submitted) && f.selectedtitle.errors" class="invalid-feedback">
+                <div class="error" role="alert" id="width-err-txt" *ngIf="f.selectedtitle.errors.required">Please select an
+                    option</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Alert Infomartion:</label><span class="star">*</span>
+            <textarea class="form-control inputbox" placeholder="description" aria-describedby="description-err-text"
+                name="alertdetails" formControlName="alertdetails" 
+                [(ngModel)]="alertdatas.alertdetails" [ngClass]="{ 'is-invalid': submitted && f.alertdetails.errors }"
+                autofocus></textarea>
+            <div *ngIf="(f.alertdetails.touched || submitted) && f.alertdetails.errors" class="invalid-feedback">
+                <div class="error" role="alert" aria-atomic="true" *ngIf="f.alertdetails.errors.required">Description is
+                    required</div>
+                <div class="error" role="alert" aria-atomic="true" *ngIf="f.alertdetails.errors.maxlength">maxlength 200
+                </div>
+            </div>
+        </div>
+ 
+        <div class="pt-3">
+            <label class="accessbility">Card width</label><span class="star">*</span>
+            <div class="form-group d-flex align-items-center shadow-sec background">
+                <select class="bgcolor" name="cardwidth" aria-label="select cardwidth" aria-describedby="width-err-txt"
+                [(ngModel)]="alertdatas.cardwidth" formControlName="cardwidth">
+                    <option>100%</option>
+                    <option>75%</option>
+                    <option>50%</option>
+                    <option>25%</option>
+                </select>
+            </div>
+            <div *ngIf="(f.cardwidth.touched || submitted) && f.cardwidth.errors" class="invalid-feedback">
+                <div class="error" role="alert" id="width-err-txt" *ngIf="f.cardwidth.errors.required">Please select an
+                    option</div>
+            </div>
+        </div>
+
+        <div class="pt-3">
+            <label class="accessbility">Card Theme Color:</label><span class="star">*</span>
+            <div class="form-group d-flex align-items-center shadow-sec background">
+                <select class="bgcolor" name="theme" aria-label="select theme color" aria-describedby="theme-err-txt"
+                [(ngModel)]="themecolor" formControlName="color">
+                    <option>dark</option>
+                    <option>blue</option>
+                    <option>purple</option>
+                    <option>light</option>
+                </select>
+            </div>
+            <div *ngIf="(f.color.touched || submitted) && f.color.errors" class="invalid-feedback">
+                <div class="error" role="alert" id="color-err-txt" *ngIf="f.color.errors.required">Please select an
+                    option</div>
+            </div>
+        </div>
+
+    <div class="footerbutton">
+        <button  class="submitbutton">
+            Update
+        </button>
+    </div>
+</form>
+
+</div>
+
